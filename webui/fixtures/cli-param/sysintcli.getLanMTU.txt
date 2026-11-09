@@ -1,0 +1,5 @@
+Starting sysint client library
+sys_getLanMTU returned 0
+mtu:[1428]
+Stopping sysint client library 0
+sysinterfaceShutdown complete 0

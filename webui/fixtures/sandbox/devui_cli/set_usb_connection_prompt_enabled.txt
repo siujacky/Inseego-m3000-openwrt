@@ -1,0 +1,3 @@
+command [set_usb_connection_prompt_enabled]
+
+usb connection prompt enabled (0 => disabled, 1 => enabled): deviceui_set_usb_connection_prompt_enabled returned 1 (DEVUI_FRAMEWORK: general error.)

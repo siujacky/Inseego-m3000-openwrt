@@ -1,0 +1,4 @@
+command [get_sim_restriction_status]
+
+webui_dm_get_sim_restriction_status returned 0 (WEBUI: success.)
+restriction_status:[0]

@@ -1,0 +1,6 @@
+ccm_get_curr_wan returned 0 (CCM: success.)
+Wan:[No WAN]
+V4:[NotAvailable]
+V4 IF:[]
+V6:[NotAvailable]
+V6 IF:[]

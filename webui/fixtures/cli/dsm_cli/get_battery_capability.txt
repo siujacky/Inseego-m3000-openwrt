@@ -1,0 +1,4 @@
+command [get_battery_capability]
+
+cmd_get_battery_capability returned 0 (DSM: success.)
+battery_capability: [0]

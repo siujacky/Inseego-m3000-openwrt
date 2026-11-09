@@ -1,0 +1,6 @@
+command [get_data_usage_settings_info]
+
+Enter iface_type[0=INTERFACE_SIM,1=INTERFACE_ETH]: Enter imsi or leave empty to skip: Enter iccid or leave empty to skip: dua_get_data_usage_settings_info returned 0 (DUA: success.)
+cycle_day:[0]
+usage_limit:[�G]
+level1_threshold:[0]

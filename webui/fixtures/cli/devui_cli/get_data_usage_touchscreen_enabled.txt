@@ -1,0 +1,4 @@
+command [get_data_usage_touchscreen_enabled]
+
+deviceui_get_data_usage_touchscreen_enabled returned 0 (DEVUI_FRAMEWORK: success.)
+deviceui_get_data_usage_touchscreen_enabled:[1]

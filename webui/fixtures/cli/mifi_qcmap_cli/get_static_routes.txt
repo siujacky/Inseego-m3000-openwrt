@@ -1,0 +1,4 @@
+command [get_static_routes]
+
+cmd_get_static_routes_status returned 0 (MIFI_QCMAP: success.)
+Static Routes Feature is:   [Disable]

@@ -1,0 +1,5 @@
+
+imsi:cmd_get_priority_SIM_configs returned 2 (SIM_MGR: one or more bad parameters passed into a function.)
+failback_switch:[0]
+failback_interval: [0]
+actual_failback_interval: [0]

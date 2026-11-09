@@ -1,0 +1,4 @@
+command [max_pkg_size]
+
+fota_get_max_allowed_pkg_size returned 0 (FOTA: success.)
+Max package size in bytes:[131072000]

@@ -1,0 +1,7 @@
+
+------------------------
+--[recovery] [get] connection recovery mode--
+cmd_get_connection_recovery_mode: [recovery] returned 0 (SIM_MGR: success.)
+
+[recovery] conn recovery mode: [Enabled]
+------------------------

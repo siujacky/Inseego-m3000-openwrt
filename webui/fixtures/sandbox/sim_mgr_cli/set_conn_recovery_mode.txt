@@ -1,0 +1,8 @@
+
+------------------------
+--[recovery] [set] connection recovery mode--
+
+[recovery] conn recovery mode: [1]
+cmd_set_connection_recovery_mode: [recovery] returned 1 (SIM_MGR: general error.)
+
+------------------------

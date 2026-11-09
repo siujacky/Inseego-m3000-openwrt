@@ -1,0 +1,6 @@
+Enter profile number: Enter profile type (0-3GPP, 1-3GPP2): cmd_pdn_get_ext_params returned 1 (MDM_MAIN: general error.)
+Extra PDN index:[0]
+Extra PDN type:[0]
+Extra PDN max connections:[0]
+Extra PDN wait timer:[0]
+Extra PDN connection timer:[0]

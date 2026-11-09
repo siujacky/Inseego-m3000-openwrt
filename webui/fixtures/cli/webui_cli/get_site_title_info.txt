@@ -1,0 +1,6 @@
+command [get_site_title_info]
+
+webui_get_site_title_info returned 3 (WEBUI: one or more buffer type parameters passed into API is too small.)
+Buffer Insufficient. count[6]
+webui_get_site_title_info returned 0 (WEBUI: success.)
+site_title:[M3100]

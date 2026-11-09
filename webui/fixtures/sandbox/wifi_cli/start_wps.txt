@@ -1,0 +1,3 @@
+WIFI_CLI_MBH: MsgBus_Connect Failedcommand [start_wps]
+
+Enter the AP profile index (1-5):Enter the WPS methos PIN or PBC (1-2):Enter WPS Pin:wifi_start_wps_session returned 5 (WIFI: process not running.)

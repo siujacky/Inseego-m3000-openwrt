@@ -1,0 +1,5 @@
+command [set_dmz]
+
+
+DMZ status=0
+cmd_router2_set_dmz_settings returned 1 (MIFI_QCMAP: general error.)

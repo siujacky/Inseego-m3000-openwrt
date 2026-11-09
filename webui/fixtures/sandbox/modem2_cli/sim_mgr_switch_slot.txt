@@ -1,0 +1,2 @@
+cmd_sim_mgr_switch_slot returned 5 (MDM_MAIN: process not running.)
+Failed

@@ -1,0 +1,12 @@
+command [get_https_settings]
+
+webui_get_https_settings returned 0 (WEBUI: success.)
+certificate_name:[]
+country_name:[]
+state_name:[]
+locality_name:[]
+organization_name:[]
+ou_name:[]
+common_name:[]
+email_address:[]
+validity:[790]

@@ -1,0 +1,9 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/* Opt-in RAM-only exact stock pre-link switch WA.
+ * Include m3100-pcie-i2c.dtsi first. No I2C OF child at address0x77:
+ * the guarded host reserves that address and fails if already owned.
+ */
+&pcie_rc {
+	inseego,m3100-stock-switch-wa;
+	inseego,switch-i2c = <&m3100_i2c1>;
+};

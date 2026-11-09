@@ -1,0 +1,3 @@
+command [is_running]
+
+webui_is_running returned 0 (WEBUI: success.)

@@ -1,0 +1,3 @@
+cmd_check_lte_ca_status returned 1 (MDM_MAIN: general error.)
+
+Failure. returned code = 0

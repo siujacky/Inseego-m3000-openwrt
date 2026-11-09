@@ -1,0 +1,4 @@
+command [get_audio_alerts_enabled]
+
+ans_get_audio_alerts_enabled returned 0 (ANS: success.)
+enabled:[1]

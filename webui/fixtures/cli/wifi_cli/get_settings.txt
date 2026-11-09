@@ -1,0 +1,6 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [get_settings]
+
+wifi_get_wlan_settings returned 0 (WIFI: success.)
+Wifi is                     : [1]
+Country Code                : [US]
+WIFI_CLI_MBH: Disable Message bus interface

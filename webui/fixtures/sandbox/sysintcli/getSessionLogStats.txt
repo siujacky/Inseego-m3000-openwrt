@@ -1,0 +1,4 @@
+Starting sysint client library
+sys_getSessionLogStats returned 3, count:[0]
+Stopping sysint client library 3
+sysinterfaceShutdown complete 0

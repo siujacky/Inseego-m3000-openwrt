@@ -1,0 +1,4 @@
+command [current_record]
+
+Usage:
+/opt/nvtl/bin/fota_cli current_record <Agent name>

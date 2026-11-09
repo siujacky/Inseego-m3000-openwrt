@@ -1,0 +1,8 @@
+
+------------------------
+--[recovery] [set] connection recovery max mdm reset cnt--
+
+[recovery] conn recovery max mdm reset cnt: [3]
+cmd_set_recovery_max_mdm_reset_cnt: [recovery] returned 1 (SIM_MGR: general error.)
+
+------------------------

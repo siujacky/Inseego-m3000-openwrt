@@ -1,0 +1,3 @@
+WIFI_CLI_MBH: MsgBus_Connect Failedcommand [add_mac_blist]
+
+Enter blacklist MAC address:Enter the Reason for blacklist(1=WL,2=BL,3=Both):Enter the interface name <wlan0/wlan1>:02:00:00:00:00:01:wifi_update_blacklist_mac returned 5 (WIFI: process not running.)

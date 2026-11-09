@@ -1,0 +1,11 @@
+command [get_acs_client_config]
+
+cmd_tr069_get_acs_client_config returned 0 (TR069: success.)
+TR069 Client UserName : [easycwmp]
+TR069 Client Password : [redacted]
+TR069 Client Port Number: [7547]
+TR069 Client Connection Request : [1]
+TR069 Client Authenticate Mode: [0]
+TR069 Client Time Interval(secs) : [100]
+TR069 Client CWMP Version : [4]
+TR069 Client Log Level : [0]

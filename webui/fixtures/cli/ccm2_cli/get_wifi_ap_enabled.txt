@@ -1,0 +1,2 @@
+ccm_get_wifi_ap_enabled returned 0 (CCM: success.)
+enabled:[1]

@@ -1,0 +1,3 @@
+command [get_app_features]
+
+What is the app_id:  webui_get_app_features returned 2 (WEBUI: one or more bad parameters passed into a function.)

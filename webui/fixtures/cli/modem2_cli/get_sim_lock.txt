@@ -1,0 +1,2 @@
+cmd_get_sim_lock returned 0 (MDM_MAIN: success.)
+unlock=[0]

@@ -1,0 +1,4 @@
+command [get_tr069_config_modifed]
+
+cmd_get_tr069_config_modified returned 0 (TR069: success.)
+Modified status: [0]

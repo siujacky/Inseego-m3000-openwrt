@@ -1,0 +1,2 @@
+cmd_get_nr5g_disable_mode returned 0 (MDM_MAIN: success.)
+disable mode:[2]

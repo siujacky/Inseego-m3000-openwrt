@@ -1,0 +1,3 @@
+command [get_features]
+
+deviceui_get_apps_menu_info returned 5 (DEVUI_FRAMEWORK: process not running.)

@@ -1,0 +1,98 @@
+command [get_network_technology_list]
+
+webui_get_network_technology_list() returned 0 (WEBUI: success.)
+NetworkTechnologyOptionCount[3]
+NetworkTechnologyOption[0]: value[50] prepend_text[] append_text[] po_keys_count[1] locale_count[14] EncloseBraces[0]
+----------------------------------------------------------------------------
+po_key[0]:[radio_technology_lte_5g_text]
+format[0]:locale[en_US] specifier[T]
+
+format[1]:locale[es_MX] specifier[T]
+
+format[2]:locale[fr_CA] specifier[T]
+
+format[3]:locale[ar_AE] specifier[T]
+
+format[4]:locale[da_DK] specifier[T]
+
+format[5]:locale[de_DE] specifier[T]
+
+format[6]:locale[et_EE] specifier[T]
+
+format[7]:locale[fi_FI] specifier[T]
+
+format[8]:locale[it_IT] specifier[T]
+
+format[9]:locale[ja_JP] specifier[T]
+
+format[10]:locale[lv_LV] specifier[T]
+
+format[11]:locale[lt_LT] specifier[T]
+
+format[12]:locale[nn_NO] specifier[T]
+
+format[13]:locale[sv_SE] specifier[T]
+
+NetworkTechnologyOption[1]: value[18] prepend_text[] append_text[] po_keys_count[2] locale_count[14] EncloseBraces[0]
+----------------------------------------------------------------------------
+po_key[0]:[radio_technology_lte_text]
+po_key[1]:[radio_technology_umts_text]
+format[0]:locale[en_US] specifier[T]
+
+format[1]:locale[es_MX] specifier[T]
+
+format[2]:locale[fr_CA] specifier[T]
+
+format[3]:locale[ar_AE] specifier[T]
+
+format[4]:locale[da_DK] specifier[T]
+
+format[5]:locale[de_DE] specifier[T]
+
+format[6]:locale[et_EE] specifier[T]
+
+format[7]:locale[fi_FI] specifier[T]
+
+format[8]:locale[it_IT] specifier[T]
+
+format[9]:locale[ja_JP] specifier[T]
+
+format[10]:locale[lv_LV] specifier[T]
+
+format[11]:locale[lt_LT] specifier[T]
+
+format[12]:locale[nn_NO] specifier[T]
+
+format[13]:locale[sv_SE] specifier[T]
+
+NetworkTechnologyOption[2]: value[32] prepend_text[] append_text[] po_keys_count[1] locale_count[14] EncloseBraces[0]
+----------------------------------------------------------------------------
+po_key[0]:[wan_technology_5g_text]
+format[0]:locale[en_US] specifier[T]
+
+format[1]:locale[es_MX] specifier[T]
+
+format[2]:locale[fr_FR] specifier[T]
+
+format[3]:locale[ar_AE] specifier[T]
+
+format[4]:locale[da_DK] specifier[T]
+
+format[5]:locale[de_DE] specifier[T]
+
+format[6]:locale[et_EE] specifier[T]
+
+format[7]:locale[fi_FI] specifier[T]
+
+format[8]:locale[it_IT] specifier[T]
+
+format[9]:locale[ja_JP] specifier[T]
+
+format[10]:locale[lv_LV] specifier[T]
+
+format[11]:locale[lt_LT] specifier[T]
+
+format[12]:locale[nn_NO] specifier[T]
+
+format[13]:locale[sv_SE] specifier[T]
+

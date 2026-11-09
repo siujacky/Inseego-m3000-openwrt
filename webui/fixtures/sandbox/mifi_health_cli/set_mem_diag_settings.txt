@@ -1,0 +1,3 @@
+command [set_mem_diag_settings]
+
+Enter Max log file size (max size 2048) : Enter Max number of backups : Enter Safe zone least memory : Enter Critical zone start memory :Enter Safe zone poll interval seconds :Enter Moderate zone poll interval seconds :Enter Critical zone poll interval seconds :Enter Safe zone store memory stats interval mins :Enter Moderate zone store memory stats interval mins :Enter Critical zone store memory stats interval mins :Enter Enable debug mode :Enter Top CPU usage threshold :mifi_health_set_mem_diag_settings returned 1 (MIFI_HEALTH: general error.)

@@ -1,0 +1,2 @@
+cmd_volte_get_amr_wb_mode returned 1 (MDM_MAIN: general error.)
+VoLTE AMR WB mode:[160]

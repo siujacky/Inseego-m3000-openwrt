@@ -1,0 +1,4 @@
+command [get_notification_display_wakeup_setting_enabled]
+
+deviceui_get_notification_display_wakeup_setting_enabled returned 0 (DEVUI_FRAMEWORK: success.)
+deviceui_get_notification_display_wakeup_setting_enabled:[1]

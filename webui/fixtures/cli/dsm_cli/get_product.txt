@@ -1,0 +1,3 @@
+command [get_product]
+
+Bradshaw

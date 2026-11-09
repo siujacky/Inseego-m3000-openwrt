@@ -1,0 +1,3 @@
+command [set_lowmem_reboot_settings]
+
+Enter Low Memory Threshold [Value >= 15 in MB]: Enter Check Interval (In Sec) : Enter Minimum Device Uptime before Reboot(In Hours) :Enter Reboot Time Window Open (Only Hour in 24H format [0-23] ):Enter Reboot Time Window End (Only Hour in 24H format [0-23] ):mifi_health_set_lowmem_reboot_settings returned 1 (MIFI_HEALTH: general error.)

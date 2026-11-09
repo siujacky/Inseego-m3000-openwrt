@@ -1,0 +1,4 @@
+command [get_iface_type]
+
+cmd_get_ethernet_iface_type returned 0 (MIFI_QCMAP: success.)
+Ethernet (eth0) interface type is :   [LAN]

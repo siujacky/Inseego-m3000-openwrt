@@ -1,0 +1,4 @@
+command [get_hw_reset_sw_enabled]
+
+cmd_get_hw_reset_sw_enabled returned 0 (FACTORY_RESET: success.)
+HW reset SW enabled:   1

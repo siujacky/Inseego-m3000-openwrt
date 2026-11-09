@@ -1,0 +1,2 @@
+cmd_1xrtt_get_ext_timer returned 1 (MDM_MAIN: general error.)
+1XRTT CDMA Ext timer:[48]

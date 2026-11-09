@@ -1,0 +1,11 @@
+command [get_settings]
+
+su_api_get_settings returned 0 (NUA: success.)
+NUA Settings:
+FUMO enabled=[1]
+POLL enabled=[1]
+FOTA Opt Out Disabled=[1]
+Low Battery Threshold=[25]
+Low Battery Threshold with Charger=[10]
+Model String=[M3100]
+Customer ID=[vzw]

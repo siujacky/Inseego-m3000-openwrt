@@ -1,0 +1,9 @@
+command [get_settings]
+
+cmd_get_settings returned 0 (POWERSAVE: success.)
+settings.enabled: [1]
+settings.deep_sleep_enabled: [1]
+settings.deep_sleep_idle_time: [300]
+settings.deep_sleep_wakeup_time: [7200]
+settings.shutdown_enabled: [1]
+settings.shutdown_idle_time: [7200]

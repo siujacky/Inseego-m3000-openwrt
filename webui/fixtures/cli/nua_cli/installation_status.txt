@@ -1,0 +1,3 @@
+command [installation_status]
+
+su_api_get_installation_status returned 5 (NUA: process not running.)

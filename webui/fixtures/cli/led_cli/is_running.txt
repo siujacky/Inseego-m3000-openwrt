@@ -1,0 +1,3 @@
+command [is_running]
+
+led_api_is_running returned 0 (LED: success.)

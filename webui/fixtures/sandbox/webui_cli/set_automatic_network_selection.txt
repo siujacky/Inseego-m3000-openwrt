@@ -1,0 +1,3 @@
+command [set_automatic_network_selection]
+
+webui_get_automatic_network_selection returned 1 (WEBUI: general error.)

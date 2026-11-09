@@ -1,0 +1,4 @@
+Index:[1] Wan:[WWAN]
+Index:[2] Wan:[WiFi WAN]
+Index:[3] Wan:[Ethernet WAN]
+What is WAN Priority 1 Index:  What is WAN Priority 2 Index:  What is WAN Priority 3 Index:  ccm_set_wan_prio returned 2 (CCM: one or more bad parameters passed into a function.)

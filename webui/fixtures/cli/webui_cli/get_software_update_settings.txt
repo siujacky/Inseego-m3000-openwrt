@@ -1,0 +1,6 @@
+command [get_software_update_settings]
+
+webui_get_software_update_settings returned 0 (WEBUI: success.)
+fumoEnabled:[1]
+autoPollEnabled:[1]
+lowBatteryThreshold:[20]

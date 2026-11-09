@@ -1,0 +1,4 @@
+command [get_ethernet_macaddr]
+
+cmd_get_ethernet_macaddr returned 0 (MIFI_QCMAP: success.)
+Interface eth0 mac  is: 02:00:00:00:00:01

@@ -1,0 +1,2 @@
+ccm_get_cell_data_enabled returned 0 (CCM: success.)
+enabled:[1]

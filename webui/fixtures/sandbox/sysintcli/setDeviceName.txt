@@ -1,0 +1,4 @@
+Starting sysint client library
+Enter the mac address(xx:xx:xx:xx:xx:xx):Enter device name :sys_setDeviceType returned 10
+Stopping sysint client library 10
+sysinterfaceShutdown complete 0

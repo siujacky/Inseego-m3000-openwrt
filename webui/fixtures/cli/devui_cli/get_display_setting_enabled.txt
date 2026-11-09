@@ -1,0 +1,4 @@
+command [get_display_setting_enabled]
+
+deviceui_get_display_setting_enabled returned 0 (DEVUI_FRAMEWORK: success.)
+display_setting_enabled:[1]

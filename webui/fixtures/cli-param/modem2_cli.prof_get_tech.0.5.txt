@@ -1,0 +1,20 @@
+Enter profile type (3GPP=0, 3GPP2=1): Enter profile index: cmd_prof_get_tech returned 1 (MDM_MAIN: general error.)
+
+Profile Type:[0](3GPP=0, 3GPP2=1)
+idx:[5]
+APN:[]
+User Name:[]
+Password:[]
+Name:[]
+Locked:[0] (none=0, enabled=1, auto=2)
+Authenticate:[0] (none=0, PAP=1, CHAP=2)
+Manual DNS:[0] (none=0, enabled=1)
+DNS1:[]
+DNS2:[]
+PDP Type:[0] (ipv4=0, ppp=1, ipv6=2, ipv4v6=3)
+APN Disabled:[0] (enabled=0, disabled=1)
+PDN Inactivity Timeout:[0]
+IPV4 address:[]
+IPV6 address:[]
+Data Mode:[0] (CDMA or HDR=0, CDMA=1, HDR=2)
+PDP Type 3GPP2:[0] (ipv4=0, ipv6=1, ipv4v6=2, no pref=3)

@@ -1,0 +1,14 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/* Match stock's independent ramoops node and exact record layout, leaving
+ * the existing fixed reservation unchanged so stock can read the old log.
+ */
+&{/soc} {
+	ramoops {
+		compatible = "ramoops";
+		reg = <0xa0800000 0x100000>;
+		record-size = <0x4e20>;
+		console-size = <0x4e20>;
+		pmsg-size = <0x4e20>;
+		ecc-size = <0>;
+	};
+};

@@ -1,0 +1,21 @@
+command [get_tr069_mccmnc_config]
+
+CARRIER : uscellular_sbox 
+MCCMNC  : 310410 
+CARRIER : uscellular_prod 
+MCCMNC  : 311580,311581,311582,311583,311584,311585,311586,311587,311588,311589 
+CARRIER : uscellular_test 
+MCCMNC  : 311220,311221,311222,311223,311224,311225,311226,311227,311228,311229 
+CARRIER : 3dk 
+MCCMNC  : 23806 
+CARRIER : 3dk 
+MCCMNC  : 23420 
+CARRIER : ooredoooman 
+MCCMNC  : 42203 
+CARRIER : zainksa 
+MCCMNC  : 42004 
+CARRIER : zainbahrain 
+MCCMNC  : 42602 
+CARRIER : 3se 
+MCCMNC  : 24002 
+cmd_get_tr069_mccmnc_config returned 0 (TR069: success.)

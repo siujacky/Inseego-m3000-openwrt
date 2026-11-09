@@ -1,0 +1,3 @@
+cmd_get_mns_list returned 1000 (MDM_MAIN: an error reading from the sim was encountered.)
+
+Mns list output:[]

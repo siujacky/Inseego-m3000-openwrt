@@ -1,0 +1,3 @@
+command [backup]
+
+settings_backup returned 5 (SETTINGS: process not running.)

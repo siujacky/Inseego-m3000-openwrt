@@ -1,0 +1,5 @@
+command [get_primary_wifi_info_display_settings]
+
+deviceui_get_primary_wifi_info_display_settings returned 0 (DEVUI_FRAMEWORK: success.)
+show_wifi_name_enabled:[1]
+show_wifi_key_enabled:[1]

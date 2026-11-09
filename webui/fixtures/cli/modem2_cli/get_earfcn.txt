@@ -1,0 +1,2 @@
+cmd_get_earfcn returned 0 (MDM_MAIN: success.)
+earfcn:[1050]

@@ -1,0 +1,3 @@
+command [get_cbsd_info]
+
+Failed to read the default configurations, rc = 3211269

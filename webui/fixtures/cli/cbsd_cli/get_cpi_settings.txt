@@ -1,0 +1,6 @@
+command [get_cpi_settings]
+
+UserID = []
+Name = []
+PrivateKey = []
+cbsd_get_sas_settings_test returned 0 (CBSD: success.)

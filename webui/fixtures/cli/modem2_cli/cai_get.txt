@@ -1,0 +1,3 @@
+cmd_get_cai_rev returned 1 (MDM_MAIN: general error.)
+
+CAI rev:[0]

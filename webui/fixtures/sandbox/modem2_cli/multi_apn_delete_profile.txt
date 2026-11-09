@@ -1,0 +1,1 @@
+Enter profile id: cmd_multi_apn_delete_profile returned 1 (MDM_MAIN: general error.)

@@ -1,0 +1,3 @@
+command [get_info_panels_list]
+
+deviceui_get_info_panels_list returned 5 (DEVUI_FRAMEWORK: process not running.)

@@ -1,0 +1,7 @@
+
+------------------------
+--[recovery] [get] connection recovery max mdm reset cnt--
+cmd_get_recovery_max_mdm_reset_cnt: [recovery]  returned 0 (SIM_MGR: success.)
+
+[recovery] conn recovery reset cnt: [3]
+------------------------

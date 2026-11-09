@@ -1,0 +1,7 @@
+
+------------------------
+--[recovery] [get] connection recovery max device reset cnt--
+cmd_get_recovery_max_device_reset_cnt: [recovery] returned 0 (SIM_MGR: success.)
+
+[recovery] conn recovery device reset cnt: [1]
+------------------------

@@ -1,0 +1,4 @@
+count_thermal_zone zone_cnt = 1
+command [report]
+
+thermal_zones - tz0 43356

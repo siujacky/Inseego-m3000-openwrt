@@ -1,0 +1,6 @@
+command [get_active_interface_level_info]
+
+Enter iface_type[0=INTERFACE_SIM,1=INTERFACE_ETH]: Enter imsi Enter iccid or leave empty to skip: dua_get_level_info0 (DUA: success.)
+the data usage is at level : LEVELFULL
+
+run from cli

@@ -1,0 +1,4 @@
+command [current_carrier_id]
+
+ returned 1 (CC: general error.) 
+ Current carrier id Not available or some SIM issue

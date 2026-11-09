@@ -1,0 +1,3 @@
+command [get_version]
+
+nua_api_test_msg returned 5 (NUA: process not running.)

@@ -1,0 +1,158 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/* Experimental M3100 RAM bring-up. Derived from the owner's active stock DT.
+ * No NAND, modem, PCIe, display or charging driver is enabled here.
+ * Base USB RAM boot is tested; added sensor/bus support needs runtime checks.
+ */
+/dts-v1/;
+#include "qcom-sdx65.dtsi"
+#include <arm64/qcom/pmk8350.dtsi>
+#include "pmx65.dtsi"
+#include <dt-bindings/regulator/qcom,rpmh-regulator.h>
+
+/ {
+	model = "Inseego M3100 (experimental RAM bring-up)";
+	compatible = "inseego,m3100", "qcom,sdx65";
+	qcom,msm-id = <458 0x20000>, <483 0x20000>, <509 0x20000>;
+	qcom,board-id = <0x2010008 0x302>;
+
+	aliases { serial0 = &blsp1_uart3; };
+	chosen { stdout-path = "serial0:115200n8"; };
+	memory { reg = <0x80000000 0x20000000>, <0xa0000000 0x20000000>; };
+
+	reserved-memory {
+		/* Additional fixed reservations from the active M3100 stock DT.
+		 * qcom-sdx65.dtsi already describes TZ, SMEM, AOP and access-control.
+		 */
+		audio_mem: memory@8c000000 { reg = <0x8c000000 0x400000>; no-map; };
+		mpss_dsm: memory@8c400000 { reg = <0x8c400000 0x3200000>; no-map; };
+		ipa_fw_mem: memory@8fced000 { reg = <0x8fced000 0x10000>; no-map; };
+		mpss_adsp_mem: memory@90800000 { reg = <0x90800000 0x10000000>; no-map; };
+		stock_ramoops: memory@a0800000 { reg = <0xa0800000 0x100000>; no-map; };
+	};
+};
+
+&blsp1_uart3 { status = "okay"; };
+&apps_smmu { status = "disabled"; };
+&pcie_ep { status = "disabled"; };
+&qpic_bam { status = "disabled"; };
+&qpic_nand { status = "disabled"; };
+&remoteproc_mpss { status = "disabled"; };
+&ipa { status = "disabled"; };
+
+/* Match the stock M3100 SCM register mapping. Clear inherited download mode
+ * on orderly shutdown rather than restarting into Qualcomm dump USB mode.
+ */
+&{/firmware/scm} {
+	qcom,dload-mode = <&tcsr 0x13000>;
+};
+&tcsr {
+	reg = <0x01fc0000 0x30000>;
+};
+&{/soc/sram@1468f000} {
+	reboot-mode {
+		compatible = "syscon-reboot-mode";
+		offset = <0x65c>;
+		/* Verified in this unit's stock do_msm_restart implementation. */
+		mode-normal = <0x77665501>;
+		mode-bootloader = <0x77665500>;
+		mode-recovery = <0x77665502>;
+	};
+};
+
+&apps_rsc {
+	regulators {
+		compatible = "qcom,pmx65-rpmh-regulators";
+		qcom,pmic-id = "b";
+		usb_l1: ldo1 {
+			regulator-min-microvolt = <1200000>;
+			regulator-max-microvolt = <1200000>;
+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+		};
+		usb_l4: ldo4 {
+			regulator-min-microvolt = <880000>;
+			regulator-max-microvolt = <912000>;
+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+		};
+		usb_l5: ldo5 {
+			regulator-min-microvolt = <1800000>;
+			regulator-max-microvolt = <1800000>;
+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+		};
+		usb_l10: ldo10 {
+			regulator-min-microvolt = <3088000>;
+			regulator-max-microvolt = <3088000>;
+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+		};
+	};
+};
+
+&usb { status = "okay"; };
+&usb_dwc3 {
+	dr_mode = "peripheral";
+	maximum-speed = "high-speed";
+	phys = <&usb_hsphy>, <&usb_qmpphy>;
+	phy-names = "usb2-phy", "usb3-phy";
+};
+&usb_hsphy {
+	vdda-pll-supply = <&usb_l4>;
+	vdda18-supply = <&usb_l5>;
+	vdda33-supply = <&usb_l10>;
+	status = "okay";
+};
+&usb_qmpphy {
+	vdda-phy-supply = <&usb_l4>;
+	vdda-pll-supply = <&usb_l1>;
+	status = "okay";
+};
+&gcc {
+	clocks = <&rpmhcc RPMH_CXO_CLK>, <&rpmhcc RPMH_CXO_CLK_A>,
+		 <&sleep_clk>, <&pcie_phy>, <&usb_qmpphy>;
+};
+
+/* Stock ADC7 is on PMK8350 SID0 and selects other PMICs through the high
+ * channel byte. These six channels match the owner's active stock DT.
+ * Expose measurements only; do not change charger limits or battery policy.
+ */
+&pmk8350_vadc {
+	channel@3 { reg = <0x03>; label = "pmk8350_die_temp"; qcom,pre-scaling = <1 1>; };
+	channel@44 { reg = <0x44>; label = "pmk8350_xo_therm"; qcom,pre-scaling = <1 1>; qcom,hw-settle-time = <200>; qcom,ratiometric; };
+	channel@103 { reg = <0x103>; label = "pmx65_die_temp"; qcom,pre-scaling = <1 1>; };
+	channel@144 { reg = <0x144>; label = "pmx65_pa_therm1"; qcom,pre-scaling = <1 1>; qcom,hw-settle-time = <200>; qcom,ratiometric; };
+	channel@146 { reg = <0x146>; label = "pmx65_mdm_case_therm"; qcom,pre-scaling = <1 1>; qcom,hw-settle-time = <200>; qcom,ratiometric; };
+	channel@147 { reg = <0x147>; label = "pmx65_ambient_therm"; qcom,pre-scaling = <1 1>; qcom,hw-settle-time = <200>; qcom,ratiometric; };
+};
+
+&{/soc} {
+	/* Stock touchscreen bus. PIO avoids depending on unvalidated BAM/IOMMU
+	 * routing. No generic bus scan: the charger also shares this bus.
+	 */
+	m3100_i2c3: i2c@837000 {
+		compatible = "qcom,i2c-qup-v2.2.1";
+		reg = <0x00837000 0x600>;
+		interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
+		clocks = <&gcc GCC_BLSP1_QUP3_I2C_APPS_CLK>, <&gcc GCC_BLSP1_AHB_CLK>;
+		clock-names = "core", "iface";
+		clock-frequency = <400000>;
+		pinctrl-names = "default", "sleep";
+		pinctrl-0 = <&m3100_i2c3_active>;
+		pinctrl-1 = <&m3100_i2c3_sleep>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		status = "okay";
+	};
+};
+
+&tlmm {
+	m3100_i2c3_active: i2c3-active-state {
+		pins = "gpio10", "gpio11";
+		function = "blsp_i2c3";
+		drive-strength = <2>;
+		bias-disable;
+	};
+	m3100_i2c3_sleep: i2c3-sleep-state {
+		pins = "gpio10", "gpio11";
+		function = "blsp_i2c3";
+		drive-strength = <2>;
+		bias-pull-up;
+	};
+};

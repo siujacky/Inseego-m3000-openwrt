@@ -1,0 +1,8 @@
+command [get_software_update_info]
+
+webui_get_software_update_info returned 0 (WEBUI: success.)
+source_sw_version:[]
+target_sw_version:[]
+package description:[]
+estimated update time:[0]
+package size:[0]

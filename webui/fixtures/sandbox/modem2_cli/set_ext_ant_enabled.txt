@@ -1,0 +1,1 @@
+cmd_set_ext_antenna_enabled returned 1 (MDM_MAIN: general error.)

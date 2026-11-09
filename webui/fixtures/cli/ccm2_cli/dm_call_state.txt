@@ -1,0 +1,6 @@
+ccm_dm_call_state returned 0 (CCM: success.)
+v4 state:[Idle]
+v6 state:[Idle]
+ifc_v4:[]
+ifc_v6:[]
+resolv_conf:[]

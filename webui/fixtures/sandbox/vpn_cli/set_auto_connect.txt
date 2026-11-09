@@ -1,0 +1,3 @@
+command [set_auto_connect]
+
+vpn_set_auto_connect returned 1 (VPN: general error.)

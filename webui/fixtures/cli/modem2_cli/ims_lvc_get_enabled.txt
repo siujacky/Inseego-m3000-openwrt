@@ -1,0 +1,2 @@
+cmd_ims_lvc_get_enabled returned 1 (MDM_MAIN: general error.)
+IMS LVC enabled:[93]

@@ -1,0 +1,3 @@
+command [set_auto_switch]
+
+Enter WAN Auto Switch Value(0/1): cmd_set_auto_switch returned 1 (WAN_MGR: general error.)

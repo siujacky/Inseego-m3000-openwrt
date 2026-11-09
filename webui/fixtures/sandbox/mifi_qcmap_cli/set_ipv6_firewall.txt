@@ -1,0 +1,3 @@
+command [set_ipv6_firewall]
+
+cmd_router2_set_ipv6_firewall_status returned 1 (MIFI_QCMAP: general error.)

@@ -1,0 +1,3 @@
+command [get_settings]
+
+VPN server type is(0-NONE, 1-PPTP, 2-OpenVPN, 3-L2TP over IPsec, 4-IPSec, 5-OpenVPN with config files, 6- WiredGuard VPN):Invalid VPN Server Type:0

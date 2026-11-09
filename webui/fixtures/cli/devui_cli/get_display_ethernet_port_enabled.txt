@@ -1,0 +1,4 @@
+command [get_display_ethernet_port_enabled]
+
+deviceui_get_display_ethernet_port_enabled returned 0 (DEVUI_FRAMEWORK: success.)
+deviceui_get_display_ethernet_port_enabled:[1]

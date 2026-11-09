@@ -1,0 +1,4 @@
+command [get_status]
+
+cmd_tr069_get_status returned 0 (TR069: success.)
+TR069 is:   [Disable]

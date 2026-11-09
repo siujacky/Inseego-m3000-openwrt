@@ -1,0 +1,2 @@
+cmd_sim_get_carrier returned 1 (MDM_MAIN: general error.)
+carrier is:[SIM_CARRIER_INFO_NOT_AVAIL]

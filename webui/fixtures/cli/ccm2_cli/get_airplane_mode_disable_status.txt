@@ -1,0 +1,4 @@
+ccm_get_airplane_mode_disable_status returned 0 (CCM: success.)
+Radio Disable status = [0x3]
+WiFi Disabled
+Cellular Disabled

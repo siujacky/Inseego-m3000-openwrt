@@ -1,0 +1,3 @@
+command [set_software_update_notification_settings]
+
+Set the initial update notification enabled [0("not enabled"), 1("Enabled")]Set the vital update notification enabled [0("not enabled"), 1("Enabled")]ans_set_software_update_notification_settings returned 1 (ANS: general error.)

@@ -1,0 +1,106 @@
+--- a/drivers/i2c/busses/i2c-qup.c
++++ b/drivers/i2c/busses/i2c-qup.c
+@@ -239,6 +239,13 @@
+  struct icc_path *m3100_pio_path;
+  struct m3100_pio_icc m3100_pio_vote;
+  bool m3100_pio_trial;
++ bool m3100_clock_diag, m3100_gcc_valid;
++ void __iomem *m3100_gcc_apps, *m3100_gcc_vote, *m3100_gcc_ahb;
++ unsigned int m3100_enable_seq, m3100_gcc_enable_seq;
++ int m3100_core_ret, m3100_iface_ret;
++ u64 m3100_enable_start_ns, m3100_enable_core_ns, m3100_enable_end_ns;
++ u64 m3100_gcc_start_ns, m3100_gcc_end_ns;
++ u32 m3100_gcc[5];
+  bool m3100_combined_trial, m3100_combined_active, m3100_combined_done;
+  int m3100_combined_error;
+  bool m3100_prerun_valid;
+@@ -382,6 +389,18 @@
+   qup->m3100_prerun[7]=readl(qup->base+QUP_OPERATIONAL_MASK);
+   qup->m3100_prerun_end_ns=ktime_get_boottime_ns();
+   qup->m3100_prerun_valid=true;
++  if (qup->m3100_clock_diag && !qup->m3100_gcc_valid) {
++   /* Fixed GCC read-only registers; no selector or clock writes. */
++   qup->m3100_gcc_start_ns=ktime_get_boottime_ns();
++   qup->m3100_gcc[0]=readl(qup->m3100_gcc_apps+0x24);
++   qup->m3100_gcc[1]=readl(qup->m3100_gcc_apps+0x28);
++   qup->m3100_gcc[2]=readl(qup->m3100_gcc_apps+0x08);
++   qup->m3100_gcc[3]=readl(qup->m3100_gcc_vote+0x08);
++   qup->m3100_gcc[4]=readl(qup->m3100_gcc_ahb+0x04);
++   qup->m3100_gcc_end_ns=ktime_get_boottime_ns();
++   qup->m3100_gcc_enable_seq=qup->m3100_enable_seq;
++   qup->m3100_gcc_valid=true;
++  }
+  }
+ }
+ 
+@@ -1821,7 +1840,7 @@
+       msgs[0].buf[0]==0x80 && msgs[0].buf[1]==0 && msgs[0].buf[2]==0 &&
+       msgs[1].addr==0x77 && msgs[1].flags==I2C_M_RD && msgs[1].len==4) {
+    qup->m3100_trace_used=true; qup->m3100_trace_active=true;
+-   qup->m3100_trace_count=0; qup->m3100_prerun_valid=false;
++   qup->m3100_trace_count=0; qup->m3100_prerun_valid=false; qup->m3100_gcc_valid=false;
+   }
+ 		spin_unlock_irqrestore(&qup->m3100_lock,flags);
+ 	}
+@@ -1913,6 +1932,15 @@
+     qup->m3100_prerun_start_ns,qup->m3100_prerun_end_ns,
+     qup->m3100_prerun[0],qup->m3100_prerun[1],qup->m3100_prerun[2],qup->m3100_prerun[3],
+     qup->m3100_prerun[4],qup->m3100_prerun[5],qup->m3100_prerun[6],qup->m3100_prerun[7]);
++  if (qup->m3100_trace_active && qup->m3100_gcc_valid) {
++   dev_err(qup->dev,"M3100 clock enable seq=%u captured_seq=%u start_ns=%llu core_end_ns=%llu end_ns=%llu core_ret=%d iface_ret=%d\n",
++    qup->m3100_enable_seq,qup->m3100_gcc_enable_seq,
++    qup->m3100_enable_start_ns,qup->m3100_enable_core_ns,qup->m3100_enable_end_ns,
++    qup->m3100_core_ret,qup->m3100_iface_ret);
++   dev_err(qup->dev,"M3100 active GCC start_ns=%llu end_ns=%llu cmd=%08x cfg=%08x cbcr=%08x ahb_vote=%08x ahb_halt=%08x\n",
++    qup->m3100_gcc_start_ns,qup->m3100_gcc_end_ns,
++    qup->m3100_gcc[0],qup->m3100_gcc[1],qup->m3100_gcc[2],qup->m3100_gcc[3],qup->m3100_gcc[4]);
++  }
+   if (qup->m3100_trace_active) {
+    unsigned int i;
+    for (i=0;i<qup->m3100_trace_count;i++) {
+@@ -1979,8 +2007,18 @@
+ 
+ static void qup_i2c_enable_clocks(struct qup_i2c_dev *qup)
+ {
++ if (qup->m3100_clock_diag) {
++  /* Record existing calls only. Preserve order and ignored-error behavior. */
++  qup->m3100_enable_start_ns=ktime_get_boottime_ns();
++  qup->m3100_core_ret=clk_prepare_enable(qup->clk);
++  qup->m3100_enable_core_ns=ktime_get_boottime_ns();
++  qup->m3100_iface_ret=clk_prepare_enable(qup->pclk);
++  qup->m3100_enable_end_ns=ktime_get_boottime_ns();
++  qup->m3100_enable_seq++;
++ } else {
+ 	clk_prepare_enable(qup->clk);
+ 	clk_prepare_enable(qup->pclk);
++ }
+ }
+ 
+ static void qup_i2c_disable_clocks(struct qup_i2c_dev *qup)
+@@ -2051,6 +2089,17 @@
+   if (ret) return ret;
+  }
+ 
++ /* Maps are established before any clock enable, outside the PERST window. */
++ qup->m3100_clock_diag=qup->m3100_diag && qup->m3100_combined_trial &&
++  qup->m3100_pio_trial && of_machine_is_compatible("qcom,sdx65");
++ if (qup->m3100_clock_diag) {
++  qup->m3100_gcc_apps=devm_ioremap(&pdev->dev,0x0011c000,0x1000);
++  qup->m3100_gcc_vote=devm_ioremap(&pdev->dev,0x0016d000,0x1000);
++  qup->m3100_gcc_ahb=devm_ioremap(&pdev->dev,0x0011b000,0x1000);
++  if (!qup->m3100_gcc_apps || !qup->m3100_gcc_vote || !qup->m3100_gcc_ahb)
++   return -ENOMEM;
++ }
++
+ 
+ 	if (scl_freq) {
+ 		dev_notice(qup->dev, "Using override frequency of %u\n", scl_freq);
+@@ -2285,6 +2334,8 @@
+ 
+  if (qup->m3100_pio_trial)
+   dev_info(qup->dev,"M3100 PIO ICC active before adapter publication: avg=0 peak=%u kB/s (normal upstream policy)\n",M3100_PIO_ICC_PEAK);
++ if (qup->m3100_clock_diag)
++  dev_info(qup->dev,"M3100 active clock diagnostics armed (read-only GCC)\n");
+ 	ret = i2c_add_adapter(&qup->adap);
+ 	if (ret)
+ 		goto fail_runtime;

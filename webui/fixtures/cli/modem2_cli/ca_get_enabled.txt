@@ -1,0 +1,2 @@
+cmd_ca_get_enabled returned 1 (MDM_MAIN: general error.)
+CA enabled:[64]

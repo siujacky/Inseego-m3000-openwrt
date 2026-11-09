@@ -1,0 +1,40 @@
+/* Optional next-stage fragment, NOT included in enumeration-only DT.
+ * Expected stock topology: 00:00.0 -> 01:00.0 -> 02:03.0 -> 04:00.{0,1}.
+ * Verify enumeration before applying. Requires m3100-tc956x platform glue.
+ */
+&pcie_rc {
+	pcie-root@0,0 {
+		reg = <0 0 0 0 0>;
+		#address-cells = <3>;
+		#size-cells = <2>;
+		ranges;
+		pcie-switch@0,0 {
+			reg = <0 0 0 0 0>;
+			#address-cells = <3>;
+			#size-cells = <2>;
+			ranges;
+			pcie-bridge@3,0 {
+				reg = <0x1800 0 0 0 0>;
+				#address-cells = <3>;
+				#size-cells = <2>;
+				ranges;
+				m3100_tc956x_fn0: ethernet@0,0 {
+					reg = <0 0 0 0 0>;
+					gpio-controller;
+					#gpio-cells = <2>;
+					phy-mode = "sgmii";
+					phy-supply = <&m3100_aqr_power>;
+					phy-reset-gpios = <&m3100_tc956x_fn0 0 GPIO_ACTIVE_LOW>;
+					reset-deassert-us = <221000>;
+				};
+				ethernet@0,1 {
+					reg = <0x100 0 0 0 0>;
+					phy-mode = "rgmii";
+					phy-supply = <&m3100_qca_power>;
+					phy-reset-gpios = <&m3100_tc956x_fn0 1 GPIO_ACTIVE_LOW>;
+					reset-deassert-us = <90000>;
+				};
+			};
+		};
+	};
+};

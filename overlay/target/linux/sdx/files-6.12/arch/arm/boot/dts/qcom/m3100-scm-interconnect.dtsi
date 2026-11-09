@@ -1,0 +1,10 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/* Opt-in modem RAM trial: restore stock PIL crypto-to-DDR bandwidth vote.
+ * Downstream IDs13/512 translate to provider-local indexes10/1.
+ * This does not start MPSS, alter firmware, or bypass authentication.
+ */
+#include <dt-bindings/interconnect/qcom,sdx65.h>
+
+&{/firmware/scm} {
+	interconnects = <&system_noc MASTER_CRYPTO &mc_virt SLAVE_EBI1>;
+};

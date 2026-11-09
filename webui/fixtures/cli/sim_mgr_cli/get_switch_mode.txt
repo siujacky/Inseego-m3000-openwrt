@@ -1,0 +1,7 @@
+
+------------------------
+--[get] sim switch mode--
+cmd_get_switch_mode returned 0 (SIM_MGR: success.)
+switch_mode:[0][Manual]
+
+------------------------

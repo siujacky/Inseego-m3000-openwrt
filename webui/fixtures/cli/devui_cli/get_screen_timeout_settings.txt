@@ -1,0 +1,4 @@
+command [get_screen_timeout_settings]
+
+deviceui_get_screen_timeout_settings returned 0 (DEVUI_FRAMEWORK: success.)
+screen_timeout:[30]

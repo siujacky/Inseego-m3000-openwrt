@@ -1,0 +1,4 @@
+command [get_self_recovery_status]
+
+cmd_get_self_recovery_status returned 0 (WAN_MGR: success.)
+The Self Recovery Status is [1]

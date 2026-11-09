@@ -1,0 +1,3 @@
+command [set_software_update_settings]
+
+FUMO (0: Disable, 1: Enable): Auto Polling (0: Disable, 1: Enable): Low Battery Threshold (1-99): webui_get_software_update_settings returned 65535 (WEBUI: unknown error.)

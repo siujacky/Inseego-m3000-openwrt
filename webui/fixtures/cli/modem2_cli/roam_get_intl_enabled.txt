@@ -1,0 +1,3 @@
+cmd_roam_get_intl_enabled returned 0 (MDM_MAIN: success.)
+
+Roaming International:[1]

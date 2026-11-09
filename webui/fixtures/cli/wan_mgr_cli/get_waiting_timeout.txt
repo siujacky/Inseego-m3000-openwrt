@@ -1,0 +1,4 @@
+command [get_waiting_timeout]
+
+cmd_get_waiting_timeout returned 0 (WAN_MGR: success.)
+The waiting timeout value  is [30]

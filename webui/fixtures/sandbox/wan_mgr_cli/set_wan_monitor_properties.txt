@@ -1,0 +1,3 @@
+command [set_wan_monitor_properties]
+
+Enter the WAN monitor feature enable or disable (0:disable, 1:enable): Enter the use connected device state feature enable or disable (0:disable, 1:enable): Enter the interface retry count, Range(0-10): Enter the routed monitor interval, Range(30-86400 sec) : Enter the online monitor interval, Range(1-1440 min): Enter the failed monitor interval, Range(10-600 sec): Enter the first DNS URL: Enter the second dns url: Enter the third dns url: cmd_set_wan_monitor_properties returned 2 (WAN_MGR: one or more bad parameters passed into a function.)

@@ -1,0 +1,9 @@
+command [get_ethernet_info]
+
+Ethernet Interface Status: 1
+Total No of Ethernet Support Count For Bradshaw is 1
+_________________________________________________________________ 
+eth0 Interface Type: 2
+eth0 Link Status:1
+eth0 MAC Address: 02:00:00:00:00:01
+-------------------------------------------------------------------

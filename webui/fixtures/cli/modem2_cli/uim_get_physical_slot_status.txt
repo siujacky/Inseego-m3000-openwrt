@@ -1,0 +1,3 @@
+cmd_uim_get_physical_slot_status returned 0 (MDM_MAIN: success.)
+Successful
+Phy Slot Status[0]: status=(1)ABSENT, state=(1)ACTIVE, logical_slot=1, iccid=

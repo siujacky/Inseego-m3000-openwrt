@@ -1,0 +1,5 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [get_ap_enable]
+
+wifi_get_ap_enabled returned 0 (WIFI: success.)
+Wifi AP mode is :[1] 
+WIFI_CLI_MBH: Disable Message bus interface

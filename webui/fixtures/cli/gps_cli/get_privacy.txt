@@ -1,0 +1,4 @@
+command [get_privacy]
+
+cmd_get_privacy returned 0 (GPS: success.)
+accepted:[0]

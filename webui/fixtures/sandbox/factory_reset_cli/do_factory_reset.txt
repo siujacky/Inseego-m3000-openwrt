@@ -1,0 +1,3 @@
+command [do_factory_reset]
+
+cmd_do_factory_reset returned 5 (FACTORY_RESET: process not running.)

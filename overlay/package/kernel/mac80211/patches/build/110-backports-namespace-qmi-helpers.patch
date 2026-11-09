@@ -1,0 +1,37 @@
+--- a/include/linux/soc/qcom/qmi.h
++++ b/include/linux/soc/qcom/qmi.h
+@@ -5,6 +5,21 @@
+  */
+ #ifndef __QMI_HELPERS_H__
+ #define __QMI_HELPERS_H__
++
++/* Keep backported QMI ABI and exports separate from native MPSS clients. */
++#define qmi_encode_message LINUX_BACKPORT(qmi_encode_message)
++#define qmi_decode_message LINUX_BACKPORT(qmi_decode_message)
++#define qmi_response_type_v01_ei LINUX_BACKPORT(qmi_response_type_v01_ei)
++#define qmi_add_lookup LINUX_BACKPORT(qmi_add_lookup)
++#define qmi_add_server LINUX_BACKPORT(qmi_add_server)
++#define qmi_txn_init LINUX_BACKPORT(qmi_txn_init)
++#define qmi_txn_wait LINUX_BACKPORT(qmi_txn_wait)
++#define qmi_txn_cancel LINUX_BACKPORT(qmi_txn_cancel)
++#define qmi_handle_init LINUX_BACKPORT(qmi_handle_init)
++#define qmi_handle_release LINUX_BACKPORT(qmi_handle_release)
++#define qmi_send_request LINUX_BACKPORT(qmi_send_request)
++#define qmi_send_response LINUX_BACKPORT(qmi_send_response)
++#define qmi_send_indication LINUX_BACKPORT(qmi_send_indication)
+ 
+ #include <linux/completion.h>
+ #include <linux/idr.h>
+--- a/drivers/soc/qcom/Makefile
++++ b/drivers/soc/qcom/Makefile
+@@ -14,8 +14,8 @@
+ #obj-$(CPTCFG_QCOM_PMIC_GLINK)	+= pmic_glink_altmode.o
+ #obj-$(CPTCFG_QCOM_PMIC_PDCHARGER_ULOG)	+= pmic_pdcharger_ulog.o
+ CFLAGS_pmic_pdcharger_ulog.o	:=  -I$(src)
+-obj-$(CPTCFG_QCOM_QMI_HELPERS)	+= qmi_helpers.o
+-qmi_helpers-y	+= qmi_encdec.o qmi_interface.o
++obj-$(CPTCFG_QCOM_QMI_HELPERS)	+= backport_qmi_helpers.o
++backport_qmi_helpers-y	+= qmi_encdec.o qmi_interface.o
+ #obj-$(CPTCFG_QCOM_RAMP_CTRL)	+= ramp_controller.o
+ #obj-$(CPTCFG_QCOM_RMTFS_MEM)	+= rmtfs_mem.o
+ #obj-$(CPTCFG_QCOM_RPM_MASTER_STATS)	+= rpm_master_stats.o

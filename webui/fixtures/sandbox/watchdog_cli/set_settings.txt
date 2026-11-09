@@ -1,0 +1,3 @@
+command [set_settings]
+
+What is enabled ( 0 or 1 ): What is interval ( seconds ):  watchdog_set_settings returned 1 (WATCHDOG: general error.)

@@ -1,0 +1,4 @@
+Starting sysint client library
+sys_getGatewaysettings returned 10
+Stopping sysint client library 10
+sysinterfaceShutdown complete 0

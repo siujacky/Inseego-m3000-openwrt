@@ -1,0 +1,3 @@
+command [set_port_forwarding]
+
+cmd_router2_set_port_forwarding_status returned 1 (MIFI_QCMAP: general error.)

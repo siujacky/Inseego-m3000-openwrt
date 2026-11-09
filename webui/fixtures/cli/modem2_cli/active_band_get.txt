@@ -1,0 +1,2 @@
+cmd_active_band_get returned 0 (MDM_MAIN: success.)
+Active band:[0]

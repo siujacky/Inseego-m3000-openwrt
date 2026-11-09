@@ -1,0 +1,21 @@
+--- a/drivers/phy/qualcomm/phy-qcom-qmp-pcie.c
++++ b/drivers/phy/qualcomm/phy-qcom-qmp-pcie.c
+@@ -3990,6 +3990,18 @@
+ 
+ 	qmp_pcie_init_registers(qmp, &cfg->tbls);
+ 	qmp_pcie_init_registers(qmp, mode_tbls);
++
++	/* Diagnostic M3100-only restoration of its stock PHY sequence.
++	 * The V5.20 header does not name this offset; do not infer semantics
++	 * from another PHY revision. Keep the RC and board checks explicit.
++	 */
++	if (cfg == &sdx65_qmp_pciephy_cfg &&
++	    qmp->mode == PHY_MODE_PCIE_RC &&
++	    of_machine_is_compatible("inseego,m3100")) {
++		writel(0x40, qmp->pcs_misc + 0x20);
++		dev_info(qmp->dev, "M3100 early PHY PCS_MISC+0x20=%#x\n",
++			 readl(qmp->pcs_misc + 0x20));
++	}
+ 
+ 	ret = clk_bulk_prepare_enable(qmp->num_pipe_clks, qmp->pipe_clks);
+ 	if (ret)

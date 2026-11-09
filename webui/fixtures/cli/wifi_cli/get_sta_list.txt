@@ -1,0 +1,5 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [get_sta_list]
+
+wifi_ap_get_associate_sta_list returned 0 (WIFI: success.)
+STA associated with the AP are : [0]
+WIFI_CLI_MBH: Disable Message bus interface

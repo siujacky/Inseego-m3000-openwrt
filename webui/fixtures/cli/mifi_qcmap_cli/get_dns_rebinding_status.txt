@@ -1,0 +1,4 @@
+command [get_dns_rebinding_status]
+
+cmd_get_dns_rebinding_status returned 0 (MIFI_QCMAP: success.)
+DNS Rebinding Protection Status:[0]

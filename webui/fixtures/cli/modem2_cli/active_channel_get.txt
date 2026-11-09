@@ -1,0 +1,2 @@
+cmd_active_channel_get returned 0 (MDM_MAIN: success.)
+Frequency(Active channel):[0]

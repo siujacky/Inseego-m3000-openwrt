@@ -1,0 +1,4 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [is_running]
+
+wifi_is_running returned 0 (WIFI: success.)
+WIFI_CLI_MBH: Disable Message bus interface

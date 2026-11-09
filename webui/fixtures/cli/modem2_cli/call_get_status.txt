@@ -1,0 +1,7 @@
+Internet = 1
+Device Management = 2
+Data Usage = 3
+Enter APN: Enter ip_family (V4=0, V6=2): cmd_get_call_status returned 2 (MDM_MAIN: one or more bad parameters passed into a function.)
+WWAN State:[-1495250418] (Unknown)
+APN:[-1493315676] (Unknown)
+IP Family:[-1431655765] (Unknown)

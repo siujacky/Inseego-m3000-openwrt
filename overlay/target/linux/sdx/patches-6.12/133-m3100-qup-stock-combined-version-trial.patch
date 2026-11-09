@@ -1,0 +1,260 @@
+--- a/drivers/i2c/busses/i2c-qup.c
++++ b/drivers/i2c/busses/i2c-qup.c
+@@ -24,6 +24,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/scatterlist.h>
++#include "i2c-qup-m3100-version.h"
+ 
+ /* QUP Registers */
+ #define QUP_CONFIG		0x000
+@@ -234,6 +235,8 @@
+ };
+ struct qup_i2c_dev {
+  bool m3100_diag, m3100_active, m3100_fault_valid;
++ bool m3100_combined_trial, m3100_combined_active, m3100_combined_done;
++ int m3100_combined_error;
+  bool m3100_prerun_valid;
+  u64 m3100_prerun_start_ns, m3100_prerun_end_ns;
+  u32 m3100_prerun[8];
+@@ -408,6 +411,29 @@
+ 	/* Clear the error bits in QUP_I2C_STATUS */
+ 	if (bus_err)
+ 		writel(bus_err, qup->base + QUP_I2C_STATUS);
++
++ /* Private exact-version FIFO: errors always win over completion. */
++ if (READ_ONCE(qup->m3100_combined_active)) {
++  int verdict=m3100_version_irq_result(bus_err,qup_err,opflags);
++  if (verdict<0) {
++   if (!READ_ONCE(qup->m3100_combined_error)) WRITE_ONCE(qup->m3100_combined_error,verdict);
++   qup->bus_err|=bus_err; qup->qup_err|=qup_err;
++   writel(QUP_RESET_STATE,qup->base+QUP_STATE);
++   complete(&qup->xfer);
++   return IRQ_HANDLED;
++  }
++  if (READ_ONCE(qup->m3100_combined_error)) {
++   complete(&qup->xfer);
++   return IRQ_HANDLED;
++  }
++  if (opflags&QUP_OUT_SVC_FLAG) writel(QUP_OUT_SVC_FLAG,qup->base+QUP_OPERATIONAL);
++  if (opflags&QUP_IN_SVC_FLAG) writel(QUP_IN_SVC_FLAG,qup->base+QUP_OPERATIONAL);
++  if (verdict>0) {
++   WRITE_ONCE(qup->m3100_combined_done,true);
++   complete(&qup->xfer);
++  }
++  return IRQ_HANDLED;
++ }
+ 
+ 	/*
+ 	 * Check for BAM mode and returns if already error has come for current
+@@ -1673,6 +1699,106 @@
+ 	return 0;
+ }
+ 
++static bool qup_m3100_combined_match(struct qup_i2c_dev *qup,struct i2c_msg *msgs,int num)
++{
++ if (!qup->m3100_diag || !qup->m3100_combined_trial || num!=2) return false;
++ return m3100_version_shape(num,msgs[0].addr,msgs[0].flags,msgs[0].len,msgs[0].buf,
++                            msgs[1].addr,msgs[1].flags,msgs[1].len);
++}
++static int qup_m3100_combined_errors(struct qup_i2c_dev *qup)
++{
++ u32 bus,core;
++ int ret=READ_ONCE(qup->m3100_combined_error);
++ if (ret) return ret;
++ bus=READ_ONCE(qup->bus_err)|(readl(qup->base+QUP_I2C_STATUS)&I2C_STATUS_ERROR_MASK);
++ core=READ_ONCE(qup->qup_err)|(readl(qup->base+QUP_ERROR_FLAGS)&QUP_STATUS_ERROR_FLAGS);
++ ret=m3100_version_irq_result(bus,core,0);
++ return ret<0?ret:0;
++}
++static unsigned int qup_m3100_fifo_op(void *context)
++{
++ struct qup_i2c_dev *qup=context;
++ return readl(qup->base+QUP_OPERATIONAL);
++}
++static unsigned int qup_m3100_fifo_word(void *context)
++{
++ struct qup_i2c_dev *qup=context;
++ return readl(qup->base+QUP_IN_FIFO_BASE);
++}
++/* Exact stock-style combined version request, never a general adapter mode. */
++static int qup_m3100_combined_version(struct qup_i2c_dev *qup,struct i2c_msg *msgs)
++{
++ struct m3100_version_fifo fifo={.context=qup,.op=qup_m3100_fifo_op,.word=qup_m3100_fifo_word};
++ u8 data[4],overhead[2];
++ u32 value;
++ unsigned int i;
++ int ret,reset_ret;
++ if (qup->out_fifo_sz<11 || qup->in_fifo_sz<6) return -EOPNOTSUPP;
++ qup->use_dma=false;
++ qup->msg=&msgs[1];
++ WRITE_ONCE(qup->m3100_combined_done,false);
++ WRITE_ONCE(qup->m3100_combined_error,0);
++ reinit_completion(&qup->xfer);
++ WRITE_ONCE(qup->m3100_combined_active,true);
++ qup_m3100_stage(qup,"combined-before-irq");
++ qup_m3100_boundary(qup,"before-enable-irq");
++ enable_irq(qup->irq);
++ /* Stock enables IRQ before configuring the complete request. Keep errors. */
++ ret=qup_m3100_combined_errors(qup); if(ret) goto stop;
++ qup_m3100_stage(qup,"combined-reset");
++ ret=qup_i2c_change_state(qup,QUP_RESET_STATE); if(ret) goto stop;
++ ret=qup_m3100_combined_errors(qup); if(ret) goto stop;
++ writel(0,qup->base+QUP_MX_INPUT_CNT);
++ writel(0,qup->base+QUP_MX_OUTPUT_CNT);
++ writel(6,qup->base+QUP_MX_READ_CNT);
++ writel(11,qup->base+QUP_MX_WRITE_CNT);
++ value=readl(qup->base+QUP_CONFIG);
++ value&=~(QUP_NO_INPUT|BIT(6)|0x1f|0xf00);
++ value|=I2C_MINI_CORE|I2C_N_VAL_V2;
++ writel(value,qup->base+QUP_CONFIG);
++ value=readl(qup->base+QUP_IO_MODE);
++ value&=~(GENMASK(13,10)|QUP_REPACK_EN|BIT(16));
++ writel(value|QUP_REPACK_EN,qup->base+QUP_IO_MODE);
++ ret=qup_m3100_combined_errors(qup); if(ret) goto stop;
++ qup_m3100_boundary(qup,"before-first-run");
++ qup_m3100_stage(qup,"combined-first-run");
++ ret=qup_i2c_change_state(qup,QUP_RUN_STATE);
++ qup_m3100_boundary(qup,"after-first-run");
++ if(ret) goto stop;
++ ret=qup_m3100_combined_errors(qup); if(ret) goto stop;
++ writel(qup->clk_ctl,qup->base+QUP_I2C_CLK_CTL);
++ qup_m3100_stage(qup,"combined-first-pause");
++ ret=qup_i2c_change_state(qup,QUP_PAUSE_STATE);
++ qup_m3100_boundary(qup,"after-first-pause");
++ if(ret) goto stop;
++ ret=qup_m3100_combined_errors(qup); if(ret) goto stop;
++ for(i=0;i<3;i++) writel(m3100_version_tx_word(i),qup->base+QUP_OUT_FIFO_BASE);
++ qup_m3100_stage(qup,"combined-message-run");
++ ret=qup_i2c_change_state(qup,QUP_RUN_STATE); if(ret) goto stop;
++ ret=qup_m3100_combined_errors(qup); if(ret) goto stop;
++ qup_m3100_stage(qup,"combined-input-done");
++ ret=qup_i2c_wait_for_complete(qup,&msgs[1]);
++stop:
++ /* Serialize the final error/done decision and FIFO drain against the ISR. */
++ disable_irq(qup->irq);
++ if (!ret) ret=qup_m3100_combined_errors(qup);
++ if (!ret && !READ_ONCE(qup->m3100_combined_done)) ret=-ENODATA;
++ if (!ret) ret=m3100_version_receive(&fifo,data,overhead);
++ if (!ret) ret=qup_m3100_combined_errors(qup);
++ if (!ret) ret=qup_i2c_bus_active(qup,ONE_BYTE);
++ if (ret) qup_m3100_task_snapshot(qup);
++ reset_ret=qup_i2c_change_state(qup,QUP_RESET_STATE);
++ if (!ret) ret=reset_ret;
++ if (!ret) ret=qup_m3100_combined_errors(qup);
++ WRITE_ONCE(qup->m3100_combined_active,false);
++ qup->msg=NULL;
++ if (!ret) {
++  memcpy(msgs[1].buf,data,4);
++  dev_info(qup->dev,"M3100 combined version transaction complete: TX11 RX6 overhead=%02x,%02x\n",overhead[0],overhead[1]);
++ }
++ return ret?ret:2;
++}
++
+ static int qup_i2c_xfer_v2(struct i2c_adapter *adap,
+ 			   struct i2c_msg msgs[],
+ 			   int num)
+@@ -1724,6 +1850,11 @@
+ 	qup_m3100_stage(qup,"master-generator-poll");
+ 	if (qup_i2c_poll_state_i2c_master(qup)) {
+ 		ret = -EIO;
++		goto out;
++	}
++
++	if (qup_m3100_combined_match(qup,msgs,num)) {
++		ret=qup_m3100_combined_version(qup,msgs);
+ 		goto out;
+ 	}
+ 
+@@ -1879,6 +2010,8 @@
+ 	qup->dev = &pdev->dev;
+ 	spin_lock_init(&qup->m3100_lock);
+ 	qup->m3100_diag = qup_m3100_diagnostics_match(&pdev->dev);
++	qup->m3100_combined_trial = qup->m3100_diag &&
++		of_property_read_bool(pdev->dev.of_node,"inseego,m3100-combined-version-trial");
+ 	init_completion(&qup->xfer);
+ 	platform_set_drvdata(pdev, qup);
+ 
+--- a/drivers/pci/controller/dwc/pcie-qcom.c
++++ b/drivers/pci/controller/dwc/pcie-qcom.c
+@@ -295,7 +295,7 @@
+  struct i2c_adapter *adapter;
+  int ret;
+  if (!of_property_read_bool(dev->of_node,"inseego,m3100-stock-switch-wa"))
+-  return 0;
++  return of_property_read_bool(dev->of_node,"inseego,m3100-version-only") ? -EINVAL : 0;
+  if (!of_machine_is_compatible("inseego,m3100") ||
+      !of_device_is_compatible(dev->of_node,"qcom,pcie-sdx65"))
+   return -ENODEV;
+@@ -303,6 +303,10 @@
+  expected=of_find_node_by_path("/soc/i2c@835000");
+  if (!node || !expected || node!=expected || !of_device_is_available(node) ||
+      !of_device_is_compatible(node,"qcom,i2c-qup-v2.2.1")) {
++  of_node_put(node); of_node_put(expected); return -EINVAL;
++ }
++ if (of_property_read_bool(node,"inseego,m3100-combined-version-trial") !=
++     of_property_read_bool(dev->of_node,"inseego,m3100-version-only")) {
+   of_node_put(node); of_node_put(expected); return -EINVAL;
+  }
+  of_node_put(expected);
+@@ -357,6 +361,16 @@
+   .read=m3100_switch_read,.write=m3100_switch_write};
+  int ret;
+  if (!pcie->m3100_switch) return 0;
++ if (of_property_read_bool(pcie->pci->dev->of_node,"inseego,m3100-version-only")) {
++  unsigned int version=0;
++  ret=m3100_switch_read(pcie,0x800000,&version);
++  if (!ret && (version&0xff)!=1) ret=-ENODEV;
++  dev_info(pcie->pci->dev,"M3100 VERSION-ONLY rawret=%d valid=%u result=%d; no WA writes or LTSSM\n",
++   pcie->m3100_read_raw_ret,pcie->m3100_read_valid,ret);
++  if (pcie->m3100_read_valid) dev_info(pcie->pci->dev,"M3100 VERSION-ONLY received=%08x\n",version);
++  /* Intentional diagnostic abort even after valid lowbyte1. */
++  return ret?ret:-ECANCELED;
++ }
+  ret=m3100_wa_run(&io);
+  /* Print after all operations/abort, never before the first version read. */
+  dev_info(pcie->pci->dev,"M3100 WA timing ns perst=%llu read_start=%llu read_end=%llu rawret=%d valid=%u\n",
+--- /dev/null
++++ b/drivers/i2c/busses/i2c-qup-m3100-version.h
+@@ -0,0 +1,41 @@
++/* M3100 exact version transaction core, shared by kernel and host fixtures.
++ * Stock output tags: START77W, WRITE3(800000), START77R, READ4+STOP.
++ * Stock RX framing is two overhead bytes followed by four data bytes.
++ * Numeric overhead values are intentionally not invented or validated.
++ */
++static const unsigned char m3100_version_tx[11]={0x81,0xee,0x82,3,0x80,0,0,0x81,0xef,0x87,4};
++static int m3100_version_shape(unsigned int n,unsigned int a0,unsigned int f0,unsigned int l0,
++ const unsigned char *tx,unsigned int a1,unsigned int f1,unsigned int l1)
++{
++ return n==2 && a0==0x77 && f0==0 && l0==3 && tx &&
++ tx[0]==0x80 && tx[1]==0 && tx[2]==0 && a1==0x77 && f1==1 && l1==4;
++}
++static unsigned int m3100_version_tx_word(unsigned int word)
++{
++ unsigned int value=0,j;
++ for(j=0;j<4;j++)if(word*4+j<11)value|=(unsigned int)m3100_version_tx[word*4+j]<<(8*j);
++ return value;
++}
++static int m3100_version_irq_result(unsigned int bus,unsigned int core,unsigned int op)
++{
++ if(bus||core)return (bus&8)?-ENXIO:-EIO;
++ return (op&(1U<<11))?1:0;
++}
++struct m3100_version_fifo {
++ void *context;
++ unsigned int (*op)(void *);
++ unsigned int (*word)(void *);
++};
++static int m3100_version_receive(struct m3100_version_fifo *fifo,unsigned char out[4],unsigned char overhead[2])
++{
++ unsigned char raw[8];unsigned int i,j,word;
++ for(i=0;i<2;i++) {
++  if(!(fifo->op(fifo->context)&(1U<<5)))return -EMSGSIZE;
++  word=fifo->word(fifo->context);
++  for(j=0;j<4;j++)raw[i*4+j]=word>>(8*j);
++ }
++ if(fifo->op(fifo->context)&(1U<<5))return -EOVERFLOW;
++ for(i=0;i<4;i++)out[i]=raw[i+2];
++ overhead[0]=raw[0];overhead[1]=raw[1];
++ return 0;
++}

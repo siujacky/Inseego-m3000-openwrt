@@ -1,0 +1,6 @@
+command [get_dns_filter]
+
+DNS Filter status is: [Disabled]
+DNS Filter List Configured: [WhileList]
+DNS Filter Last Operation: [Deleted]
+DNS Filter URL List: []

@@ -1,0 +1,4 @@
+command [get_unread]
+
+cmd_get_unread returned 0 (SMS: success.)
+count:[0]

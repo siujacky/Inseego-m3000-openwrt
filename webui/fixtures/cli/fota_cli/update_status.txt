@@ -1,0 +1,4 @@
+command [update_status]
+
+Usage:
+/opt/nvtl/bin/fota_cli update_status <Agent name>

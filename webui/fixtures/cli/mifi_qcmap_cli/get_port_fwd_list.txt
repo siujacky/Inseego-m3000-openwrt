@@ -1,0 +1,5 @@
+command [get_port_fwd_list]
+
+cmd_router2_get_port_fwd_app_list returned 0 (MIFI_QCMAP: success.)
+
+Port forwarding List...

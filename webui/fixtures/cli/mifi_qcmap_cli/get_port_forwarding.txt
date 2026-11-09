@@ -1,0 +1,4 @@
+command [get_port_forwarding]
+
+cmd_router2_get_port_forwarding_status returned 0 (MIFI_QCMAP: success.)
+Port forwarding is:   [Disable]

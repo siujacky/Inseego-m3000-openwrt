@@ -1,0 +1,9 @@
+cmd_roam_get_eri returned 0 (MDM_MAIN: success.)
+Roaming eri prl ver :[0]
+Roaming eri eri ver :[0]
+Roaming eri ind id :[0]
+Roaming eri alert :[0]
+Roaming eri icon id:[0]
+Roaming eri icon mode:[0]
+Roaming eri text :[]
+

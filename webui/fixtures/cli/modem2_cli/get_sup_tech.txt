@@ -1,0 +1,3 @@
+cmd_get_sup_tech returned 0 (MDM_MAIN: success.)
+
+Available tech modes:[95] ( GSM UMTS CDMA EVDO LTE)

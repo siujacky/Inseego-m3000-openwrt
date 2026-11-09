@@ -1,0 +1,13 @@
+command [get_branding_info]
+
+settings_get_branding_info returned 0 (SETTINGS: success.)
+product_sku:[3000]
+product_variant_sku:[redacted]
+model:[M3100]
+carrier_brand:[M3100]
+cute_version:[7Z]
+pri_model:[M3100]
+branding_version:[1.0]
+carrier_id:[vzw]
+omadm_agent:[vzw]
+data_usage_agent:[vzw]

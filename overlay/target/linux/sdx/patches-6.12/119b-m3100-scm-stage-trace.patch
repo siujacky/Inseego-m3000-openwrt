@@ -1,0 +1,47 @@
+--- a/drivers/firmware/qcom/qcom_scm.c
++++ b/drivers/firmware/qcom/qcom_scm.c
+@@ -10,6 +10,7 @@
+ #include <linux/clk.h>
+ #include <linux/completion.h>
+ #include <linux/cpumask.h>
++#include <linux/delay.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/err.h>
+ #include <linux/export.h>
+@@ -713,6 +714,14 @@
+  *
+  * Return 0 on success.
+  */
++static void m3100_pas_trace(u32 pas_id, const char *stage, int ret)
++{
++	if (pas_id != 4 || !of_machine_is_compatible("inseego,m3100"))
++		return;
++	pr_info("M3100 PAS stage: %s ret=%d\n", stage, ret);
++	msleep(250);
++}
++
+ int qcom_scm_pas_auth_and_reset(u32 pas_id)
+ {
+ 	int ret;
+@@ -725,15 +734,21 @@
+ 	};
+ 	struct qcom_scm_res res;
+ 
++	m3100_pas_trace(pas_id, "before SCM clocks", 0);
+ 	ret = qcom_scm_clk_enable();
++	m3100_pas_trace(pas_id, "after SCM clocks", ret);
+ 	if (ret)
+ 		return ret;
+ 
++	m3100_pas_trace(pas_id, "before SCM bandwidth", 0);
+ 	ret = qcom_scm_bw_enable();
++	m3100_pas_trace(pas_id, "after SCM bandwidth", ret);
+ 	if (ret)
+ 		goto disable_clk;
+ 
++	m3100_pas_trace(pas_id, "before secure call", 0);
+ 	ret = qcom_scm_call(__scm->dev, &desc, &res);
++	m3100_pas_trace(pas_id, "after secure call", ret);
+ 	qcom_scm_bw_disable();
+ 
+ disable_clk:

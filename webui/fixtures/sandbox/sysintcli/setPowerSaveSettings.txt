@@ -1,0 +1,4 @@
+Starting sysint client library
+Enter deep sleep idle duration ( in seconds ) : Enter deep sleep max secs ( in seconds ) :Enter auto shutdown time ( in seconds ) :sys_setPowerSaveSettings returned 3 
+Stopping sysint client library 3
+sysinterfaceShutdown complete 0

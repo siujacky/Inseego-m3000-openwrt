@@ -1,0 +1,7 @@
+command [get_supported_languages]
+
+webui_get_supported_languages returned 3 (WEBUI: one or more buffer type parameters passed into API is too small.)
+Buffer Insufficient. count[2]
+webui_get_supported_languages returned 0 (WEBUI: success.)
+language_info[0].label:[ui_app_language_english_text] language_info[0].locale:[en_US]
+language_info[1].label:[ui_app_language_spanish_text] language_info[1].locale:[es_MX]

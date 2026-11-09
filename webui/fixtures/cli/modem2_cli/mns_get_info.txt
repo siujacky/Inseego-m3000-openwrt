@@ -1,0 +1,5 @@
+cmd_get_mns_info returned 1000 (MDM_MAIN: an error reading from the sim was encountered.)
+
+Is Allowed:[0]
+Is Selected:[0]
+Scan Status:[0]

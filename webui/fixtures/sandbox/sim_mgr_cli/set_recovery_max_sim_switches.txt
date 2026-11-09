@@ -1,0 +1,8 @@
+
+------------------------
+--[recovery] [set] connection recovery max sim switch cnt--
+
+[recovery] conn recovery max sim switch cnt: [6]
+cmd_set_recovery_max_sim_switches: [recovery] returned 1 (SIM_MGR: general error.)
+
+------------------------

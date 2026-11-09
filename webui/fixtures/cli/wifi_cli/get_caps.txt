@@ -1,0 +1,20 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [get_caps]
+
+wifi_get_capabilities returned 0 (WIFI: success.)
+WPS Available                      : [1]
+Allowed Wifi modes                 : [BGN, BG, B, G, GN, N2, ACN2, A, N5, AN, ACN5., AC5ONLY, BGNPLUSAX, ACNPLUSAX, ]
+Wifi support max clients           : [32]
+Wifi system max clients allowed    : [32]
+Wifi Max number of interface       : [2]
+Countries Supported                : [US,GB,AU,CA]
+Wifi US 2.4 GHz supported channels : [ 1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  ]
+Wifi US 5 GHz supported channels   : [36,  40,  44,  48,  149,  153,  157,  161,  ]
+Wifi JP 2.4 GHz supported channels : [36,  ]
+Wifi JP 5 GHz supported channels   : []
+Wifi GB 2.4 GHz supported channels : [ 1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,  13,  ]
+Wifi GB 5 GHz supported channels   : [36,  40,  44,  48,  ]
+Wifi AU 2.4 GHz supported channels : [ 1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,  13,  ]
+Wifi AU 5 GHz supported channels   : [36,  40,  44,  48,  149,  153,  157,  161,  ]
+Wifi CA 2.4 GHz supported channels : [ 1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  ]
+Wifi CA 5 GHz supported channels   : [36,  40,  44,  48,  149,  153,  157,  161,  ]
+WIFI_CLI_MBH: Disable Message bus interface

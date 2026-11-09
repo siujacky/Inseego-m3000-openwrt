@@ -1,0 +1,12 @@
+command [get_wan_monitor_properties]
+
+cmd_get_wan_monitor_properties returned 0 (WAN_MGR: success.)
+WAN monitor Enabled  : [1]
+WAN use client connected state : [0]
+WAN monitor retry count : [3]
+WAN monitor routed monitor interval : [30] sec
+WAN monitor online monitor interval : [3] min
+WAN monitor failed monitor interval : [10] sec
+WAN monitor dns url1 : [www.google.com]
+WAN monitor dns url2 : [www.yahoo.com]
+WAN monitor dns url3 : [www.inseego.com]

@@ -1,0 +1,7 @@
+imsi =
+ cmd_get_sig_qlty_configs returned 2 (SIM_MGR: one or more bad parameters passed into a function.)
+
+rsrp: [0]
+time duration: [0]
+max signal strength switches: [0]
+signal strength backoff time period: [0]

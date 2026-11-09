@@ -1,0 +1,3 @@
+command [get_iface1_link]
+
+cmd_get_ethernet1_iface_link returned 4 (MIFI_QCMAP: the feature is unsupported.)

@@ -1,0 +1,18 @@
+Enter APN Technology (LTE=0, UMTS=1, eHRPD=2): cmd_prof_get_pri_tech returned 0 (MDM_MAIN: success.)
+
+APN:[vzwinternet]
+User Name:[]
+Password:[]
+Name:[]
+Locked:[0] (none=0, enabled=1, auto=2)
+Authenticate:[0] (none=0, PAP=1, CHAP=2)
+Manual DNS:[1] (none=0, enabled=1)
+DNS1:[0.0.0.0]
+DNS2:[0.0.0.0]
+PDP Type:[3] (ipv4=0, ppp=1, ipv6=2, ipv4v6=3)
+APN Disabled:[0] (enabled=0, disabled=1)
+PDN Inactivity Timeout:[0]
+IPV4 address:[0.0.0.0]
+IPV6 address:[::]
+Data Mode:[0] (CDMA or HDR=0, CDMA=1, HDR=2)
+PDP Type 3GPP2:[0] (ipv4=0, ipv6=1, ipv4v6=2, no pref=3)

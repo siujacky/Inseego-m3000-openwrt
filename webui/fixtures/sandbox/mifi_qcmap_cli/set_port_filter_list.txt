@@ -1,0 +1,5 @@
+command [set_port_filter_list]
+
+Record[1]: start:[80] end:[80] type:[1]
+Record[1]: Enable:[1] name:[HTTP] start:[80] end:[80] type:[1]
+cmd_router2_set_port_filter_app_list returned 5 (MIFI_QCMAP: process not running.)

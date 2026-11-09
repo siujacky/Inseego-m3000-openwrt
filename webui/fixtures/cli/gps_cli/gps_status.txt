@@ -1,0 +1,4 @@
+command [gps_status]
+
+cmd_gps_status returned 0 (GPS: success.)
+status:[Disabled]

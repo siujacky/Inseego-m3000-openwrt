@@ -1,0 +1,4 @@
+command [set_acs_server_config]
+
+Enter Username: Enter Password: Enter URL: Enter Port number: Enter Cellular-WAN Interface Type (1=Cellular(rmnet_data0), 0=USB(eth0)): Enter IP Type (1=IPV4, 0=IPV6): username=[user], password=[redacted], URL=[acs.example.net], port=[7547], Interface=[1], IPType=[1]
+cmd_tr069_set_acs_server_config returned 5 (TR069: process not running.)

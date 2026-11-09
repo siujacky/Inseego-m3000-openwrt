@@ -1,0 +1,17 @@
+command [get_state]
+
+usb_get_state returned 0 (USB: success.)
+usb_default_mode=[0][Debug]
+enterprise_mode_enabled=[0]
+mac_addr_host=[02:00:00:00:00:01]
+mac_addr_dev=[02:00:00:00:00:01]
+start_mode=[3][Online]
+net_if_name=[rndis0]
+net_if_func_name=[rndis]
+pid=[0xB023]
+function_list=[rndis,dun,diag,adb,hid]
+usb_gadget_configured=[1]
+auto_detect_running=[0]
+usb_resumed_not_configured=[0]
+usb_tether_change_pending=[0]
+temp_tether=[0][Invalid]

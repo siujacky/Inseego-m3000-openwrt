@@ -1,0 +1,8 @@
+command [get_profile_update_status]
+
+webui_get_profile_update_status returned 0 (WEBUI: success.)
+status:[0]
+iValue:[0]
+sValue:[]
+errType:[0]
+retry:no[0] interval[0] total[0]

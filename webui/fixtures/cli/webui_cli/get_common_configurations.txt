@@ -1,0 +1,10 @@
+command [get_common_configurations]
+
+webui_get_common_configurations returned 3 (WEBUI: one or more buffer type parameters passed into API is too small.)
+Buffer Insufficient node count[5]
+webui_get_common_configurations returned 0 (WEBUI: success.)
+configurations[0].config_name:[AutomaticTechMode] configurations[0].value:[50]
+configurations[1].config_name:[MnsTechMode] configurations[1].value:[2]
+configurations[2].config_name:[MDNDelimiter] configurations[2].value:[1]
+configurations[3].config_name:[SwapToggleButtonAction] configurations[3].value:[1]
+configurations[4].config_name:[RestartWaitTimeout] configurations[4].value:[120000]

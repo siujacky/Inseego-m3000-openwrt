@@ -1,0 +1,4 @@
+command [get_ipsec_vpn]
+
+vpn_get_ipsec_vpn_enabled returned 0x0 (VPN: success.)
+VPN IPSec VPN Service status (0=Disable, 1=Enable) is: [0]

@@ -1,0 +1,5 @@
+command [get_log_settings]
+
+mifi_health_get_log_settings returned 0 (MIFI_HEALTH: success.)
+enabled:[1]
+upload_interval:[86400]

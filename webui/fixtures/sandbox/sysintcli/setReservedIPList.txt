@@ -1,0 +1,4 @@
+Starting sysint client library
+Enter number of reserved IP addresses you want to set:Enter host name:Enter type (0 - 10 (see sys_device_type_e sys_interface_types.h) :Enter mac (xx:xx:xx:xx:xx:xx):Enter reserved ip address (x.x.x.x):sys_setDHCPReservedAddrList returned 6
+Stopping sysint client library 6
+sysinterfaceShutdown complete 0

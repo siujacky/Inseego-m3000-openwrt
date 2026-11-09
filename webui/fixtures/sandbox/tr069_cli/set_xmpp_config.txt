@@ -1,0 +1,4 @@
+command [set_xmpp_config]
+
+Enter Username: Enter Password: Enter URL: Enter Jabber ID: Enter Port number: Enter XMPP status (0=Disable, 1=Enable): username=[], password=[], URL=[], Jabber ID=[], Port Number=[0], Level=[0]
+cmd_tr069_set_xmpp_config returned 5 (TR069: process not running.)

@@ -1,0 +1,2 @@
+Enter LTE band: cmd_lte_band_get_enabled returned 0 (MDM_MAIN: success.)
+LTE band enabled:[1]

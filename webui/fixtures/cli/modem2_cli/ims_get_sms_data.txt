@@ -1,0 +1,8 @@
+cmd_ims_get_sms_data returned 0 (MDM_MAIN: success.)
+SMS VDN:[]
+SMS format:[0]
+Accept contact:[]
+SMS rat config mask:[]
+Rat mask value:[]
+URI:[]
+SMS over ip networks:[0]

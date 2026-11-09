@@ -1,0 +1,11 @@
+command [get_wan_priority_list]
+
+cmd_get_wan_priority_list returned 0 (WAN_MGR: success.)
+Supported WAN count : [2]
+_________________________________________________________________ 
+WAN manager wan wan_type : [WWAN]
+WAN manager priority     : [1]
+-------------------------------------------------------------------
+WAN manager wan wan_type : [Ethernet WAN]
+WAN manager priority     : [2]
+-------------------------------------------------------------------

@@ -1,0 +1,15 @@
+--- a/drivers/mtd/nand/raw/qcom_nandc.c
++++ b/drivers/mtd/nand/raw/qcom_nandc.c
+@@ -2188,9 +2188,10 @@
+ 	if (ret)
+ 		return ret;
+ 
+-	/* H5 RAM bring-up: expose all NAND partitions read-only. */
+-	if (of_machine_is_compatible("greenpacket,h5-200q1"))
++	/* RAM bring-up: protect storage below UBI, including background writes. */
++	if (of_machine_is_compatible("greenpacket,h5-200q1") ||
++	    of_machine_is_compatible("inseego,m3100"))
+ 		mtd->flags &= ~MTD_WRITEABLE;
+ 
+ 	ret = mtd_device_parse_register(mtd, probes, NULL, NULL, 0);
+ 	if (ret)

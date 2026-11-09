@@ -1,0 +1,3 @@
+command [set_ippt]
+
+Enter active (0,1): Enter Interface (1=USB, 2=Ethernet): Enter hostname of the client:cmd_router2_set_ippt returned 1 (MIFI_QCMAP: general error.)

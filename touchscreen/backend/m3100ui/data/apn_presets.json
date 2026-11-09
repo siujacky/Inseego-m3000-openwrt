@@ -1,0 +1,1854 @@
+{
+ "version": 1,
+ "generated_from": {
+  "m2000": "apn_database.xml v1.3",
+  "m8800l": "apn_database.xml v1.2",
+  "stock": "apn_database.xml v2.1"
+ },
+ "notes": "Vendor auto-APN databases (stock firmware plus two third-party mod ROMs), merged and de-duplicated. gid1 is the decimal SIM GID1 group id the vendor database keys sub-brands on.",
+ "count": 105,
+ "presets": [
+  {
+   "mccmnc": "20801",
+   "mcc": "208",
+   "mnc": "01",
+   "operator": "Transatel",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "mobiledata",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "20822",
+   "mcc": "208",
+   "mnc": "22",
+   "operator": "Transatel",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "mobiledata",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "22802",
+   "mcc": "228",
+   "mnc": "02",
+   "operator": "Sunrise",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "23420",
+   "mcc": "234",
+   "mnc": "20",
+   "operator": "3uk",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "three.co.uk",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "23420",
+   "mcc": "234",
+   "mnc": "20",
+   "operator": "3uk",
+   "gid1": "311",
+   "gid1_name": "Gamma",
+   "name": "Mobile Broadband",
+   "apn": "gamma",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "23806",
+   "mcc": "238",
+   "mnc": "06",
+   "operator": "3DK",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "bredband.tre.dk",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "25001",
+   "mcc": "250",
+   "mnc": "01",
+   "operator": "MTS RUS",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet.mts.ru",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "25002",
+   "mcc": "250",
+   "mnc": "02",
+   "operator": "Megafon",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "25005",
+   "mcc": "250",
+   "mnc": "05",
+   "operator": "Tele2 3",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "25011",
+   "mcc": "250",
+   "mnc": "11",
+   "operator": "Yota",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet.yota",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "25012",
+   "mcc": "250",
+   "mnc": "12",
+   "operator": "Tele2 2",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "25020",
+   "mcc": "250",
+   "mnc": "20",
+   "operator": "Tele2",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "25035",
+   "mcc": "250",
+   "mnc": "35",
+   "operator": "Motiv",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "inet.ycc.ru",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "25099",
+   "mcc": "250",
+   "mnc": "99",
+   "operator": "Beeline",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet.beeline.ru",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "25501",
+   "mcc": "255",
+   "mnc": "01",
+   "operator": "Vodafone UA",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "25503",
+   "mcc": "255",
+   "mnc": "03",
+   "operator": "Kyivstar",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "KS",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "25506",
+   "mcc": "255",
+   "mnc": "06",
+   "operator": "lifecell",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302220",
+   "mcc": "302",
+   "mnc": "220",
+   "operator": "Telus",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "isp.telus.com",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302320",
+   "mcc": "302",
+   "mnc": "320",
+   "operator": "Mobilicty",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "chatrweb.apn",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "302370",
+   "mcc": "302",
+   "mnc": "370",
+   "operator": "Bell MTS",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet.mts",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302370",
+   "mcc": "302",
+   "mnc": "370",
+   "operator": "Rogers",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "ltemobile.apn",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m2000"
+   ]
+  },
+  {
+   "mccmnc": "302370",
+   "mcc": "302",
+   "mnc": "370",
+   "operator": "Bell MTS",
+   "gid1": "221",
+   "gid1_name": "Fido",
+   "name": "Mobile Broadband",
+   "apn": "lteinternet.apn",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302610",
+   "mcc": "302",
+   "mnc": "610",
+   "operator": "Bell Mobility",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "inet.bell.ca",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302610",
+   "mcc": "302",
+   "mnc": "610",
+   "operator": "Bell Mobility",
+   "gid1": "61",
+   "gid1_name": "Bell",
+   "name": "Mobile Broadband",
+   "apn": "inet.bell.ca",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302610",
+   "mcc": "302",
+   "mnc": "610",
+   "operator": "Bell Mobility",
+   "gid1": "62",
+   "gid1_name": "Virgin Mobile",
+   "name": "Mobile Broadband",
+   "apn": "inet.bell.ca",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302610",
+   "mcc": "302",
+   "mnc": "610",
+   "operator": "Bell Mobility",
+   "gid1": "63",
+   "gid1_name": "Solo",
+   "name": "Mobile Broadband",
+   "apn": "inet.bell.ca",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302610",
+   "mcc": "302",
+   "mnc": "610",
+   "operator": "Bell Mobility",
+   "gid1": "64",
+   "gid1_name": "PC Mobile",
+   "name": "Mobile Broadband",
+   "apn": "inet.bell.ca",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302610",
+   "mcc": "302",
+   "mnc": "610",
+   "operator": "Bell Mobility",
+   "gid1": "66",
+   "gid1_name": "Lucky Mobile",
+   "name": "Mobile Broadband",
+   "apn": "connect",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302660",
+   "mcc": "302",
+   "mnc": "660",
+   "operator": "Bell MTS",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet.mts",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302690",
+   "mcc": "302",
+   "mnc": "690",
+   "operator": "Bell Enterprise Sim",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "inet.bell.ca.m2m",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302690",
+   "mcc": "302",
+   "mnc": "690",
+   "operator": "Bell Enterprise Sim",
+   "gid1": "61",
+   "gid1_name": "Ericsson 1",
+   "name": "Mobile Broadband",
+   "apn": "inet.bell.ca.m2m",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302690",
+   "mcc": "302",
+   "mnc": "690",
+   "operator": "Bell Enterprise Sim",
+   "gid1": "65",
+   "gid1_name": "Jasper",
+   "name": "Mobile Broadband",
+   "apn": "mnet.bell.ca.ioe",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302690",
+   "mcc": "302",
+   "mnc": "690",
+   "operator": "Bell Enterprise Sim",
+   "gid1": "67",
+   "gid1_name": "Ericsson 2",
+   "name": "Mobile Broadband",
+   "apn": "inet.bell.ca.m2m",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302720",
+   "mcc": "302",
+   "mnc": "720",
+   "operator": "Rogers",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "lteinternet.apn",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302720",
+   "mcc": "302",
+   "mnc": "720",
+   "operator": "Rogers",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "ltemobile.apn",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m2000"
+   ]
+  },
+  {
+   "mccmnc": "302720",
+   "mcc": "302",
+   "mnc": "720",
+   "operator": "Rogers",
+   "gid1": "164",
+   "gid1_name": "Rogers SA",
+   "name": "Mobile Broadband",
+   "apn": "data.apn",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "302720",
+   "mcc": "302",
+   "mnc": "720",
+   "operator": "Rogers",
+   "gid1": "186",
+   "gid1_name": "TBayTel",
+   "name": "Mobile Broadband",
+   "apn": "lteinternet.apn",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302720",
+   "mcc": "302",
+   "mnc": "720",
+   "operator": "Rogers",
+   "gid1": "204",
+   "gid1_name": "Cityfone",
+   "name": "Mobile Broadband",
+   "apn": "lteinternet.apn",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "302720",
+   "mcc": "302",
+   "mnc": "720",
+   "operator": "Rogers",
+   "gid1": "210",
+   "gid1_name": "Chatr",
+   "name": "Mobile Broadband",
+   "apn": "lteinternet.apn",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "302720",
+   "mcc": "302",
+   "mnc": "720",
+   "operator": "Rogers",
+   "gid1": "212",
+   "gid1_name": "Ztar",
+   "name": "Mobile Broadband",
+   "apn": "ltemobile.apn",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "302721",
+   "mcc": "302",
+   "mnc": "721",
+   "operator": "Rogers Private",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "rogerswpn.apn",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "302780",
+   "mcc": "302",
+   "mnc": "780",
+   "operator": "Sasktel",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "inet.stm.sk.ca",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "310240",
+   "mcc": "310",
+   "mnc": "240",
+   "operator": "Assurance",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "asw.data",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "310240",
+   "mcc": "310",
+   "mnc": "240",
+   "operator": "Assurance",
+   "gid1": "2683",
+   "gid1_name": "Assurance",
+   "name": "Mobile Broadband",
+   "apn": "asw.data",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "310260",
+   "mcc": "310",
+   "mnc": "260",
+   "operator": "T-Mobile",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "fast.t-mobile.com",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "310260",
+   "mcc": "310",
+   "mnc": "260",
+   "operator": "T-Mobile",
+   "gid1": "10956",
+   "gid1_name": "Metro PCS",
+   "name": "Mobile Broadband",
+   "apn": "fast.metropcs.com",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000"
+   ]
+  },
+  {
+   "mccmnc": "310280",
+   "mcc": "310",
+   "mnc": "280",
+   "operator": "AT&T Wireless",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "broadband",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "310280",
+   "mcc": "310",
+   "mnc": "280",
+   "operator": "AT&T Wireless",
+   "gid1": "82",
+   "gid1_name": "AT&T Wireless",
+   "name": "5G Mobile Broadband",
+   "apn": "5gcbroadband",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "310280",
+   "mcc": "310",
+   "mnc": "280",
+   "operator": "AT&T Wireless",
+   "gid1": "83",
+   "gid1_name": "AT&T Wireless",
+   "name": "5G Mobile Broadband",
+   "apn": "nrbroadband",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "310370",
+   "mcc": "310",
+   "mnc": "370",
+   "operator": "DoCoMo",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "310410",
+   "mcc": "310",
+   "mnc": "410",
+   "operator": "AT&T Wireless",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "broadband",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "310410",
+   "mcc": "310",
+   "mnc": "410",
+   "operator": "AT&T Wireless",
+   "gid1": "82",
+   "gid1_name": "AT&T Wireless",
+   "name": "5G Mobile Broadband",
+   "apn": "5gcbroadband",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "310410",
+   "mcc": "310",
+   "mnc": "410",
+   "operator": "AT&T Wireless",
+   "gid1": "83",
+   "gid1_name": "AT&T Wireless",
+   "name": "5G Mobile Broadband",
+   "apn": "nrbroadband",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "310730",
+   "mcc": "310",
+   "mnc": "730",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "311220",
+   "mcc": "311",
+   "mnc": "220",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "311221",
+   "mcc": "311",
+   "mnc": "221",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311222",
+   "mcc": "311",
+   "mnc": "222",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311223",
+   "mcc": "311",
+   "mnc": "223",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311224",
+   "mcc": "311",
+   "mnc": "224",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311225",
+   "mcc": "311",
+   "mnc": "225",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311226",
+   "mcc": "311",
+   "mnc": "226",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311227",
+   "mcc": "311",
+   "mnc": "227",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311228",
+   "mcc": "311",
+   "mnc": "228",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311229",
+   "mcc": "311",
+   "mnc": "229",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311370",
+   "mcc": "311",
+   "mnc": "370",
+   "operator": "GCI",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "web.gci",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "311480",
+   "mcc": "311",
+   "mnc": "480",
+   "operator": "Verizon Wireless",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "vzwinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "311580",
+   "mcc": "311",
+   "mnc": "580",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311581",
+   "mcc": "311",
+   "mnc": "581",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311582",
+   "mcc": "311",
+   "mnc": "582",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311583",
+   "mcc": "311",
+   "mnc": "583",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311584",
+   "mcc": "311",
+   "mnc": "584",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311585",
+   "mcc": "311",
+   "mnc": "585",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311586",
+   "mcc": "311",
+   "mnc": "586",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311587",
+   "mcc": "311",
+   "mnc": "587",
+   "operator": "USCC",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "usccinternet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "311882",
+   "mcc": "311",
+   "mnc": "882",
+   "operator": "Sprint Curiosity",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet.curiosity.sprint.com",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "311882",
+   "mcc": "311",
+   "mnc": "882",
+   "operator": "T-Mobile",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "iot.t-mobile.com",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "313100",
+   "mcc": "313",
+   "mnc": "100",
+   "operator": "FirstNet",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "firstnet-broadband",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "313640",
+   "mcc": "313",
+   "mnc": "640",
+   "operator": "Geoverse",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "geoverse.home",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "346007",
+   "mcc": "346",
+   "mnc": "007",
+   "operator": "Paradise Cayman",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "350007",
+   "mcc": "350",
+   "mnc": "007",
+   "operator": "Paradise Bermuda",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "40440",
+   "mcc": "404",
+   "mnc": "40",
+   "operator": "Airtel",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "airtelgprs.com",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "40444",
+   "mcc": "404",
+   "mnc": "44",
+   "operator": "Idea",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "40445",
+   "mcc": "404",
+   "mnc": "45",
+   "operator": "Airtel",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "airtelgprs.com",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "40484",
+   "mcc": "404",
+   "mnc": "84",
+   "operator": "VIL",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "portalnmms",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "40486",
+   "mcc": "404",
+   "mnc": "86",
+   "operator": "Vodafone",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "www",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "405854",
+   "mcc": "405",
+   "mnc": "854",
+   "operator": "Jio",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "jionet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000",
+    "m8800l"
+   ]
+  },
+  {
+   "mccmnc": "41902",
+   "mcc": "419",
+   "mnc": "02",
+   "operator": "Zain Kuwait",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "pps",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "41903",
+   "mcc": "419",
+   "mnc": "03",
+   "operator": "Ooredoo Kuwait",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "action.ooredoo.com",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "41904",
+   "mcc": "419",
+   "mnc": "04",
+   "operator": "Viva Kuwait",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "viva",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "42001",
+   "mcc": "420",
+   "mnc": "01",
+   "operator": "STC Saudi",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "jawalnet.com.sa",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "42003",
+   "mcc": "420",
+   "mnc": "03",
+   "operator": "Etihad Saudi",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "web1",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "42004",
+   "mcc": "420",
+   "mnc": "04",
+   "operator": "Zain Saudi",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "zain",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "42007",
+   "mcc": "420",
+   "mnc": "07",
+   "operator": "Zain Saudi",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "zain",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "42202",
+   "mcc": "422",
+   "mnc": "02",
+   "operator": "GTO Oman",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "taif",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "42203",
+   "mcc": "422",
+   "mnc": "03",
+   "operator": "Nawras Oman",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "isp.nawras.com.om",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "42402",
+   "mcc": "424",
+   "mnc": "02",
+   "operator": "Etisalat UAE",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "etisalat.ae",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "42403",
+   "mcc": "424",
+   "mnc": "03",
+   "operator": "Du",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "du",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "42601",
+   "mcc": "426",
+   "mnc": "01",
+   "operator": "Batelco Bahrain",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "mms.batelco.com",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "42602",
+   "mcc": "426",
+   "mnc": "02",
+   "operator": "Zain Bahrain",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "internet",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "42604",
+   "mcc": "426",
+   "mnc": "04",
+   "operator": "VIVA Bahrain",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "viva.bh",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "42701",
+   "mcc": "427",
+   "mnc": "01",
+   "operator": "Ooredoo Qatar",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "data",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "42702",
+   "mcc": "427",
+   "mnc": "02",
+   "operator": "Vodafone Qatar",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "web.vodafone.com.qa",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "44011",
+   "mcc": "440",
+   "mnc": "11",
+   "operator": "Rakuten",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "rakuten.jp",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  },
+  {
+   "mccmnc": "44014",
+   "mcc": "440",
+   "mnc": "14",
+   "operator": "Sumitomo",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "grape1.jp",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock",
+    "m2000"
+   ]
+  },
+  {
+   "mccmnc": "90137",
+   "mcc": "901",
+   "mnc": "37",
+   "operator": "Transatel",
+   "gid1": "",
+   "gid1_name": "",
+   "name": "Mobile Broadband",
+   "apn": "mobiledata",
+   "username": "",
+   "password": "",
+   "auth": "none",
+   "private": false,
+   "sources": [
+    "stock"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,4 @@
+command [get_http_redirect]
+
+cmd_router2_get_http_redirect_status returned 0 (MIFI_QCMAP: success.)
+HTTP redirect is:   [Enable]

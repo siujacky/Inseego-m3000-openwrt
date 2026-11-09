@@ -1,0 +1,4 @@
+command [set_stealth_mode_enabled]
+
+Select Stealth mode enabled setting [0("not enabled"), 1("Enabled")]enabled: 0
+ans_set_stealth_mode_enabled returned 1 (ANS: general error.)

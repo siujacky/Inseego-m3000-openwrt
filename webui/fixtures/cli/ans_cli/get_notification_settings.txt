@@ -1,0 +1,240 @@
+command [get_notification_settings]
+
+ans_get_notification_settings returned 3 (ANS: one or more buffer type parameters passed into API is too small.)
+ans_get_notification_settings returned 0 (ANS: success.)
+ANS notifications item List:
+list[0].id:[startup]
+list[0].enabled:[1]
+list[0].audio_alert_enabled:[1]
+list[0].wake_display_enabled:[0]
+list[0].display_surfaces:[0](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[1].id:[shutdown]
+list[1].enabled:[1]
+list[1].audio_alert_enabled:[1]
+list[1].wake_display_enabled:[0]
+list[1].display_surfaces:[0](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[2].id:[battery10]
+list[2].enabled:[1]
+list[2].audio_alert_enabled:[1]
+list[2].wake_display_enabled:[1]
+list[2].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[3].id:[batteryCritical]
+list[3].enabled:[1]
+list[3].audio_alert_enabled:[1]
+list[3].wake_display_enabled:[1]
+list[3].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[4].id:[batteryCharging]
+list[4].enabled:[1]
+list[4].audio_alert_enabled:[1]
+list[4].wake_display_enabled:[1]
+list[4].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[5].id:[batteryFull]
+list[5].enabled:[1]
+list[5].audio_alert_enabled:[1]
+list[5].wake_display_enabled:[1]
+list[5].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[6].id:[lowCharger]
+list[6].enabled:[1]
+list[6].audio_alert_enabled:[1]
+list[6].wake_display_enabled:[1]
+list[6].display_surfaces:[2](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[7].id:[batteryPreservationEnabled]
+list[7].enabled:[1]
+list[7].audio_alert_enabled:[1]
+list[7].wake_display_enabled:[1]
+list[7].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[8].id:[batteryPreservationDisabled]
+list[8].enabled:[1]
+list[8].audio_alert_enabled:[1]
+list[8].wake_display_enabled:[1]
+list[8].display_surfaces:[2](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[9].id:[simNone]
+list[9].enabled:[1]
+list[9].audio_alert_enabled:[1]
+list[9].wake_display_enabled:[1]
+list[9].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[10].id:[simRestricted]
+list[10].enabled:[1]
+list[10].audio_alert_enabled:[0]
+list[10].wake_display_enabled:[1]
+list[10].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[11].id:[simPairingLocked]
+list[11].enabled:[1]
+list[11].audio_alert_enabled:[0]
+list[11].wake_display_enabled:[1]
+list[11].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[12].id:[simError]
+list[12].enabled:[1]
+list[12].audio_alert_enabled:[1]
+list[12].wake_display_enabled:[1]
+list[12].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[13].id:[simPINLocked]
+list[13].enabled:[1]
+list[13].audio_alert_enabled:[0]
+list[13].wake_display_enabled:[1]
+list[13].display_surfaces:[1](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[14].id:[simPUKLocked]
+list[14].enabled:[1]
+list[14].audio_alert_enabled:[0]
+list[14].wake_display_enabled:[1]
+list[14].display_surfaces:[1](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[15].id:[simNonVZW]
+list[15].enabled:[1]
+list[15].audio_alert_enabled:[1]
+list[15].wake_display_enabled:[1]
+list[15].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[16].id:[PCO2]
+list[16].enabled:[1]
+list[16].audio_alert_enabled:[1]
+list[16].wake_display_enabled:[1]
+list[16].display_surfaces:[1](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[17].id:[PCO3]
+list[17].enabled:[1]
+list[17].audio_alert_enabled:[1]
+list[17].wake_display_enabled:[1]
+list[17].display_surfaces:[1](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[18].id:[PCO5]
+list[18].enabled:[1]
+list[18].audio_alert_enabled:[1]
+list[18].wake_display_enabled:[1]
+list[18].display_surfaces:[1](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[19].id:[mnsAuto]
+list[19].enabled:[1]
+list[19].audio_alert_enabled:[0]
+list[19].wake_display_enabled:[1]
+list[19].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[20].id:[saFivegMode]
+list[20].enabled:[1]
+list[20].audio_alert_enabled:[0]
+list[20].wake_display_enabled:[1]
+list[20].display_surfaces:[1](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[21].id:[nsaFivegMode]
+list[21].enabled:[1]
+list[21].audio_alert_enabled:[0]
+list[21].wake_display_enabled:[1]
+list[21].display_surfaces:[1](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[22].id:[switchToGlobalMode]
+list[22].enabled:[1]
+list[22].audio_alert_enabled:[0]
+list[22].wake_display_enabled:[1]
+list[22].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[23].id:[noService]
+list[23].enabled:[1]
+list[23].audio_alert_enabled:[1]
+list[23].wake_display_enabled:[1]
+list[23].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[24].id:[roaming]
+list[24].enabled:[1]
+list[24].audio_alert_enabled:[1]
+list[24].wake_display_enabled:[1]
+list[24].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[25].id:[roamingDomestic]
+list[25].enabled:[0]
+list[25].audio_alert_enabled:[1]
+list[25].wake_display_enabled:[1]
+list[25].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[26].id:[roamingInternational]
+list[26].enabled:[0]
+list[26].audio_alert_enabled:[1]
+list[26].wake_display_enabled:[1]
+list[26].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[27].id:[deviceJoinWiFi]
+list[27].enabled:[1]
+list[27].audio_alert_enabled:[1]
+list[27].wake_display_enabled:[1]
+list[27].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[28].id:[wifiDisabled]
+list[28].enabled:[1]
+list[28].audio_alert_enabled:[1]
+list[28].wake_display_enabled:[1]
+list[28].display_surfaces:[2](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[29].id:[smsReceived]
+list[29].enabled:[1]
+list[29].audio_alert_enabled:[1]
+list[29].wake_display_enabled:[1]
+list[29].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[30].id:[wdcpDone]
+list[30].enabled:[1]
+list[30].audio_alert_enabled:[0]
+list[30].wake_display_enabled:[1]
+list[30].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[31].id:[ucOK]
+list[31].enabled:[1]
+list[31].audio_alert_enabled:[1]
+list[31].wake_display_enabled:[1]
+list[31].display_surfaces:[2](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[32].id:[ucLowBattery]
+list[32].enabled:[1]
+list[32].audio_alert_enabled:[1]
+list[32].wake_display_enabled:[1]
+list[32].display_surfaces:[2](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[33].id:[ucTerminated]
+list[33].enabled:[1]
+list[33].audio_alert_enabled:[1]
+list[33].wake_display_enabled:[1]
+list[33].display_surfaces:[2](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[34].id:[usbModePrompt]
+list[34].enabled:[1]
+list[34].audio_alert_enabled:[1]
+list[34].wake_display_enabled:[1]
+list[34].display_surfaces:[2](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[35].id:[usbMassStorage]
+list[35].enabled:[1]
+list[35].audio_alert_enabled:[1]
+list[35].wake_display_enabled:[1]
+list[35].display_surfaces:[2](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[36].id:[usbMassStorageFailure]
+list[36].enabled:[1]
+list[36].audio_alert_enabled:[1]
+list[36].wake_display_enabled:[1]
+list[36].display_surfaces:[2](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[37].id:[softwareUpdate]
+list[37].enabled:[1]
+list[37].audio_alert_enabled:[1]
+list[37].wake_display_enabled:[1]
+list[37].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[38].id:[softwareUpdateSuccess]
+list[38].enabled:[1]
+list[38].audio_alert_enabled:[1]
+list[38].wake_display_enabled:[1]
+list[38].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[39].id:[softwareUpdateFailure]
+list[39].enabled:[1]
+list[39].audio_alert_enabled:[1]
+list[39].wake_display_enabled:[1]
+list[39].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[40].id:[systemUpdateSuccess]
+list[40].enabled:[1]
+list[40].audio_alert_enabled:[0]
+list[40].wake_display_enabled:[1]
+list[40].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[41].id:[systemUpdateFailure]
+list[41].enabled:[1]
+list[41].audio_alert_enabled:[0]
+list[41].wake_display_enabled:[1]
+list[41].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[42].id:[systemDiagnostics]
+list[42].enabled:[1]
+list[42].audio_alert_enabled:[0]
+list[42].wake_display_enabled:[1]
+list[42].display_surfaces:[2](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[43].id:[highTemp]
+list[43].enabled:[1]
+list[43].audio_alert_enabled:[1]
+list[43].wake_display_enabled:[1]
+list[43].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[44].id:[autoVpnFailure]
+list[44].enabled:[1]
+list[44].audio_alert_enabled:[1]
+list[44].wake_display_enabled:[1]
+list[44].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[45].id:[data90]
+list[45].enabled:[1]
+list[45].audio_alert_enabled:[1]
+list[45].wake_display_enabled:[1]
+list[45].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)
+list[46].id:[data100]
+list[46].enabled:[1]
+list[46].audio_alert_enabled:[1]
+list[46].wake_display_enabled:[1]
+list[46].display_surfaces:[3](0 => None, 1 => Browser, 2 => LCD, 3 => All)

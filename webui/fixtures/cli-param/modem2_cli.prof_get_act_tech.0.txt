@@ -1,0 +1,4 @@
+Enter profile type (3GPP=0, 3GPP2=1): cmd_prof_get_act_tech returned 0 (MDM_MAIN: success.)
+
+Profile Type:[0](3GPP=0, 3GPP2=1)
+idx:[3]

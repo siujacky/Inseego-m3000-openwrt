@@ -1,0 +1,22 @@
+command [get_all_wan_info]
+
+cmd_get_all_wan_info returned 0 (WAN_MGR: success.)
+Suppoted WAN Count: [2]
+Auto-Switch Status: [Enabled]
+Manual WAN: [WWAN]
+Suppoted WAN Priorities:
+WAN Type [WWAN]
+WAN Priority [1]
+WAN Type [Ethernet WAN]
+WAN Priority [2]
+Failback Status : [Enabled]
+Failback Timer :  [120] min
+WAN Monitor Feature Status : [Enabled]
+WAN use client connected state : [Disabled]
+WAN Retry Count: [3]
+Routed WAN monitor interval: [30] sec
+Online WAN monitor interval: [3] min
+Failed WAN monitor interval: [10] sec
+DNS URL-1: [www.google.com]
+DNS URL-2: [www.yahoo.com]
+DNS URL-3: [www.inseego.com]

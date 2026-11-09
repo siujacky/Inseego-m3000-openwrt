@@ -1,0 +1,4 @@
+command [revert_status]
+
+fota_get_revert_status returned 0 (FOTA: success.)
+Records to print:[0]

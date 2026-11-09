@@ -1,0 +1,1 @@
+cmd_set_mns_oper returned 5 (MDM_MAIN: process not running.)

@@ -1,0 +1,3 @@
+command [wan_set_prio]
+
+Enter the first priority WAN: WWAN(1)/Etherenet(3) :Enter the second priority WAN: WWAN(1)/Etherenet(3) :cmd_mifi_qcmap_set_wan_prio returned 5 (MIFI_QCMAP: process not running.)

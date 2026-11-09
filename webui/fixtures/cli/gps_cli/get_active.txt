@@ -1,0 +1,4 @@
+command [get_active]
+
+cmd_get_active returned 0 (GPS: success.)
+default_status:[on]

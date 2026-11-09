@@ -1,0 +1,4 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [get_wps_clients]
+
+WPS STA associated with the AP are : [0]
+WIFI_CLI_MBH: Disable Message bus interface

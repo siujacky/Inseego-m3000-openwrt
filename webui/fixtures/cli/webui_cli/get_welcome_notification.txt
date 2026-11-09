@@ -1,0 +1,4 @@
+command [get_welcome_notification]
+
+webui_get_welcome_notification returned 0 (WEBUI: success.)
+welcome_notification:[0]

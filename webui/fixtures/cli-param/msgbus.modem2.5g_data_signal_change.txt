@@ -1,0 +1,16 @@
+command [MsgBusGet]
+
+What is channel: MsgBusGet returned 0 (MSGBUS: success.)
+last updated time:[Thu Dec 18 22:36:58 2025]
+data type:[binary]
+len:[86] (bytes)
+data:
+00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 

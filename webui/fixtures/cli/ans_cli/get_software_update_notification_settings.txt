@@ -1,0 +1,5 @@
+command [get_software_update_notification_settings]
+
+ans_get_software_update_notification_settings returned 0 (ANS: success.)
+Show Initial software update notification:[0]
+Show Vital software update notification:[0]

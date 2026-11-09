@@ -1,0 +1,7 @@
+
+------------------------
+--[recovery] [get] connection recovery max mdm_disconnect_timeout--
+cmd_get_recovery_max_mdm_disconnect_timeout: [recovery]  returned 0 (SIM_MGR: success.)
+
+[recovery] conn recovery mdm_disconnect_timeout: [2]
+------------------------

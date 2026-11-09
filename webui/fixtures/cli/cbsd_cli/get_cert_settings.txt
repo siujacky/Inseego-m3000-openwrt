@@ -1,0 +1,7 @@
+command [get_cert_settings]
+
+Certificate = []
+CA_Certificate = []
+PrivateKey = []
+PrivateKeyPassPharse = []
+cbsd_get_sas_settings_test returned 0 (CBSD: success.)

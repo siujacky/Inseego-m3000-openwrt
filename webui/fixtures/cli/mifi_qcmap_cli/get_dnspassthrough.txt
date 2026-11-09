@@ -1,0 +1,4 @@
+command [get_dnspassthrough]
+
+cmd_router2_get_dnspassthrough_status returned 0 (MIFI_QCMAP: success.)
+DNS passthrough is:   [redacted]

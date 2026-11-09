@@ -1,0 +1,1 @@
+cmd_lte_band_get_prior returned 1 (MDM_MAIN: general error.)

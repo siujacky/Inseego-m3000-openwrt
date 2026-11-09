@@ -1,0 +1,3 @@
+cmd_get_active_tech returned 0 (MDM_MAIN: success.)
+
+Active tech modes:[50] ( UMTS LTE NR5G)

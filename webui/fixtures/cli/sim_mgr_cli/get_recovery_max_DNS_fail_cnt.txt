@@ -1,0 +1,7 @@
+
+------------------------
+--[recovery] [get] connection recovery max DNS fail cnt--
+cmd_get_recovery_max_DNS_fail_cnt: [recovery]  returned 0 (SIM_MGR: success.)
+
+[recovery] conn recovery max DNS fail cnt: [3]
+------------------------

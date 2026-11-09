@@ -1,0 +1,3 @@
+command [is_running]
+
+dua_is_running returned 0 (DUA: success.)

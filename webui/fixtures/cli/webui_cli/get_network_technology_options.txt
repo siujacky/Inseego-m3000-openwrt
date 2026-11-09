@@ -1,0 +1,8 @@
+command [get_network_technology_options]
+
+webui_get_network_technology_options() returned 3 (WEBUI: one or more buffer type parameters passed into API is too small.)
+Buffer Insufficient. count[3]
+webui_get_network_technology_options() returned 0 (WEBUI: success.)
+Index[0]: Technology value(50) label(Auto (LTE/5G))
+Index[1]: Technology value(18) label(LTE/UMTS)
+Index[2]: Technology value(32) label(5G)

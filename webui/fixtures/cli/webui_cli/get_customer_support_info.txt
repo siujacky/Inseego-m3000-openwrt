@@ -1,0 +1,41 @@
+command [get_customer_support_info]
+
+webui_get_customer_support_info returned 3 (WEBUI: one or more buffer type parameters passed into API is too small.)
+Buffer Insufficient. count[3]
+webui_get_customer_support_info returned 0 (WEBUI: success.)
+In section[0]: id is [1] and title is [customer_care_links_sub_header_verizon_text] content count is [3]
+----------------------------------------------------------------------------
+content[0].url:[https://wbillpay.verizonwireless.com/vzw/nos/topline.jsp]
+content[0].text:[customer_care_manage_account_verizon_link_text]
+content[0].label:[]
+content[0].value:[]
+
+content[1].url:[https://www.verizon.com/coverage-map/]
+content[1].text:[customer_care_coverage_map_verizon_link_text]
+content[1].label:[]
+content[1].value:[]
+
+content[2].url:[https://www.verizon.com/plans/international/international-travel/trip-planner-tool/?adobe_mc=MCMID%3D75983292604704650963760292996755040280%7CMCAID%3D2E1FD8F585032043-35000000000001F9%7CMCORGID%3D843F02BE53271A1A0A490D4C%2540AdobeOrg%7CTS%3D1594418324&mbo]
+content[2].text:[customer_care_trip_planner_verizon_link_text]
+content[2].label:[]
+content[2].value:[]
+
+In section[1]: id is [2] and title is [customer_care_support_sub_header_verizon_text] content count is [2]
+----------------------------------------------------------------------------
+content[0].url:[https://community.verizonwireless.com/community/additional-devices]
+content[0].text:[customer_care_forum_verizon_link_text]
+content[0].label:[]
+content[0].value:[]
+
+content[1].url:[https://inseego.com/download/mifixpro-userguide-verizon.pdf]
+content[1].text:[customer_care_device_support_verizon_link_text]
+content[1].label:[]
+content[1].value:[]
+
+In section[2]: id is [3] and title is [customer_care_numbers_sub_header_verizon_text] content count is [1]
+----------------------------------------------------------------------------
+content[0].url:[]
+content[0].text:[]
+content[0].label:[customer_care_contact_verizon_label]
+content[0].value:[1 800.922.0204]
+

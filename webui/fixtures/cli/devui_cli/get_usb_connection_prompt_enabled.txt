@@ -1,0 +1,4 @@
+command [get_usb_connection_prompt_enabled]
+
+deviceui_get_usb_connection_prompt_enabled returned 0 (DEVUI_FRAMEWORK: success.)
+usb_connection_prompt_enabled:[1]

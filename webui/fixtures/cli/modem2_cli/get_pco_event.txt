@@ -1,0 +1,3 @@
+cmd_get_pco_event returned 0 (MDM_MAIN: success.)
+pco_value:[0]
+pdn:[0]

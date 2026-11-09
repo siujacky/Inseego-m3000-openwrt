@@ -1,0 +1,5 @@
+Enter profile number: Enter profile type (0-3GPP, 1-3GPP2): cmd_pdn_get_override_param returned 1 (MDM_MAIN: general error.)
+PDN index:[0]
+PDN type:[0]
+PDP override:[0]
+CLAT enabled:[0]

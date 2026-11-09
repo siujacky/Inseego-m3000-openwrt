@@ -1,0 +1,4 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [get_band_status]
+
+Enter the Wifi band (0=2.4GHZ, 1=5GHZ) to wait for 0/1:Invalid Wifi interface index.
+WIFI_CLI_MBH: Disable Message bus interface

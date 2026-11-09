@@ -1,0 +1,3 @@
+cmd_sim_mgr_get_active_imsi returned 0 (MDM_MAIN: success.)
+Active IMSI: []
+

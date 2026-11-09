@@ -1,0 +1,3 @@
+command [set_hw_reset_sw_enabled]
+
+Enter HW reset status (0=Disable, 1=Enable): cmd_set_hw_reset_sw_enabled returned 1 (FACTORY_RESET: general error.)

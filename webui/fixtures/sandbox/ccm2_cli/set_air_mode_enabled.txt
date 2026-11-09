@@ -1,0 +1,1 @@
+ccm_set_air_mode_enabled returned 1 (CCM: general error.)

@@ -1,0 +1,3 @@
+command [get_software_update_custom_messages]
+
+Specify language [en, es, etc..]: webui_get_software_update_settings returned 2 (WEBUI: one or more bad parameters passed into a function.)

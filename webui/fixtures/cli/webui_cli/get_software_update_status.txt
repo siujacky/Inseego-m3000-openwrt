@@ -1,0 +1,9 @@
+command [get_software_update_status]
+
+webui_get_software_update_status returned 0 (WEBUI: success.)
+status:[0]
+value:[0]
+version:[]
+isUserInitiated:[0]
+Sui Value:[0]
+Mdip Value:[0]

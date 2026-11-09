@@ -1,0 +1,4 @@
+command [get_install_defer_time]
+
+webui_get_install_defer_time returned 0 (WEBUI: success.)
+Install remaining time in seconds:[0]

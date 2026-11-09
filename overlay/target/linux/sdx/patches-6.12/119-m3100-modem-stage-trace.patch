@@ -1,0 +1,103 @@
+--- a/drivers/remoteproc/qcom_q6v5_pas.c
++++ b/drivers/remoteproc/qcom_q6v5_pas.c
+@@ -216,10 +216,21 @@
+ 	return 0;
+ }
+ 
++static void m3100_stage(const char *stage)
++{
++	if (!of_machine_is_compatible("inseego,m3100"))
++		return;
++	pr_info("M3100 modem stage: %s\n", stage);
++	/* Allow the asynchronous USB console to transmit before a secure call. */
++	msleep(250);
++}
++
+ static int adsp_load(struct rproc *rproc, const struct firmware *fw)
+ {
+ 	struct qcom_adsp *pas = rproc->priv;
+ 	int ret;
++
++	m3100_stage("load entered");
+ 
+ 	/* Store firmware handle to be used in adsp_start() */
+ 	pas->firmware = fw;
+@@ -263,30 +274,42 @@
+ 	struct qcom_adsp *adsp = rproc->priv;
+ 	int ret;
+ 
++	m3100_stage("before q6v5 prepare");
+ 	ret = qcom_q6v5_prepare(&adsp->q6v5);
++	m3100_stage("after q6v5 prepare");
+ 	if (ret)
+ 		return ret;
+ 
++	m3100_stage("before power domains");
+ 	ret = adsp_pds_enable(adsp, adsp->proxy_pds, adsp->proxy_pd_count);
++	m3100_stage("after power domains");
+ 	if (ret < 0)
+ 		goto disable_irqs;
+ 
++	m3100_stage("before XO clock");
+ 	ret = clk_prepare_enable(adsp->xo);
++	m3100_stage("after XO clock");
+ 	if (ret)
+ 		goto disable_proxy_pds;
+ 
++	m3100_stage("before aggregate clock");
+ 	ret = clk_prepare_enable(adsp->aggre2_clk);
++	m3100_stage("after aggregate clock");
+ 	if (ret)
+ 		goto disable_xo_clk;
+ 
+ 	if (adsp->cx_supply) {
++		m3100_stage("before CX regulator");
+ 		ret = regulator_enable(adsp->cx_supply);
++		m3100_stage("after CX regulator");
+ 		if (ret)
+ 			goto disable_aggre2_clk;
+ 	}
+ 
+ 	if (adsp->px_supply) {
++		m3100_stage("before PX regulator");
+ 		ret = regulator_enable(adsp->px_supply);
++		m3100_stage("after PX regulator");
+ 		if (ret)
+ 			goto disable_cx_supply;
+ 	}
+@@ -300,27 +323,35 @@
+ 		}
+ 	}
+ 
++	m3100_stage("before PAS metadata init");
+ 	ret = qcom_mdt_pas_init(adsp->dev, adsp->firmware, rproc->firmware, adsp->pas_id,
+ 				adsp->mem_phys, adsp->pas_ctx);
++	m3100_stage("after PAS metadata init");
+ 	if (ret)
+ 		goto disable_px_supply;
+ 
++	m3100_stage("before firmware segment load");
+ 	ret = qcom_mdt_load_no_init(adsp->dev, adsp->firmware, rproc->firmware, adsp->pas_id,
+ 				    adsp->mem_region, adsp->mem_phys, adsp->mem_size,
+ 				    &adsp->mem_reloc);
++	m3100_stage("after firmware segment load");
+ 	if (ret)
+ 		goto release_pas_metadata;
+ 
+ 	qcom_pil_info_store(adsp->info_name, adsp->mem_phys, adsp->mem_size);
+ 
++	m3100_stage("before PAS authenticate and reset");
+ 	ret = qcom_scm_pas_auth_and_reset(adsp->pas_id);
++	m3100_stage("after PAS authenticate and reset");
+ 	if (ret) {
+ 		dev_err(adsp->dev,
+ 			"failed to authenticate image and release reset\n");
+ 		goto release_pas_metadata;
+ 	}
+ 
++	m3100_stage("before ready interrupt wait");
+ 	ret = qcom_q6v5_wait_for_start(&adsp->q6v5, msecs_to_jiffies(5000));
++	m3100_stage("after ready interrupt wait");
+ 	if (ret == -ETIMEDOUT) {
+ 		dev_err(adsp->dev, "start timed out\n");
+ 		qcom_scm_pas_shutdown(adsp->pas_id);

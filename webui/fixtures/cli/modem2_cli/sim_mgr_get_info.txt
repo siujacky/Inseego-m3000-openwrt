@@ -1,0 +1,26 @@
+cmd_sim_mgr_get_info returned 0 (MDM_MAIN: success.)
+Successful
+[slot-0]
+
+card_state:1[ABSENT]
+ sim_status:[1]:[ACTIVE]
+sim_state:[2]:[SIM_NOT_FOUND]
+sim_carrier:[0]:[SIM_CARRIER_INFO_NOT_AVAIL]
+iccid:[]
+imsi:[]
+mdn:[]
+oper_name:[]
+wwan_state:[0][MODEM2_WWAN_STATE_NONE]
+
+[slot-0]
+
+card_state:0[ABSENT]
+ sim_status:[0]:[INACTIVE]
+sim_state:[0]:[SIM_UNKNOWN]
+sim_carrier:[0]:[SIM_CARRIER_INFO_NOT_AVAIL]
+iccid:[]
+imsi:[]
+mdn:[]
+oper_name:[]
+wwan_state:[0][MODEM2_WWAN_STATE_NONE]
+

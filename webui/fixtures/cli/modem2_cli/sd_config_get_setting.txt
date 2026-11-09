@@ -1,0 +1,2 @@
+Enter sd_config type: cmd_sd_config_get_setting returned 1 (MDM_MAIN: general error.)
+SD config for type [0] data:[-1495834624]

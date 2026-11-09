@@ -1,0 +1,4 @@
+command [last_update_check]
+
+fota_get_time_of_last_update_check returned 0 (FOTA: success.)
+Last update check timestamp:[02-28-2024-16:35:53]

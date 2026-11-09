@@ -1,0 +1,42 @@
+--- a/drivers/i2c/busses/i2c-qup.c
++++ b/drivers/i2c/busses/i2c-qup.c
+@@ -1786,6 +1786,18 @@
+ };
+ MODULE_DEVICE_TABLE(acpi, qup_i2c_acpi_match);
+ 
++static bool qup_m3100_diagnostics_match(struct device *dev)
++{
++ struct device_node *expected;
++ bool match;
++ if (!of_machine_is_compatible("inseego,m3100") || !dev->of_node)
++  return false;
++ expected=of_find_node_by_path("/soc/i2c@835000");
++ match=expected && expected==dev->of_node;
++ of_node_put(expected);
++ return match;
++}
++
+ static int qup_i2c_probe(struct platform_device *pdev)
+ {
+ 	static const int blk_sizes[] = {4, 16, 32};
+@@ -1804,8 +1816,7 @@
+ 
+ 	qup->dev = &pdev->dev;
+ 	spin_lock_init(&qup->m3100_lock);
+-	qup->m3100_diag = of_machine_is_compatible("inseego,m3100") &&
+-		pdev->dev.of_node && !strcmp(pdev->dev.of_node->full_name,"/soc/i2c@835000");
++	qup->m3100_diag = qup_m3100_diagnostics_match(&pdev->dev);
+ 	init_completion(&qup->xfer);
+ 	platform_set_drvdata(pdev, qup);
+ 
+@@ -2033,6 +2044,10 @@
+ 	pm_runtime_set_active(qup->dev);
+ 	pm_runtime_enable(qup->dev);
+ 
++	/* Emit before publishing the adapter, outside the host PERST/read window. */
++	if (qup->m3100_diag)
++		dev_info(qup->dev, "M3100 QUP first-error diagnostics enabled before adapter registration\n");
++
+ 	ret = i2c_add_adapter(&qup->adap);
+ 	if (ret)
+ 		goto fail_runtime;

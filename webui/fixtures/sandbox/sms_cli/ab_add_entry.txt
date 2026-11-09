@@ -1,0 +1,5 @@
+command [ab_add_entry]
+
+
+Enter contact name: 
+Enter contact address: cmd_ab_add_entry returned 5 (SMS: process not running.)

@@ -1,0 +1,3 @@
+command [set_allowed_ports]
+
+cmd_router2_set_allowed_ports_status returned 1 (MIFI_QCMAP: general error.)

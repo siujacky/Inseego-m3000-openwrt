@@ -1,0 +1,3 @@
+command [is_running]
+
+ans_is_running returned 0 (ANS: success.)

@@ -1,0 +1,3 @@
+cmd_sim_mgr_get_active_slot returned 0 (MDM_MAIN: success.)
+Active Slot: [1]
+

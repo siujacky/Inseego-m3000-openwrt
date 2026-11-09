@@ -1,0 +1,3 @@
+command [set_wan_priority_list]
+
+Failed to get the supported WAN count.

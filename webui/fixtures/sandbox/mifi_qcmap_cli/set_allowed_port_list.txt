@@ -1,0 +1,5 @@
+command [set_allowed_port_list]
+
+Total Args:10, Records Count:1
+Record[0]: Enable:[1] instance:[1] Intf name List:[rmnet_data0] port_list:[22] start:[0] end:[0] type:[3]
+cmd_router2_set_allowed_port_list returned 5 (MIFI_QCMAP: process not running.)

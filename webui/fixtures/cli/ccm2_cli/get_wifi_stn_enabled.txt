@@ -1,0 +1,2 @@
+ccm_get_wifi_stn_enabled returned 0 (CCM: success.)
+enabled:[0]

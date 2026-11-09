@@ -1,0 +1,3 @@
+WIFI_CLI_MBH: MsgBus_Connect Failedcommand [set_all_profiles]
+
+wifi_ap_apply_profiles returned 1 (WIFI: general error.)

@@ -1,0 +1,3 @@
+command [get_smb_host_name]
+
+file_sharing_get_samba_host_name returned 5 (FILE_SHARING: process not running.)

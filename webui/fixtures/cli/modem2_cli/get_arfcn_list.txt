@@ -1,0 +1,3 @@
+cmd_get_arfcn_list returned 0 (MDM_MAIN: success.)
+lte_scell_earfcn[0] - dl_earfcn:[66586]
+lte_scell_earfcn[0] - ul_earfcn:[0]

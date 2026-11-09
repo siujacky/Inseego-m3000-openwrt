@@ -1,0 +1,13 @@
+
+------------------------
+--[recovery] [get] connection recovery all configs--
+cmd_get_recovery_all_configs: [recovery] returned 0 (SIM_MGR: success.)
+[recovery] period			: [120]
+[recovery] mdm_disconnect_timeout	: [2]
+[recovery] max_sim_switch_cnt		: [6]
+[recovery] max_wan_dns_fail_cnt		: [3]
+[recovery] max_modem_reset_cnt		: [3]
+[recovery] max_device_reset_cnt		: [1]
+[recovery] system_reset_cnt		: [3]
+
+------------------------

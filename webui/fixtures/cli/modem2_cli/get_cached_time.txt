@@ -1,0 +1,5 @@
+cmd_get_cached_time returned 0 (MDM_MAIN: success.)
+
+Time:[01/06/80 12:50:59 am]
+Time zone:[0]
+DST:[0]

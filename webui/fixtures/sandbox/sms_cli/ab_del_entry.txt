@@ -1,0 +1,4 @@
+command [ab_del_entry]
+
+
+Enter contact id 0-100: cmd_ab_del_entry returned 5 (SMS: process not running.)

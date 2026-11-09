@@ -1,0 +1,7 @@
+
+------------------------
+--[get] connection monitor--
+cmd_get_connection_monitor_mode returned 0 (SIM_MGR: success.)
+
+conn mode: [Enabled]
+------------------------

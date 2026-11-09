@@ -1,0 +1,4 @@
+command [send]
+
+Enter phone number: 
+Enter message: cmd_send returned 5 (SMS: process not running.)

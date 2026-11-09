@@ -1,0 +1,3 @@
+command [settings_set]
+
+What is file sharing enabled- 1(enabled), 0(disabled): What is file sharing samba host name: Full partition/drive share enabled - 1(share full partition), 0(share selected folders): Full partition share read or Write - 1(full partition share is RW), 0(full partition share is RO) : file_sharing_set_settings returned 1 (FILE_SHARING: general error.)

@@ -1,0 +1,4 @@
+command [get_software_installation_duration]
+
+webui_get_software_installation_duration returned 0 (WEBUI: success.)
+installation_duration:[22]

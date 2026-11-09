@@ -1,0 +1,7 @@
+Starting sysint client library
+sys_getGatewaysettings returned 0
+settings.mode:[0]
+settings.gateway_address:[]
+settings.netmask:[]
+Stopping sysint client library 0
+sysinterfaceShutdown complete 0

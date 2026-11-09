@@ -1,0 +1,3 @@
+command [mode_switch]
+
+What is switch mode (0=EUM, 1=DBG, 2=ENT 3=P_ENT): What is reboot (0 | 1): usb_mode_switch returned 5 (USB: process not running.)

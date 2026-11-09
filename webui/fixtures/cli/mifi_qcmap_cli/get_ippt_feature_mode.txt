@@ -1,0 +1,4 @@
+command [get_ippt_feature_mode]
+
+cmd_get_ippt_feature_mode returned 0 (MIFI_QCMAP: success.)
+IPPT Feature Mode is: [0]

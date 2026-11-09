@@ -1,0 +1,4 @@
+cmd_sim_pin_get_status returned 0 (MDM_MAIN: success.)
+status is:[0]
+retries is:[0]
+unlocks is:[0]

@@ -1,0 +1,84 @@
+diff --git a/drivers/net/ethernet/toshiba/tc956x/tc956x_pci.c b/drivers/net/ethernet/toshiba/tc956x/tc956x_pci.c
+index 5d0b799..9a0a291 100644
+--- a/drivers/net/ethernet/toshiba/tc956x/tc956x_pci.c
++++ b/drivers/net/ethernet/toshiba/tc956x/tc956x_pci.c
+@@ -4045,7 +4045,7 @@ err:
+  *
+  * \retval 0
+  */
+-static int tc956x_pcie_suspend(struct device *dev)
++static int __maybe_unused tc956x_pcie_suspend(struct device *dev)
+ {
+ 	struct pci_dev *pdev = to_pci_dev(dev);
+ 	struct net_device *ndev = dev_get_drvdata(&pdev->dev);
+@@ -4352,7 +4352,7 @@ err_phy_addr:
+  * \retval 0
+  */
+ 
+-static int tc956x_pcie_resume(struct device *dev)
++static int __maybe_unused tc956x_pcie_resume(struct device *dev)
+ {
+ 	struct pci_dev *pdev = to_pci_dev(dev);
+ #ifndef TC956X_SRIOV_VF
+diff --git a/drivers/net/ethernet/toshiba/tc956x/tc956x_pf_mbx_wrapper.c b/drivers/net/ethernet/toshiba/tc956x/tc956x_pf_mbx_wrapper.c
+index e0a6125..2d7a87f 100644
+--- a/drivers/net/ethernet/toshiba/tc956x/tc956x_pf_mbx_wrapper.c
++++ b/drivers/net/ethernet/toshiba/tc956x/tc956x_pf_mbx_wrapper.c
+@@ -954,7 +954,7 @@ static int tc956xmac_pf_ioctl_interface(struct tc956xmac_priv *priv,
+ 		break;
+ 	case OPCODE_MBX_VF_GET_MII_REG_1:
+ 		vf_no -= TC956X_ONE;
+-		memcpy(&priv->mbx_wq_param.rq.ifr_ifru.ifru_data, &mbx[3], 6);
++		memcpy(&priv->mbx_wq_param.rq.ifr_ifru, &mbx[3], 6);
+ 		memcpy(&priv->mbx_wq_param.rq.ifr_ifrn.ifrn_name, &mbx[9], 16);
+ 
+ 		spin_lock_irqsave(&priv->wq_lock, flags);
+diff --git a/drivers/net/ethernet/toshiba/tc956x/tc956xmac.h b/drivers/net/ethernet/toshiba/tc956x/tc956xmac.h
+index 1007fca..67b8bb9 100644
+--- a/drivers/net/ethernet/toshiba/tc956x/tc956xmac.h
++++ b/drivers/net/ethernet/toshiba/tc956x/tc956xmac.h
+@@ -273,7 +273,7 @@
+ #define TC956X_RX_QUEUES 8
+ 
+ #ifndef FIRMWARE_NAME
+-#define FIRMWARE_NAME "TC956X_Firmware_PCIeBridge.bin"
++#define FIRMWARE_NAME "qps615_fw.bin"
+ #endif
+ 
+ #define TC956X_TOTAL_VFS 3
+diff --git a/drivers/net/ethernet/toshiba/tc956x/tc956xmac_ethtool.c b/drivers/net/ethernet/toshiba/tc956x/tc956xmac_ethtool.c
+index 055383a..2c9d784 100644
+--- a/drivers/net/ethernet/toshiba/tc956x/tc956xmac_ethtool.c
++++ b/drivers/net/ethernet/toshiba/tc956x/tc956xmac_ethtool.c
+@@ -2021,8 +2021,7 @@ int phy_ethtool_set_eee_2p5(struct phy_device *phydev, struct ethtool_eee *data)
+ 			phydev_warn(phydev, "Overflow while converting advertised EEE link modes\n");
+ 		adv_2p5 = !(adv) ? cap2p5 : tc956x_ethtool_adv_to_mmd_eee_adv2_t(adv) & cap2p5;
+ 		/* Mask prohibited EEE modes */
+-		if (!ethtool_convert_link_mode_to_legacy_u32(&tmp, phydev->eee_disabled_modes))
+-			phydev_warn(phydev, "Overflow while converting disabled EEE link modes\n");
++		tmp = phydev->eee_broken_modes;
+ 		adv_2p5 &= ~tmp;
+ #else
+ 		adv_2p5 = !data->advertised ? cap2p5 :
+diff --git a/drivers/net/ethernet/toshiba/tc956x/tc956xmac_main.c b/drivers/net/ethernet/toshiba/tc956x/tc956xmac_main.c
+index 6a07525..9c4d37a 100644
+--- a/drivers/net/ethernet/toshiba/tc956x/tc956xmac_main.c
++++ b/drivers/net/ethernet/toshiba/tc956x/tc956xmac_main.c
+@@ -873,7 +873,7 @@ int tc956x_print_debug_regs(struct net_device *net_device, struct tc956x_regs *r
+ 	}
+ 
+ 	for (ch = 0; ch < tx_queues_cnt; ch++) {
+-		KPRINT_DEBUG1("regs->dma_reg.tx_queue[%d].desc_phy_addr = 0x%llx\n", ch, regs->dma_reg.tx_queue[ch].desc_phy_addr);
++		KPRINT_DEBUG1("regs->dma_reg.tx_queue[%d].desc_phy_addr = 0x%llx\n", ch, (unsigned long long)regs->dma_reg.tx_queue[ch].desc_phy_addr);
+ 		KPRINT_DEBUG1("regs->dma_reg.tx_queue[%d].desc_va_addr = 0x%zx\n", ch, (size_t)(regs->dma_reg.tx_queue[ch].desc_va_addr));
+ #ifdef TC956X_DMA_OFFLOAD_ENABLE
+ 		KPRINT_DEBUG1("regs->dma_reg.tx_queue[%d].buff_phy_addr = 0x%llx\n", ch, regs->dma_reg.tx_queue[ch].buff_phy_addr);
+@@ -884,7 +884,7 @@ int tc956x_print_debug_regs(struct net_device *net_device, struct tc956x_regs *r
+ 	}
+ 
+ 	for (ch = 0; ch < rx_queues_cnt; ch++) {
+-		KPRINT_DEBUG1("regs->dma_reg.rx_queue[%d].desc_phy_addr = 0x%llx\n", ch, regs->dma_reg.rx_queue[ch].desc_phy_addr);
++		KPRINT_DEBUG1("regs->dma_reg.rx_queue[%d].desc_phy_addr = 0x%llx\n", ch, (unsigned long long)regs->dma_reg.rx_queue[ch].desc_phy_addr);
+ 		KPRINT_DEBUG1("regs->dma_reg.rx_queue[%d].desc_va_addr = 0x%zx\n", ch, (size_t)(regs->dma_reg.rx_queue[ch].desc_va_addr));
+ #ifdef TC956X_DMA_OFFLOAD_ENABLE
+ 		KPRINT_DEBUG1("regs->dma_reg.rx_queue[%d].buff_phy_addr = 0x%llx\n", ch, regs->dma_reg.rx_queue[ch].buff_phy_addr);

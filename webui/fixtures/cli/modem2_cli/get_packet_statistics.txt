@@ -1,0 +1,3 @@
+Internet = 1
+Device Management = 2
+Enter APN: Enter ip_family (V4=0, V6=2): cmd_get_packet_statistics returned 2 (MDM_MAIN: one or more bad parameters passed into a function.)

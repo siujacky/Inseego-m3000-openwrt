@@ -1,0 +1,15 @@
+command [get_mem_diag_settings]
+
+mifi_health_get_mem_diag_settings returned 0 (MIFI_HEALTH: success.)
+MaxLogFileSize:[1024]
+MaxNoOfBackups:[10]
+SafeZoneLeastMem:[15]
+CriticalZoneStartMem:[5]
+SafeZonePollIntervalSec:[60]
+ModerateZonePollIntervalSec:[30]
+CriticalZonePollIntervalSec:[15]
+SafeZoneStoreMemStatsIntervalMins:[3]
+ModerateZoneStoreMemStatsIntervalMins:[2]
+CriticalZoneStoreMemStatsIntervalMins:[1]
+EnableDebugMode:[0]
+TopCPUUsageThreshold:[5]

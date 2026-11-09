@@ -1,0 +1,3 @@
+command [get_port_filter_list]
+
+cmd_router2_get_port_filter_app_list returned 0 (MIFI_QCMAP: success.)

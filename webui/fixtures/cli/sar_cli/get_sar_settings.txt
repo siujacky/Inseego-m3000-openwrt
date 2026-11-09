@@ -1,0 +1,4 @@
+command [get_sar_settings]
+
+capacitive cs0 enabled: [1]
+capacitive cs1 enabled: [1]

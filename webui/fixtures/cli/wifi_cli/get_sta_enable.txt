@@ -1,0 +1,5 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [get_sta_enable]
+
+wifi_get_sta_enabled returned 0 (WIFI: success.)
+Wifi STA mode is :[0] 
+WIFI_CLI_MBH: Disable Message bus interface

@@ -1,0 +1,3 @@
+command [get_app_configurations]
+
+What is the app_id:  webui_get_app_configurations returned 2 (WEBUI: one or more bad parameters passed into a function.)

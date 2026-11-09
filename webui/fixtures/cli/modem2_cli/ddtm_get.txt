@@ -1,0 +1,4 @@
+cmd_get_ddtm_state returned 0 (MDM_MAIN: success.)
+
+Status:[0]
+DDTM pref:[0]

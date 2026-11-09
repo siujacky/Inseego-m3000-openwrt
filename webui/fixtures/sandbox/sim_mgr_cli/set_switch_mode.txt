@@ -1,0 +1,8 @@
+
+------------------------
+--[set] sim switch mode--
+
+switch mode: [0]
+cmd_set_switch_mode returned 1 (SIM_MGR: general error.)
+
+------------------------

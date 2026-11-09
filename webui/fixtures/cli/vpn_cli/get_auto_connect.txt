@@ -1,0 +1,4 @@
+command [get_auto_connect]
+
+vpn_get_auto_connect returned 0 (VPN: success.)
+VPN auto connect status (0=Disable, 1=Enable) is: [0]

@@ -1,0 +1,1 @@
+cmd_is_running returned 5 (SIM_MGR: process not running.)

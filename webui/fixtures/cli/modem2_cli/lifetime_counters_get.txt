@@ -1,0 +1,2 @@
+cmd_lifetime_counters_get returned 1 (MDM_MAIN: general error.)
+Rx = 0 KB, Tx = 0 KB

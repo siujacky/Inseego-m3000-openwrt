@@ -1,0 +1,2 @@
+cmd_get_priority_sim returned 0 (SIM_MGR: success.)
+priority sim imsi:[]

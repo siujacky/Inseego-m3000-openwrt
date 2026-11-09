@@ -1,0 +1,1 @@
+Enter number of bands to enable(max 512): Enter band number: cmd_set_enabled_lte_bands returned 5 (MDM_MAIN: process not running.)

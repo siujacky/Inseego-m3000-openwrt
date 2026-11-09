@@ -1,0 +1,3 @@
+command [set_self_recovery_status]
+
+Enter WAN Self Recovery Status(0/1): cmd_set_self_recovery_status returned 5 (WAN_MGR: process not running.)

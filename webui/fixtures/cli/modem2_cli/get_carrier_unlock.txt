@@ -1,0 +1,6 @@
+cmd_get_carrier_unlock returned 0 (MDM_MAIN: success.)
+
+State:[0]
+Carrier block:[0]
+Verify retries:[10]
+Unblock retries:[0]

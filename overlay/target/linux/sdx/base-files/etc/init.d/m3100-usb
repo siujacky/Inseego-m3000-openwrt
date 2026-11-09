@@ -1,0 +1,49 @@
+#!/bin/sh /etc/rc.common
+# RAM management transport; keep the UART console available during enumeration.
+START=15
+STOP=90
+
+start() {
+	[ "$(cat /tmp/sysinfo/board_name)" = 'inseego,m3100' ] || return 0
+	grep -qs ' /sys/kernel/config configfs ' /proc/mounts || mount -t configfs configfs /sys/kernel/config || return 1
+	local g=/sys/kernel/config/usb_gadget/m3100
+	[ -d "$g" ] && return 0
+	mkdir "$g" || return 1
+	echo 0x1d6b > "$g/idVendor"
+	echo 0x0105 > "$g/idProduct"
+	echo 0x0200 > "$g/bcdUSB"
+	echo 0x0100 > "$g/bcdDevice"
+	echo 0xef > "$g/bDeviceClass"
+	echo 0x02 > "$g/bDeviceSubClass"
+	echo 0x01 > "$g/bDeviceProtocol"
+	mkdir "$g/strings/0x409"
+	echo '76fe1623-ram' > "$g/strings/0x409/serialnumber"
+	echo 'OpenWrt' > "$g/strings/0x409/manufacturer"
+	echo 'M3100 RAM Management' > "$g/strings/0x409/product"
+	mkdir "$g/configs/c.1"
+	echo 250 > "$g/configs/c.1/MaxPower"
+	mkdir "$g/functions/rndis.usb0"
+	# These function attributes parse two hexadecimal digits, without 0x.
+	echo e0 > "$g/functions/rndis.usb0/class"
+	echo 01 > "$g/functions/rndis.usb0/subclass"
+	echo 03 > "$g/functions/rndis.usb0/protocol"
+	echo '02:76:fe:16:23:01' > "$g/functions/rndis.usb0/dev_addr"
+	echo '02:76:fe:16:23:02' > "$g/functions/rndis.usb0/host_addr"
+	echo RNDIS > "$g/functions/rndis.usb0/os_desc/interface.rndis/compatible_id"
+	echo 5162001 > "$g/functions/rndis.usb0/os_desc/interface.rndis/sub_compatible_id"
+	mkdir "$g/functions/acm.usb0"
+	ln -s "$g/functions/rndis.usb0" "$g/configs/c.1/"
+	ln -s "$g/functions/acm.usb0" "$g/configs/c.1/"
+	echo 1 > "$g/os_desc/use"
+	echo 0xcd > "$g/os_desc/b_vendor_code"
+	echo MSFT100 > "$g/os_desc/qw_sign"
+	ln -s "$g/configs/c.1" "$g/os_desc/"
+	local udc
+	for udc in /sys/class/udc/*; do
+		[ -e "$udc" ] || continue
+		basename "$udc" > "$g/UDC"
+		return $?
+	done
+	logger -t m3100-usb 'No USB device controller available'
+	return 1
+}

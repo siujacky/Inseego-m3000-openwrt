@@ -1,0 +1,1 @@
+ccm_is_running returned 0 (CCM: success.)

@@ -1,0 +1,12 @@
+/* Apply after bt-rom-resources.dtsi and bt-m3100-serdev-next.patch.
+ * Keep hci_uart modular: enable the explicit power helper before loading it.
+ * The HCI child intentionally has no GPIO, regulator or clock resources;
+ * the already tested board helper owns those resources for this trial.
+ */
+&m3100_bt_uart_port {
+	bluetooth {
+		compatible = "inseego,m3100-qca6490-bt";
+		firmware-name = "wcnhpnv21g.bin";
+		max-speed = <115200>;
+	};
+};

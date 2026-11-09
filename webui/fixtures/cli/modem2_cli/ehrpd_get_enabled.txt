@@ -1,0 +1,2 @@
+cmd_ehrpd_get_enabled returned 1 (MDM_MAIN: general error.)
+eHRPD enabled:[0]

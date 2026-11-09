@@ -1,0 +1,2 @@
+ccm_get_wwan_ac returned 0 (CCM: success.)
+Autoconnect Type:[2] Autoconnect when service is available

@@ -1,0 +1,4 @@
+command [get_icmp_response]
+
+cmd_router2_get_icmp_response returned 0 (MIFI_QCMAP: success.)
+ICMP status on the WAN [Disable

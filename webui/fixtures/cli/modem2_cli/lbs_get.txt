@@ -1,0 +1,3 @@
+cmd_get_lbs_idle returned 0 (MDM_MAIN: success.)
+
+Lbs_idle mode query: disabled

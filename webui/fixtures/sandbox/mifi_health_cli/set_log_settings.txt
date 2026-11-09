@@ -1,0 +1,5 @@
+command [set_log_settings]
+
+Enter Logs Upload Enabled [0,1]: Enter Upload Interval (In Sec) : enabled:[1]
+upload_interval:[86400]
+mifi_health_set_log_settings returned 1 (MIFI_HEALTH: general error.)

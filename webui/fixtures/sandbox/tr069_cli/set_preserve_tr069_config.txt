@@ -1,0 +1,3 @@
+command [set_preserve_tr069_config]
+
+Enter TR069 Restore settings (0=Disable, 1=Enable): cmd_set_preserve_tr069_config returned 1 (TR069: general error.)

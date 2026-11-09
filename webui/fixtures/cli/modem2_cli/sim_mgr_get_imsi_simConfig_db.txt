@@ -1,0 +1,7 @@
+
+Enter the imsi: cmd_sim_mgr_get_imsi_simConfig_db returned 0 (MDM_MAIN: success.)
+Success: 
+
+imsi: 
+Priority: 1
+Age of IMSI: 1

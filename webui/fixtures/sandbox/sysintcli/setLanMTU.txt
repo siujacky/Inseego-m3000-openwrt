@@ -1,0 +1,4 @@
+Starting sysint client library
+Enter MTU: sys_setLanMTU returned 8
+Stopping sysint client library 8
+sysinterfaceShutdown complete 0

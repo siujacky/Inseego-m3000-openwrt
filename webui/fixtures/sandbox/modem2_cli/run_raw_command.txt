@@ -1,0 +1,5 @@
+
+Enter the command string: 
+Enter the prompt string(enter for none): 
+Enter the reply string(enter for none): 
+Enter the timeout value: cmd_run_raw_command returned 5 (MDM_MAIN: process not running.)

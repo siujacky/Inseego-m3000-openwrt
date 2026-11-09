@@ -1,0 +1,4 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/* Paired, temporary read-only version diagnostic. Always abort before WA/LTSSM. */
+&m3100_i2c1 { inseego,m3100-combined-version-trial; };
+&pcie_rc { inseego,m3100-version-only; };

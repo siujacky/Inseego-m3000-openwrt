@@ -1,0 +1,3 @@
+command [get_wan_telemetry_info]
+
+cmd_get_wan_telemetry_info returned 5 (WAN_MGR: process not running.)

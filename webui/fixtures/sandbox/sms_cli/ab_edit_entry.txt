@@ -1,0 +1,6 @@
+command [ab_edit_entry]
+
+
+Enter contact id 0-100: 
+Enter contact name: 
+Enter contact address: cmd_ab_edit_entry returned 5 (SMS: process not running.)

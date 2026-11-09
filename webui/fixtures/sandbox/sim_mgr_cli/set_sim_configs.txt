@@ -1,0 +1,7 @@
+
+------------------------
+--[set] sim configs--
+sim interval: [1800]
+cmd_set_sim_configs returned 1 (SIM_MGR: general error.)
+connection interval:[1800] 
+------------------------

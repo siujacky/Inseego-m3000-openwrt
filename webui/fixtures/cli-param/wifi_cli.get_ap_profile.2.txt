@@ -1,0 +1,17 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [get_ap_profile]
+
+Enter the Wifi profile index (1-4):wifi_get_ap_profile returned 0 (WIFI: success.)
+Profile status         : [1]
+Profile name           : [Profile2]
+SSID                   : [Router-5G]
+Ignore broadcast SSID  : [0]
+Wifi privacy           : [0]
+Interface Feature Flags: [BLACKLIST, ]
+WPS status             : [1]
+Channel                : [0]
+Channel width          : [80 MHz.]
+Mode                   : [ACNPLUSAX]
+Security type          : [WPA3 Transition]
+Encryption type        : [AES]
+WPA Pre-Shared Key     : [redacted]
+WIFI_CLI_MBH: Disable Message bus interface

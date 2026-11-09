@@ -1,0 +1,3 @@
+command [set_wifi_display_setting_enabled]
+
+wifi setting enabled (0 => disabled, 1 => enabled): deviceui_set_wifi_display_setting_enabled returned 1 (DEVUI_FRAMEWORK: general error.)

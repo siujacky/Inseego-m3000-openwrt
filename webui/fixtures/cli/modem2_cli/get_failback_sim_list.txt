@@ -1,0 +1,2 @@
+Enter a filter? [0/1]: cmd_failback_sim_get_list returned 0 (MDM_MAIN: success.)
+count : 0

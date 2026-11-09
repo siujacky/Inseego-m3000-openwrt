@@ -1,0 +1,4 @@
+command [get_iface_link]
+
+cmd_get_ethernet_iface_link returned 0 (MIFI_QCMAP: success.)
+Ethernet interface link status is :   [Enabled]

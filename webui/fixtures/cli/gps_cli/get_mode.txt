@@ -1,0 +1,4 @@
+command [get_mode]
+
+cmd_get_mode returned 0 (GPS: success.)
+mode:[XTRA]

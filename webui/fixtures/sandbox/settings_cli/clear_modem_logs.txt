@@ -1,0 +1,3 @@
+command [clear_modem_logs]
+
+settings_clear_modem_logs returned 5 (SETTINGS: process not running.)

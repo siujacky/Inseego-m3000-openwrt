@@ -1,0 +1,13 @@
+command [set_static_route_list]
+
+Enter the number of records: Enter Route Type (IPV4 = 4  IPV6 = 6): Enter the Network/Host [x.x.x.x/x] : Enter Gateway [x.x.x.x] : Interface Type Index: 0 Type:[No WAN]
+Interface Type Index: 1 Type:[WWAN]
+Interface Type Index: 2 Type:[WiFi WAN]
+Interface Type Index: 3 Type:[Ethernet WAN]
+Interface Type Index: 4 Type:[USB WAN]
+Interface Type Index: 5 Type:[APPs WAN]
+Interface Type Index: 6 Type:[DM WAN]
+Interface Type Index: 7 Type:[WGVPN_0]
+Interface Type Index: 8 Type:[WGVPN_1]
+Interface Type Index: 9 Type:[WGVPN_2]
+Enter WAN Type Index:Enter Metric: cmd_set_static_route_list returned 2 (MIFI_QCMAP: one or more bad parameters passed into a function.)

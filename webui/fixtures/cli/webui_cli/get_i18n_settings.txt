@@ -1,0 +1,9 @@
+command [get_i18n_settings]
+
+webui_get_i18n_settings returned 0 (WEBUI: success.)
+lang:[en_US]
+date_fmt:[0](0 => mm/dd/yyyy, 1 => dd.mm.yyyy, 2 => dd/mm/yyyy, 3 => yyyy/mm/dd)
+hour_fmt:[0](0 => 12hr, 1 => 24hr)
+temp_fmt:[0](0 => Fahrenheit, 1 => Celsius)
+distance_fmt:[0](0 => US, 1 => Metric)
+numeric_fmt:[0](0 => period, 1 => comma)

@@ -1,0 +1,5 @@
+command [get_dmz]
+
+cmd_router2_get_dmz_settings returned 0 (MIFI_QCMAP: success.)
+DMZ IP:  []
+DMZ status: [Disabled]

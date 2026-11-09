@@ -1,0 +1,1 @@
+cmd_get_b48_max_eirp returned 1 (MDM_MAIN: general error.)

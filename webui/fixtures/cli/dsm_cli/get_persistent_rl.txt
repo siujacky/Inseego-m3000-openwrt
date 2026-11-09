@@ -1,0 +1,4 @@
+command [get_persistent_rl]
+
+is_persistent=[0]
+     Runlevel=[3]

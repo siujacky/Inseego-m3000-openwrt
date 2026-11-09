@@ -1,0 +1,6 @@
+
+------------------------
+--[get] sim configs--
+cmd_get_sim_configs returned 0 (SIM_MGR: success.)
+sim interval:[1800] 
+------------------------

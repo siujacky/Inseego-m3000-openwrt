@@ -1,0 +1,4 @@
+command [set_acs_client_config]
+
+Enter Username: Enter Password: Enter Port number: Enter Connection Request Authentication Type (0=Disable, 1=Enable): Enter Authentication Mode (0=Basic, 1=Digest): Enter Periodic Inform Interval (PII) time(0:600)Sec: Enter CWMP version: Enter Log Level (0=CRITICAL, 1=WARNING, 2=NOTICE, 3=INFO, 4=DEBUG): username=[user], password=[redacted], Port Number=[7547], Connection Type=[1], Authenticate Mode=[0], Interval=[100], CWMP Version=[4], Log Level=[0]
+cmd_tr069_set_acs_client_config returned 5 (TR069: process not running.)

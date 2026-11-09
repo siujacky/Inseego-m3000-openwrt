@@ -1,0 +1,3 @@
+command [set_manual_wan]
+
+Failed to get wan priority settings.

@@ -1,0 +1,5 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [get_pindex]
+
+Enter the Wifi interface index 0/1:wifi_get_pindex_from_intf returned 0 (WIFI: success.)
+Profile index on the interface 0 is :2 
+WIFI_CLI_MBH: Disable Message bus interface

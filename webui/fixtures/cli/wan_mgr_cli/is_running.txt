@@ -1,0 +1,3 @@
+command [is_running]
+
+wan_mgr_is_running returned 5 (WAN_MGR: process not running.)

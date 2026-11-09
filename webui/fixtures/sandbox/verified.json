@@ -1,0 +1,2183 @@
+[
+  {
+    "cli": "ans_cli",
+    "cmd": "acknowledge_notification",
+    "source": "sandbox",
+    "prompts": [
+      "What is id of the notification to acknowledge:  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ans_cli",
+    "cmd": "set_audio_alerts_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "Select audio alerts enabled setting [0(\"not enabled\"), 1(\"Enabled\")]"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ans_cli",
+    "cmd": "set_notification_settings",
+    "source": "sandbox",
+    "prompts": [
+      "Enter number of notifications you want to set:",
+      "Enter notification id:",
+      "Enable notification (1,0)?:",
+      "Enable audio alert notification (1,0)?:",
+      "Enable wake display notification (1,0)?:",
+      "Enter display surfaces (0 : None, 1 : Browser, 2 : LCD, 3 : All) :"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ans_cli",
+    "cmd": "set_software_update_notification_settings",
+    "source": "sandbox",
+    "prompts": [
+      "Set the initial update notification enabled [0(\"not enabled\"), 1(\"Enabled\")]",
+      "Set the vital update notification enabled [0(\"not enabled\"), 1(\"Enabled\")]"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ans_cli",
+    "cmd": "set_stealth_mode_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "Select Stealth mode enabled setting [0(\"not enabled\"), 1(\"Enabled\")]"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "buzzer_cli",
+    "cmd": "off",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "buzzer_cli",
+    "cmd": "on",
+    "source": "sandbox",
+    "prompts": [
+      "What is on time( in millsecs ): ",
+      "What is off time( in millsecs ): ",
+      "What is repeat count: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ccm2_cli",
+    "cmd": "accept_pco_event",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ccm2_cli",
+    "cmd": "set_air_mode_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "What is enabled status [0|1]: "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ccm2_cli",
+    "cmd": "set_cell_data_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "What is enabled status [0|1]: "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ccm2_cli",
+    "cmd": "set_ntp_url",
+    "source": "sandbox",
+    "prompts": [
+      "What is ntp min delay (seconds):  ",
+      "What is ntp retry count:  ",
+      "What is ntp url1:  ",
+      "\nWhat is ntp url2:  ",
+      "\nWhat is ntp url3:  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ccm2_cli",
+    "cmd": "set_static_ip",
+    "source": "sandbox",
+    "prompts": [
+      "What is ip address [x.x.x.x]:  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ccm2_cli",
+    "cmd": "set_wan_prio",
+    "source": "sandbox",
+    "prompts": [
+      "What is WAN Priority 1 Index:  ",
+      "What is WAN Priority 2 Index:  ",
+      "What is WAN Priority 3 Index:  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ccm2_cli",
+    "cmd": "set_wifi_ap_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "What is enabled status [0|1]:  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ccm2_cli",
+    "cmd": "set_wifi_while_usbteth",
+    "source": "sandbox",
+    "prompts": [
+      "What is enabled status [0|1]:  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ccm2_cli",
+    "cmd": "set_wwan_ac",
+    "source": "sandbox",
+    "prompts": [
+      "What is Autoconnect Index: "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ccm2_cli",
+    "cmd": "wan_connect",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ccm2_cli",
+    "cmd": "wan_disconnect",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ccm2_cli",
+    "cmd": "wwan_connect",
+    "source": "sandbox",
+    "prompts": [
+      "Enter an optional call id (<enter> for default):  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "ccm2_cli",
+    "cmd": "wwan_disconnect",
+    "source": "sandbox",
+    "prompts": [
+      "Enter an optional call id (<enter> for default):  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "devui_cli",
+    "cmd": "set_admin_password_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "web ui admin password enabled (0 => disabled, 1 => enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "devui_cli",
+    "cmd": "set_data_usage_touchscreen_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "display datausage on touchscreen enabled (0 => disabled, 1 => enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "devui_cli",
+    "cmd": "set_display_ethernet_port_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "ethernet show/hide on touchscreen (0 => disabled, 1 => enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "devui_cli",
+    "cmd": "set_display_setting_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "display setting enabled (0 => disabled, 1 => enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "devui_cli",
+    "cmd": "set_file_sharing_display_setting_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "file sharing enabled (0 => disabled, 1 => enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "devui_cli",
+    "cmd": "set_guest_wifi_info_display_settings",
+    "source": "sandbox",
+    "prompts": [
+      "show wifi name enabled (0 => disabled, 1 => enabled): ",
+      "show wifi key enabled (0 => disabled, 1 => enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "devui_cli",
+    "cmd": "set_notification_display_wakeup_setting_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "notification display wakeup setting enabled (0 => disabled, 1 => enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "devui_cli",
+    "cmd": "set_primary_wifi_info_display_settings",
+    "source": "sandbox",
+    "prompts": [
+      "show wifi name enabled (0 => disabled, 1 => enabled): ",
+      "show wifi key enabled (0 => disabled, 1 => enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "devui_cli",
+    "cmd": "set_quickstart_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "quickstart enabled (0 => disabled, 1 => enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "devui_cli",
+    "cmd": "set_screen_timeout_settings",
+    "source": "sandbox",
+    "prompts": [
+      "(4 => SCREEN_TIMEOUT_TEN_MINUTE, 5 => SCREEN_TIMEOUT_EIGHT_HOURS, 6 => SCREEN_TIMEOUT_NEVER): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "devui_cli",
+    "cmd": "set_usb_connection_prompt_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "usb connection prompt enabled (0 => disabled, 1 => enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "devui_cli",
+    "cmd": "set_vital_update_prompt_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "vital update prompt enabled (0 => disabled, 1 => enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "devui_cli",
+    "cmd": "set_wifi_display_setting_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "wifi setting enabled (0 => disabled, 1 => enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "dsm_cli",
+    "cmd": "reset_device",
+    "source": "sandbox",
+    "prompts": [
+      "What is forced (1-forced, 0-wait for ack):  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "dsm_cli",
+    "cmd": "set_battery_health_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "Battery_life_extenstion mode (1=on, 0=off): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "dsm_cli",
+    "cmd": "set_default_usb_mode",
+    "source": "sandbox",
+    "prompts": [
+      "Enter 0 for Debug, and 1 for End user mode:"
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "dsm_cli",
+    "cmd": "shutdown_device",
+    "source": "sandbox",
+    "prompts": [
+      "What is forced (1-forced, 0-wait for ack):  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "dua_vzw_cli",
+    "cmd": "set_data_usage_settings_info",
+    "source": "sandbox",
+    "prompts": [
+      "Enter iface_type[0=INTERFACE_SIM,1=INTERFACE_ETH]: ",
+      "Enter imsi : ",
+      "Enter iccid:",
+      "What is cycle_day(1 <> 31): ",
+      "What is usage_limit [ 0(NONE), 1(20 MB), 2(25 MB), 3(100 MB), 4(250 MB), 5(500 MB), 6(1 GB), 7(2 GB), 8(3 GB), 9(5 GB), 10(8 GB), 11(10 GB), 12(12 GB), 13(15 GB) 14(20 GB) ]:  ",
+      "What is level1_threshold(1 <> 100): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "factory_reset_cli",
+    "cmd": "do_factory_reset",
+    "source": "sandbox",
+    "prompts": [
+      "(no prompt)"
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "factory_reset_cli",
+    "cmd": "set_hw_reset_sw_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enter HW reset status (0=Disable, 1=Enable): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "file_sharing_cli",
+    "cmd": "mount_umount_partition",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "file_sharing_cli",
+    "cmd": "settings_list_set",
+    "source": "sandbox",
+    "prompts": [
+      "Enter number of items you want to set:",
+      "Enter Entry[0],share_folder_name:",
+      "Enter list[0],share_folder_type (0=rw, 1=ro):"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "file_sharing_cli",
+    "cmd": "settings_set",
+    "source": "sandbox",
+    "prompts": [
+      "What is file sharing enabled- 1(enabled), 0(disabled): ",
+      "What is file sharing samba host name: ",
+      "Full partition/drive share enabled - 1(share full partition), 0(share selected folders): ",
+      "Full partition share read or Write - 1(full partition share is RW), 0(full partition share is RO) : "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "file_sharing_cli",
+    "cmd": "start_stop_share",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "gps_cli",
+    "cmd": "agps_mode_set",
+    "source": "sandbox",
+    "prompts": [
+      "Enter 0,1 or 2: XTRA(0), MSA(1), MSB(2): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "gps_cli",
+    "cmd": "force_xtra",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "gps_cli",
+    "cmd": "gps_start",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "gps_cli",
+    "cmd": "gps_stop",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "gps_cli",
+    "cmd": "set_active",
+    "source": "sandbox",
+    "prompts": [
+      "Enter 1 or 0, On(1), Off(0): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "gps_cli",
+    "cmd": "set_nmea_tcp",
+    "source": "sandbox",
+    "prompts": [
+      "Enter 1 or 0, Enabled(1), Disabled(0): ",
+      "Enter a port number, (1024-65535): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "gps_cli",
+    "cmd": "set_privacy",
+    "source": "sandbox",
+    "prompts": [
+      "Enter 1 or 0, Accept(1), Decline(0): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "led_cli",
+    "cmd": "set_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "Select LED enabled setting [0(\"not enabled\"), 1(\"Enabled\")]"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_health_cli",
+    "cmd": "set_log_settings",
+    "source": "sandbox",
+    "prompts": [
+      "Enter Logs Upload Enabled [0,1]: ",
+      "Enter Upload Interval (In Sec) : "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_health_cli",
+    "cmd": "set_lowmem_reboot_settings",
+    "source": "sandbox",
+    "prompts": [
+      "Enter Low Memory Threshold [Value >= 15 in MB]: ",
+      "Enter Check Interval (In Sec) : ",
+      "Enter Minimum Device Uptime before Reboot(In Hours) :",
+      "Enter Reboot Time Window Open (Only Hour in 24H format [0-23] ):",
+      "Enter Reboot Time Window End (Only Hour in 24H format [0-23] ):"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_health_cli",
+    "cmd": "set_mem_diag_settings",
+    "source": "sandbox",
+    "prompts": [
+      "Enter Max log file size (max size 2048) : ",
+      "Enter Max number of backups : ",
+      "Enter Safe zone least memory : ",
+      "Enter Critical zone start memory :",
+      "Enter Safe zone poll interval seconds :",
+      "Enter Moderate zone poll interval seconds :",
+      "Enter Critical zone poll interval seconds :",
+      "Enter Safe zone store memory stats interval mins :",
+      "Enter Moderate zone store memory stats interval mins :",
+      "Enter Critical zone store memory stats interval mins :",
+      "Enter Enable debug mode :",
+      "Enter Top CPU usage threshold :"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_allowed_port_list",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the number of records: ",
+      "Enable this allowed  port record (0,1)?: ",
+      "Enter Interface  Name(s) (Separate by comma if many): ",
+      "Enter port type (0 for range, 1 for list): ",
+      "Enter start/external Port number: ",
+      "Enter end/internal Port number: ",
+      "Enter Allowed Ports list separated by comma:",
+      "Enter protocol (1 for tcp, 2 for udp, 3 for both): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_allowed_ports",
+    "source": "sandbox",
+    "prompts": [
+      "Enter allowed port status (0=Disable, 1=Enable): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_device_name",
+    "source": "sandbox",
+    "prompts": [
+      "Enter DEVICE name: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_dmz",
+    "source": "sandbox",
+    "prompts": [
+      "Enter DMZ Status (0=OFF, 1=ON): ",
+      "Enter DMZ IP address: "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_dns_filter",
+    "source": "sandbox",
+    "prompts": [
+      "Enter DNS Filter Operation (0=Delete, 1=Add): ",
+      "Enter DNS Filter status (0=Disable, 1=Enable): ",
+      "Enter DNS Filter for Black or White List (0=White, 1=Black): ",
+      "Enter URLs(separated by ','): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_dns_name",
+    "source": "sandbox",
+    "prompts": [
+      "Enter DNS name: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_dns_rebinding_status",
+    "source": "sandbox",
+    "prompts": [
+      "Enter DNS Rebinding status (0=Disable, 1=Enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_http_redirect",
+    "source": "sandbox",
+    "prompts": [
+      "Enter HTTP redirect status (0=Disable, 1=Enable): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_icmp_response",
+    "source": "sandbox",
+    "prompts": [
+      "Enter ICMP response status (0=Disable, 1=Enable): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_iface_type",
+    "source": "sandbox",
+    "prompts": [
+      "Enter Ethernet eth0 interface type(2=LAN, 3=DHCP WAN): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_ippt",
+    "source": "sandbox",
+    "prompts": [
+      "Enter active (0,1): ",
+      "Enter Interface (1=USB, 2=Ethernet): ",
+      "Enter hostname of the client:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_ippt_feature_mode",
+    "source": "sandbox",
+    "prompts": [
+      "Enter IPPT Feature Mode value (0=Disable, 1=Enabled): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_ipv6_firewall",
+    "source": "sandbox",
+    "prompts": [
+      "Enter Ipv6 firewall status (0=Disable, 1=Enable): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_lan_dhcp_settings",
+    "source": "sandbox",
+    "prompts": [
+      "Enter LAN IP address: ",
+      "Enter LAN subnet mask: ",
+      "Enter LAN mask format (0=Disable, 1=Enable): ",
+      "Enter DHCP status (0=Disable, 1=Enable): ",
+      "Enter DHCP start IP address: ",
+      "Enter DHCP end IP address: ",
+      "Enter DHCP lease time (in seconds): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_port_filter",
+    "source": "sandbox",
+    "prompts": [
+      "Enter port filtering status (0=Disable, 1=Enable): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_port_filter_list",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the number of records: ",
+      "Enable this port filtering record(0,1)?: ",
+      "Enter name: ",
+      "Enter start/external Port number: ",
+      "Enter end/internal Port number: ",
+      "Enter protocol (1 for tcp, 2 for udp, 3 for both): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_port_forwarding",
+    "source": "sandbox",
+    "prompts": [
+      "Enter port forwarding status (0=Disable, 1=Enable): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_port_fwd_list",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the number of records: ",
+      "Enable this port forwarding record (0,1)?: ",
+      "Enter name: ",
+      "Enter Ip address: ",
+      "Enter Remote Port number: ",
+      "Enter Local Port number: ",
+      "Enter protocol (1 for tcp, 2 for udp, 3 for both): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_static_route_list",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the number of records: ",
+      "Enter Route Type (IPV4 = 4  IPV6 = 6): ",
+      "Enter the Network/Host [x.x.x.x/x] : ",
+      "Enter Gateway [x.x.x.x] : ",
+      "Enter WAN Type Index:",
+      "Enter Metric: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_static_routes",
+    "source": "sandbox",
+    "prompts": [
+      "Enter static routes feature status (0=Disable, 1=Enable): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "set_vpnpassthrough",
+    "source": "sandbox",
+    "prompts": [
+      "Enter VPN Passthrough status (0=Disable, 1=Enable): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "mifi_qcmap_cli",
+    "cmd": "wan_set_prio",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the first priority WAN: WWAN(1)/Etherenet(3) :",
+      "Enter the second priority WAN: WWAN(1)/Etherenet(3) :"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "5g_radio_set_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enable radio (disabled=0, enabled=1): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "ca_bands_set_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enter CA band1: ",
+      "Enter CA band2: ",
+      "Enter enabled status: "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "ca_set_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enable CA (disabled=0, enabled=1): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "ca_tri_bands_set_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enter CA band1: ",
+      "Enter CA band2: ",
+      "Enter CA band3: ",
+      "Enter enabled status: "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "enabled_tech_set",
+    "source": "sandbox",
+    "prompts": [
+      "Enter list of new tech modes (GSM,UMTS,CDMA,EVDO,LTE,NR5G):"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "failback_switch_apn",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "mns_clear_list",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "mns_set_oper",
+    "source": "sandbox",
+    "prompts": [
+      "Enable MNS? [1/0]: ",
+      "Enter MCCMNC: ",
+      "Enter access tech (GSM=0, UMTS=2, LTE=7): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "mns_start_scan",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "mns_validate",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "multi_apn_add_profile",
+    "source": "sandbox",
+    "prompts": [
+      "Enter Name: ",
+      "Enter IMSI: ",
+      "Enter ICCID: ",
+      "Enter Active [0 or 1]: ",
+      "Enter Default [0 or 1]: ",
+      "Enter APN: ",
+      "Enter username: ",
+      "Enter password: ",
+      "Enter Auth [0 none, 1 pap, 2 chap, 3 both]: ",
+      "Enter PDP [0 ipv4, 2 ipv6, 3 ipv4v6]: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "multi_apn_delete_profile",
+    "source": "sandbox",
+    "prompts": [
+      "Enter profile id: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "multi_apn_restore_default_profile",
+    "source": "sandbox",
+    "prompts": [
+      "Enter profile id: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "multi_apn_update_profile",
+    "source": "sandbox",
+    "prompts": [
+      "Enter index: ",
+      "Enter Name: ",
+      "Enter IMSI: ",
+      "Enter ICCID: ",
+      "Enter Active [0 or 1]: ",
+      "Enter Default [0 or 1]: ",
+      "Enter APN: ",
+      "Enter username: ",
+      "Enter password: ",
+      "Enter Auth [0 none, 1 pap, 2 chap, 3 both]: ",
+      "Enter PDP [0 ipv4, 2 ipv6, 3 ipv4v6]: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "pdn_set_ext_params",
+    "source": "sandbox",
+    "prompts": [
+      "Enter profile number: ",
+      "Enter profile type (0-3GPP, 1-3GPP2): ",
+      "Enter maximum pdn connections: ",
+      "Enter wait timer: ",
+      "Enter connection timer: "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "pdn_set_override_param",
+    "source": "sandbox",
+    "prompts": [
+      "Enter profile number: ",
+      "Enter profile type (0-3GPP, 1-3GPP2): ",
+      "Enter override pdp type (0-IPV4, 1-invalid, 2-IPV6, 3-IPV4V6): ",
+      "Enter clat enabled (0 - disabled, 1 - enabled): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "prof_set_act_tech",
+    "source": "sandbox",
+    "prompts": [
+      "Enter profile type (3GPP=0, 3GPP2=1): ",
+      "Enter profile index: "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "prof_set_cust_tech",
+    "source": "sandbox",
+    "prompts": [
+      "Enter APN Technology (LTE=0, UMTS=1, eHRPD=2): ",
+      "Enter apn name: ",
+      "Enter username: ",
+      "Enter password: ",
+      "Enter name: ",
+      "Enter locked status, none=0, enabled=1, auto=2: ",
+      "Enter auth value, none=0, pap=1, chap=2: ",
+      "Enter manual dns, disabled=0, enabled=1: ",
+      "Enter dns1: ",
+      "Enter dns2: ",
+      "Enter pdp type, v4=0, ppp=1, v6=2, v4v6=3: ",
+      "Enter apn disabled, apn disabled=1, enabled=0: ",
+      "Enter pdn inactivity timeout: ",
+      "Enter ipv4 pref: ",
+      "Enter ipv6 pref: ",
+      "Enter data mode, cdma_hdr=0, cdma=1, hdr=2: ",
+      "Enter 3gpp2 pdn type, v4=0, v6=1, v4v6=2, nopref=3: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "prof_set_tech",
+    "source": "sandbox",
+    "prompts": [
+      "Enter profile type (3GPP=0, 3GPP2=1): ",
+      "Enter profile index: ",
+      "Enter apn name: ",
+      "Enter username: ",
+      "Enter password: ",
+      "Enter name: ",
+      "Enter locked status, none=0, enabled=1, auto=2: ",
+      "Enter auth value, none=0, pap=1, chap=2: ",
+      "Enter manual dns, disabled=0, enabled=1: ",
+      "Enter dns1: ",
+      "Enter dns2: ",
+      "Enter pdp type, v4=0, ppp=1, v6=2, v4v6=3: ",
+      "Enter apn disabled, apn disabled=1, enabled=0: ",
+      "Enter pdn inactivity timeout: ",
+      "Enter ipv4 pref: ",
+      "Enter ipv6 pref: ",
+      "Enter data mode, cdma_hdr=0, cdma=1, hdr=2: ",
+      "Enter 3gpp2 pdn type, v4=0, v6=1, v4v6=2, nopref=3: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "radio_set_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enable radio (disabled=0, enabled=1): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "roam_set_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "enable roaming [1/0]: "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "roam_set_intl_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "enable international roaming [1/0]: "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "run_raw_command",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the command string: ",
+      "Enter the prompt string(enter for none): ",
+      "Enter the reply string(enter for none): ",
+      "Enter the timeout value: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "set_5g_tuwb",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the tuwb (range 0-30): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "set_apn_failback_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enter mode (0-Disable, 1-Enable):"
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "set_autonomous_gap_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enable Autonomous Gap (disabled=0, enabled=1): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "set_configured_band_priority_list",
+    "source": "sandbox",
+    "prompts": [
+      "Enter number of bands to enable(max 512): ",
+      "Enter band number: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "set_configured_nr5g_band_priority_list",
+    "source": "sandbox",
+    "prompts": [
+      "Enter number of bands to enable(max 512): ",
+      "Enter band number: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "set_enabled_lte_bands",
+    "source": "sandbox",
+    "prompts": [
+      "Enter number of bands to enable(max 512): ",
+      "Enter band number: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "set_enabled_nr5g_nsa_bands",
+    "source": "sandbox",
+    "prompts": [
+      "Enter number of bands to enable(max 512): ",
+      "Enter band number: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "set_enabled_nr5g_sa_bands",
+    "source": "sandbox",
+    "prompts": [
+      "Enter number of bands to enable(max 512): ",
+      "Enter band number: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "set_ext_ant_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the state (0 - mhb diabled (Ant 0), 1 - mhb enabled (Ant 1)): ",
+      "Enter the state (0 - uhb diabled (Ant 0), 1 - uhb enabled (Ant 1)): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "set_lte_wifi_coex",
+    "source": "sandbox",
+    "prompts": [
+      "Enter 1 to enable LTE-U, 0 to disable it: "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "set_nr5g_disable_mode",
+    "source": "sandbox",
+    "prompts": [
+      "Enter mode (0-Disable None, 1-Disable NSA, 2-Disable SA):"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "set_roam_guard_settings",
+    "source": "sandbox",
+    "prompts": [
+      "Enter domestic roam enabled [0/1]:",
+      "Enter domestic roam forced [0/1]:",
+      "Enter domestic_roam_guard_enabled [0/1]:",
+      "Enter domestic_roam_guard_forced [0/1]:",
+      "Enter international_roam_enabled [0/1]:",
+      "Enter international_roam_forced [0/1]:",
+      "Enter international_roam_guard_enabled [0/1]:",
+      "Enter international_roam_guard_forced [0/1]:"
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "sim_change_pin",
+    "source": "sandbox",
+    "prompts": [
+      "What is old SIM PIN:  ",
+      "What is new SIM PIN:  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "sim_enable_pin",
+    "source": "sandbox",
+    "prompts": [
+      "enable sim pin lock [1/0]: ",
+      "What is SIM PIN:  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "sim_mgr_set_imsi_priority",
+    "source": "sandbox",
+    "prompts": [
+      "\nEnter the imsi: ",
+      "\nEnter priority for this imsi"
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "sim_mgr_switch_slot",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the slot to switch"
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "sim_unlock_pin",
+    "source": "sandbox",
+    "prompts": [
+      "What is SIM PIN:  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "sim_unlock_puk",
+    "source": "sandbox",
+    "prompts": [
+      "What is SIM PUK:  ",
+      "What is SIM PIN:  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "modem2_cli",
+    "cmd": "unlock_carrier",
+    "source": "sandbox",
+    "prompts": [
+      "\npin:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "nua_cli",
+    "cmd": "set_poll_interval",
+    "source": "sandbox",
+    "prompts": [
+      "<seconds>"
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "nua_cli",
+    "cmd": "set_settings",
+    "source": "sandbox",
+    "prompts": [
+      "-f",
+      "<fumo 0|1>",
+      "-p",
+      "<poll 0|1>",
+      "-s",
+      "<FOTA opt-out disabled 0|1>",
+      "-l",
+      "<low battery %>",
+      "-w",
+      "<low battery % with charger>"
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "settings_cli",
+    "cmd": "backup",
+    "source": "sandbox",
+    "prompts": [
+      "(no prompt)"
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "settings_cli",
+    "cmd": "clear_modem_logs",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "settings_cli",
+    "cmd": "restore",
+    "source": "sandbox",
+    "prompts": [
+      "What is the path:  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "settings_cli",
+    "cmd": "set_modem_logging_settings",
+    "source": "sandbox",
+    "prompts": [
+      "Enter logging enabled (0/1):",
+      "Enter log files size:",
+      "Enter number of files (1-3):"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sim_mgr_cli",
+    "cmd": "set_conn_configs",
+    "source": "sandbox",
+    "prompts": [
+      "connection interval:",
+      "connection retriies:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sim_mgr_cli",
+    "cmd": "set_conn_monitor_mode",
+    "source": "sandbox",
+    "prompts": [
+      "\nconn mode:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sim_mgr_cli",
+    "cmd": "set_conn_recovery_mode",
+    "source": "sandbox",
+    "prompts": [
+      "\n[recovery] conn recovery mode:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sim_mgr_cli",
+    "cmd": "set_recovery_max_DNS_fail_cnt",
+    "source": "sandbox",
+    "prompts": [
+      "\n[recovery] conn recovery max DNS fail cnt:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sim_mgr_cli",
+    "cmd": "set_recovery_max_device_reset_cnt",
+    "source": "sandbox",
+    "prompts": [
+      "\n[recovery] conn recovery max device reset cnt:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sim_mgr_cli",
+    "cmd": "set_recovery_max_mdm_disconnect_timeout",
+    "source": "sandbox",
+    "prompts": [
+      "\n[recovery] conn recovery max mdm disconnect timeout:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sim_mgr_cli",
+    "cmd": "set_recovery_max_mdm_reset_cnt",
+    "source": "sandbox",
+    "prompts": [
+      "\n[recovery] conn recovery max mdm reset cnt:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sim_mgr_cli",
+    "cmd": "set_recovery_max_sim_switches",
+    "source": "sandbox",
+    "prompts": [
+      "\n[recovery] conn recovery max sim switch cnt:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sim_mgr_cli",
+    "cmd": "set_recovery_max_system_reset_cnt",
+    "source": "sandbox",
+    "prompts": [
+      "\n[recovery] conn recovery max system_reset_cnt:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sim_mgr_cli",
+    "cmd": "set_recovery_period",
+    "source": "sandbox",
+    "prompts": [
+      "\n[recovery] conn recovery period:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sim_mgr_cli",
+    "cmd": "set_sim_configs",
+    "source": "sandbox",
+    "prompts": [
+      "sim interval:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sim_mgr_cli",
+    "cmd": "set_sim_monitor_mode",
+    "source": "sandbox",
+    "prompts": [
+      "\nsim mode:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sim_mgr_cli",
+    "cmd": "set_switch_mode",
+    "source": "sandbox",
+    "prompts": [
+      "\nswitch mode:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sms_cli",
+    "cmd": "ab_add_entry",
+    "source": "sandbox",
+    "prompts": [
+      "\nEnter contact name: ",
+      "\nEnter contact address: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sms_cli",
+    "cmd": "ab_del_entry",
+    "source": "sandbox",
+    "prompts": [
+      "\nEnter contact id 0-100: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sms_cli",
+    "cmd": "ab_edit_entry",
+    "source": "sandbox",
+    "prompts": [
+      "\nEnter contact id 0-100: ",
+      "\nEnter contact name: ",
+      "\nEnter contact address: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sms_cli",
+    "cmd": "delete",
+    "source": "sandbox",
+    "prompts": [
+      "Enter mailbox id 0-3: PreInbox(0), Inbox(1), Outbox(2), Sentbox(3): ",
+      "\nEnter message index 0-120: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sms_cli",
+    "cmd": "send",
+    "source": "sandbox",
+    "prompts": [
+      "Enter phone number: ",
+      "\nEnter message: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sms_cli",
+    "cmd": "set_state",
+    "source": "sandbox",
+    "prompts": [
+      "Enter mailbox id 0-3: PreInbox(0), Inbox(1), Outbox(2), Sentbox(3): ",
+      "\nEnter message index 0-120: ",
+      "\nEnter message state Unread(0), Read(1): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "getGatewaySettings",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "getLanMTU",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "getReservedIPList",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "setAutoShutdownEnabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enable ? ( 1 or 0 ): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "setDeepSleepEnabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enable ? ( 1 or 0 ): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "setDeviceName",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the mac address(xx:xx:xx:xx:xx:xx):",
+      "Enter device name :"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "setGatewaySettings",
+    "source": "sandbox",
+    "prompts": [
+      "Enter Gateway Setting Mode 0 (Use default gateway and netmask), 1 (Use gateway and netmask from modem), 2 (Configure gateway and netmask manually)",
+      "Enter Gateway Address:",
+      "Enter Netmask:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "setLanMTU",
+    "source": "sandbox",
+    "prompts": [
+      "Enter MTU: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "setMacFilterWhiteListEnabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enable ? ( 1 or 0 ): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "setPowerSaveEnabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enable ? ( 1 or 0 ): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "setPowerSaveSettings",
+    "source": "sandbox",
+    "prompts": [
+      "Enter deep sleep idle duration ( in seconds ) : ",
+      "Enter deep sleep max secs ( in seconds ) :",
+      "Enter auto shutdown time ( in seconds ) :"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "setReservedIPList",
+    "source": "sandbox",
+    "prompts": [
+      "Enter number of reserved IP addresses you want to set:",
+      "Enter host name:",
+      "Enter type (0 - 10 (see sys_device_type_e sys_interface_types.h) :",
+      "Enter mac (xx:xx:xx:xx:xx:xx):",
+      "Enter reserved ip address (x.x.x.x):"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "setSambaEnabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enable ? ( 1 or 0 ): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "setUniversalChargingEnabled",
+    "source": "sandbox",
+    "prompts": [
+      "Enable ? ( 1 or 0 ): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "sysintcli",
+    "cmd": "setUniversalChargingSettings",
+    "source": "sandbox",
+    "prompts": [
+      "Enter threshold ( percentage ) : "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "tr069_cli",
+    "cmd": "set_acs_client_config",
+    "source": "sandbox",
+    "prompts": [
+      "Enter Username: ",
+      "Enter Password: ",
+      "Enter Port number: ",
+      "Enter Connection Request Authentication Type (0=Disable, 1=Enable): ",
+      "Enter Authentication Mode (0=Basic, 1=Digest): ",
+      "Enter Periodic Inform Interval (PII) time(0:600)Sec: ",
+      "Enter CWMP version: ",
+      "Enter Log Level (0=CRITICAL, 1=WARNING, 2=NOTICE, 3=INFO, 4=DEBUG): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "tr069_cli",
+    "cmd": "set_acs_server_config",
+    "source": "sandbox",
+    "prompts": [
+      "Enter Username: ",
+      "Enter Password: ",
+      "Enter URL: ",
+      "Enter Port number: ",
+      "Enter Cellular-WAN Interface Type (1=Cellular(rmnet_data0), 0=USB(eth0)): ",
+      "Enter IP Type (1=IPV4, 0=IPV6): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "tr069_cli",
+    "cmd": "set_preserve_tr069_config",
+    "source": "sandbox",
+    "prompts": [
+      "Enter TR069 Restore settings (0=Disable, 1=Enable): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "tr069_cli",
+    "cmd": "set_status",
+    "source": "sandbox",
+    "prompts": [
+      "Enter TR069 status (0=Disable, 1=Enable): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "tr069_cli",
+    "cmd": "set_xmpp_config",
+    "source": "sandbox",
+    "prompts": [
+      "Enter Username: ",
+      "Enter Password: ",
+      "Enter URL: ",
+      "Enter Jabber ID: ",
+      "Enter Port number: ",
+      "Enter XMPP status (0=Disable, 1=Enable): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "tr069_cli",
+    "cmd": "tr069_restart",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "usb_cli",
+    "cmd": "ippt_settings",
+    "source": "sandbox",
+    "prompts": [
+      "What is rndis_disabled (1=on, 0=off): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "usb_cli",
+    "cmd": "mode_switch",
+    "source": "sandbox",
+    "prompts": [
+      "What is switch mode (0=EUM, 1=DBG, 2=ENT 3=P_ENT): ",
+      "What is reboot (0 | 1): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "usb_cli",
+    "cmd": "set_tether_enabled",
+    "source": "sandbox",
+    "prompts": [
+      "What is tether_enabled (1=on, 0=off): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "vpn_cli",
+    "cmd": "connect_vpn",
+    "source": "sandbox",
+    "prompts": [
+      "Enter server type (0-NONE, 1-PPTP, 2-OpenVPN, 3-L2TP Over IPSec, 4-IPSec, 5-OpenVPN with config files 6- WiredGuard VPN): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "vpn_cli",
+    "cmd": "disconnect_vpn",
+    "source": "sandbox",
+    "prompts": [
+      "Enter server type (0-NONE, 1-PPTP, 2-OpenVPN, 3-L2TP Over IPSec, 4-IPSec, 5-OpenVPN with config files 6- WiredGuard VPN): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "vpn_cli",
+    "cmd": "set_auto_connect",
+    "source": "sandbox",
+    "prompts": [
+      "Enter VPN auto connect status (0=Disable, 1=Enable): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "vpn_cli",
+    "cmd": "set_ipsec_vpn",
+    "source": "sandbox",
+    "prompts": [
+      "Enter IPSec VPN Service status (0=Disable, 1=Enable): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "vpn_cli",
+    "cmd": "set_settings",
+    "source": "sandbox",
+    "prompts": [
+      "Enter server type (0-NONE, 1-PPTP, 2-OpenVPN, 3-L2TP Over IPSec, 4-IPSec, 5-OpenVPN with config files 6- WiredGuard VPN): ",
+      "Clear/Set server configuration(Set-0, Clear-1): ",
+      "Enter IPsec Tunnel Index[0-5]:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "vpn_cli",
+    "cmd": "set_wguard_vpn",
+    "source": "sandbox",
+    "prompts": [
+      "Enter WGuard VPN Service status (0=Disable, 1=Enable): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "vpn_cli",
+    "cmd": "validate_openvpn_config_files",
+    "source": "sandbox",
+    "prompts": [
+      "Enter OpenVPN uploaded config file path: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wan_mgr_cli",
+    "cmd": "set_auto_switch",
+    "source": "sandbox",
+    "prompts": [
+      "Enter WAN Auto Switch Value(0/1): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wan_mgr_cli",
+    "cmd": "set_manual_wan",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the manual WAN Type (1=WWAN, 2=Wifi, 3=Ethernet 4=USB): "
+    ],
+    "mode": "stdin",
+    "date": "2026-11-01",
+    "note": "prompts confirmed on the real unit by a supervised no-op round trip (current values written back); vendor answered rc 2 (bad parameters) while auto-switch was on; read-back unchanged"
+  },
+  {
+    "cli": "wan_mgr_cli",
+    "cmd": "set_self_recovery_status",
+    "source": "sandbox",
+    "prompts": [
+      "Enter WAN Self Recovery Status(0/1): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wan_mgr_cli",
+    "cmd": "set_waiting_timeout",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the no connectivity timeout value"
+    ],
+    "mode": "stdin",
+    "date": "2026-11-01"
+  },
+  {
+    "cli": "wan_mgr_cli",
+    "cmd": "set_wan_failback",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the failback feature enable or disable (0:disable, 1:enable): ",
+      "Enter the failback timer Range(1-1440 min): ",
+      "Enter the WWAN data traffic check timer Range(1-1440 min): ",
+      "Enter the WWAN data traffic check limit Range(1-10240 KB): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wan_mgr_cli",
+    "cmd": "set_wan_monitor_properties",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the WAN monitor feature enable or disable (0:disable, 1:enable): ",
+      "Enter the use connected device state feature enable or disable (0:disable, 1:enable): ",
+      "Enter the interface retry count, Range(0-10): ",
+      "Enter the routed monitor interval, Range(30-86400 sec) : ",
+      "Enter the online monitor interval, Range(1-1440 min): ",
+      "Enter the failed monitor interval, Range(10-600 sec): ",
+      "Enter the first DNS URL: ",
+      "Enter the second dns url: ",
+      "Enter the third dns url: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wan_mgr_cli",
+    "cmd": "set_wan_priority_list",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the WAN Type (1=WWAN, 2=Wifi, 3=Ethernet 4=USB): ",
+      "Enter WAN priority for WAN[1]:",
+      "Enter the WAN Type (1=WWAN, 2=Wifi, 3=Ethernet 4=USB): ",
+      "Enter WAN priority for WAN[2]:"
+    ],
+    "mode": "stdin",
+    "date": "2026-11-01",
+    "note": "prompts confirmed on the real unit by a supervised no-op round trip (current values written back); vendor answered rc 2 (bad parameters) while auto-switch was on; read-back unchanged"
+  },
+  {
+    "cli": "watchdog_cli",
+    "cmd": "set_settings",
+    "source": "sandbox",
+    "prompts": [
+      "What is enabled ( 0 or 1 ): ",
+      "What is interval ( seconds ):  "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "webui_cli",
+    "cmd": "set_automatic_network_selection",
+    "source": "sandbox",
+    "prompts": [
+      "automatic_network_selection (0 => disabled, 1 => enabled): "
+    ],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "webui_cli",
+    "cmd": "set_i18n_settings",
+    "source": "sandbox",
+    "prompts": [
+      "What is the language [en_US]: ",
+      "What is the date-format [0(mm/dd/yyyy), 1(dd.mm.yyyy), 2(dd/mm/yyyy), 3(yyyy/mm/dd)]: ",
+      "What is the hour-format [0(12hr), 1(24hr)]: ",
+      "What is the temparature-format [0(Fahrenheit), 1(Celsius)]: ",
+      "What is the distance-format [0(US), 1(Metric)]]: ",
+      "What is the numeric-format [0(period, 1(comma)]: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "webui_cli",
+    "cmd": "set_log_settings",
+    "source": "sandbox",
+    "prompts": [
+      "Is log enabled [0/1]: ",
+      "What is log life time ([1 - 4] days): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "webui_cli",
+    "cmd": "set_software_update_settings",
+    "source": "sandbox",
+    "prompts": [
+      "FUMO (0: Disable, 1: Enable): ",
+      "Auto Polling (0: Disable, 1: Enable): ",
+      "Low Battery Threshold (1-99): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wifi_cli",
+    "cmd": "add_mac_blist",
+    "source": "sandbox",
+    "prompts": [
+      "Enter blacklist MAC address:",
+      "Enter the Reason for blacklist(1=WL,2=BL,3=Both):",
+      "Enter the interface name <wlan0/wlan1>:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wifi_cli",
+    "cmd": "set_all_profiles",
+    "source": "sandbox",
+    "prompts": [],
+    "mode": "argv",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wifi_cli",
+    "cmd": "set_ap_profile",
+    "source": "sandbox",
+    "prompts": [
+      "Profile index (1-5): ",
+      "Profile status (0/1): ",
+      "Profile name (1 - 20 characters): ",
+      "SSID (1 - 32 characters):",
+      "Broadcast SSID  (broadcast=0 /no broadcast=1): ",
+      "WPS status (0/1): ",
+      "Wifi privacy (0/1): ",
+      "Interface Feature Mask (1=BL, 2=WL, 3=BL/WL 4=II, 5=II/BL, 6=II/WL, 7=BL/WL/II, 8=GF, 16=GW): ",
+      "Mode (1=BGN, 5=GN_2.4, 10=AN, 11=AC_5, 12=AC_ONLY_5, 13=BGN_PLUS_AX_2.4, 14=ACN_PLUS_AX_5): ",
+      "Channel (1-13=2.4 GHz., x-y=5 GHz., 0=ACS): ",
+      "Channel Width (1=20 MHz, 2=40 MHz, 3=80 MHz): ",
+      "Security type (0=None, 1=WEP, 2=WPA, 3=WPA2, 4=WPA2MIX, 5=WPA3, 6=WPA3 Transition, 7=OWE, 8=OWE Transition): ",
+      "Enryption Mode (1=64 bit, 2=128 bit, 3=TKIP, 4=AES, 5=TKIP & AES): ",
+      "Passphrase Key for WPA,WPA2, WPA2Mix Mode or WPA3 Mode (8 - 64 characters): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wifi_cli",
+    "cmd": "set_ap_settings",
+    "source": "sandbox",
+    "prompts": [
+      "AP status (0/1): ",
+      "Max number of clients: "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wifi_cli",
+    "cmd": "set_profile_status",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the profile index (1-4):",
+      "Enter the profile status (0=Disable, 1=Enable):"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wifi_cli",
+    "cmd": "set_settings",
+    "source": "sandbox",
+    "prompts": [
+      "Wifi status (0/1): ",
+      "Country Code (US/JP/GB/AU/CA): "
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wifi_cli",
+    "cmd": "set_wifi_ps",
+    "source": "sandbox",
+    "prompts": [
+      "Enter Wifi status due to powersave (0=Disable, 1=Enable):"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wifi_cli",
+    "cmd": "start_wps",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the AP profile index (1-5):",
+      "Enter the WPS methos PIN or PBC (1-2):",
+      "Enter WPS Pin:"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  },
+  {
+    "cli": "wifi_cli",
+    "cmd": "stop_wps",
+    "source": "sandbox",
+    "prompts": [
+      "Enter the Wifi AP profile index (1-5):"
+    ],
+    "mode": "stdin",
+    "date": "2026-10-31"
+  }
+]

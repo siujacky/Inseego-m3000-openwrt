@@ -1,0 +1,8 @@
+command [get_lan_settings]
+
+webui_get_lan_settings returned 0 (WEBUI: success.)
+IPPT enabled:[1]
+Edit IPPT enabled:[0]
+IPPT Interface enabled:[1]
+Gateway settings enabled:[0]
+Update WiFi on IPPT enabled:[0]

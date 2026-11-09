@@ -1,0 +1,4 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [get_ap_profile]
+
+Enter the Wifi profile index (1-4):Invalid profile index.
+WIFI_CLI_MBH: Disable Message bus interface

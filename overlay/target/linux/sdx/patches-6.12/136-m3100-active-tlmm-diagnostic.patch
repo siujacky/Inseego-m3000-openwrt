@@ -1,0 +1,59 @@
+--- a/drivers/i2c/busses/i2c-qup.c
++++ b/drivers/i2c/busses/i2c-qup.c
+@@ -240,6 +240,10 @@
+  struct m3100_pio_icc m3100_pio_vote;
+  bool m3100_pio_trial;
+  bool m3100_clock_diag, m3100_gcc_valid;
++ bool m3100_tlmm_valid;
++ void __iomem *m3100_tlmm82, *m3100_tlmm83;
++ u64 m3100_tlmm_start_ns, m3100_tlmm_end_ns;
++ u32 m3100_tlmm[4];
+  void __iomem *m3100_gcc_apps, *m3100_gcc_vote, *m3100_gcc_ahb;
+  unsigned int m3100_enable_seq, m3100_gcc_enable_seq;
+  int m3100_core_ret, m3100_iface_ret;
+@@ -400,6 +404,14 @@
+    qup->m3100_gcc_end_ns=ktime_get_boottime_ns();
+    qup->m3100_gcc_enable_seq=qup->m3100_enable_seq;
+    qup->m3100_gcc_valid=true;
++   /* Digital pin receiver samples, not a waveform or pin-state write. */
++   qup->m3100_tlmm_start_ns=ktime_get_boottime_ns();
++   qup->m3100_tlmm[0]=readl(qup->m3100_tlmm82);
++   qup->m3100_tlmm[1]=readl(qup->m3100_tlmm82+0x04);
++   qup->m3100_tlmm[2]=readl(qup->m3100_tlmm83);
++   qup->m3100_tlmm[3]=readl(qup->m3100_tlmm83+0x04);
++   qup->m3100_tlmm_end_ns=ktime_get_boottime_ns();
++   qup->m3100_tlmm_valid=true;
+   }
+  }
+ }
+@@ -1840,7 +1852,7 @@
+       msgs[0].buf[0]==0x80 && msgs[0].buf[1]==0 && msgs[0].buf[2]==0 &&
+       msgs[1].addr==0x77 && msgs[1].flags==I2C_M_RD && msgs[1].len==4) {
+    qup->m3100_trace_used=true; qup->m3100_trace_active=true;
+-   qup->m3100_trace_count=0; qup->m3100_prerun_valid=false; qup->m3100_gcc_valid=false;
++   qup->m3100_trace_count=0; qup->m3100_prerun_valid=false; qup->m3100_gcc_valid=false; qup->m3100_tlmm_valid=false;
+   }
+ 		spin_unlock_irqrestore(&qup->m3100_lock,flags);
+ 	}
+@@ -1941,6 +1953,10 @@
+     qup->m3100_gcc_start_ns,qup->m3100_gcc_end_ns,
+     qup->m3100_gcc[0],qup->m3100_gcc[1],qup->m3100_gcc[2],qup->m3100_gcc[3],qup->m3100_gcc[4]);
+   }
++  if (qup->m3100_trace_active && qup->m3100_tlmm_valid)
++   dev_err(qup->dev,"M3100 active TLMM start_ns=%llu end_ns=%llu gpio82_ctl=%08x gpio82_io=%08x gpio83_ctl=%08x gpio83_io=%08x\n",
++    qup->m3100_tlmm_start_ns,qup->m3100_tlmm_end_ns,
++    qup->m3100_tlmm[0],qup->m3100_tlmm[1],qup->m3100_tlmm[2],qup->m3100_tlmm[3]);
+   if (qup->m3100_trace_active) {
+    unsigned int i;
+    for (i=0;i<qup->m3100_trace_count;i++) {
+@@ -2098,6 +2114,10 @@
+   qup->m3100_gcc_ahb=devm_ioremap(&pdev->dev,0x0011b000,0x1000);
+   if (!qup->m3100_gcc_apps || !qup->m3100_gcc_vote || !qup->m3100_gcc_ahb)
+    return -ENOMEM;
++  /* Actual stock/current SDX65 TLMM base0xf100000 + pin*0x1000. */
++  qup->m3100_tlmm82=devm_ioremap(&pdev->dev,0x0f152000,0x1000);
++  qup->m3100_tlmm83=devm_ioremap(&pdev->dev,0x0f153000,0x1000);
++  if (!qup->m3100_tlmm82 || !qup->m3100_tlmm83) return -ENOMEM;
+  }
+ 
+ 

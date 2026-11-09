@@ -1,0 +1,6 @@
+command [get_modem_logging_settings]
+
+settings_get_modem_logging_settings returned 0 (SETTINGS: success.)
+modem_logging_enabled[0]
+log_files_size[25]
+number_of_files[3]

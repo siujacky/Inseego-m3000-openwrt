@@ -1,0 +1,5 @@
+command [get_antenna_settings]
+
+Azimuth = [0]
+Downtilt = [0]
+cbsd_get_antenna_settings returned 0 (CBSD: success.)

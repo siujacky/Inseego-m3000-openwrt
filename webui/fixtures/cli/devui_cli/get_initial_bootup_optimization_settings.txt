@@ -1,0 +1,5 @@
+command [get_initial_bootup_optimization_settings]
+
+deviceui_get_initial_bootup_optimization_settings returned 0 (DEVUI_FRAMEWORK: success.)
+initial_bootup_optimization_setting:[1]
+disable_initial_bootup_optimization_setting:[1]

@@ -1,0 +1,3 @@
+command [set_iface_type]
+
+Enter Ethernet eth0 interface type(2=LAN, 3=DHCP WAN): cmd_set_ethernet_iface_type returned 65535 (MIFI_QCMAP: general error.)

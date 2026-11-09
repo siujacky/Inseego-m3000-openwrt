@@ -1,0 +1,3 @@
+command [is_running]
+
+tr069_is_running returned 5 (TR069: process not running.)

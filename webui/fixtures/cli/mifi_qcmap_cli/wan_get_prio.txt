@@ -1,0 +1,5 @@
+command [wan_get_prio]
+
+First priority wan is [WWAN]
+Second priority wan is [Ethernet WAN]
+cmd_mifi_qcmap_get_wan_prio returned 0 (MIFI_QCMAP: success.)

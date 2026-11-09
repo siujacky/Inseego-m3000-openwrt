@@ -1,0 +1,2 @@
+
+Enter the imsi: cmd_get_custom_apn_from_database_using_imsi returned 1011 (MDM_MAIN: APN not found in Auto APN Database.)

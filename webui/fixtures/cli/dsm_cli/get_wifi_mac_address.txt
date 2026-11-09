@@ -1,0 +1,3 @@
+command [get_wifi_mac_address]
+
+What is the no of WiFi Macs:cmd_get_wifi_mac_address returned 1 (DSM: general error.)

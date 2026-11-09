@@ -1,0 +1,7 @@
+
+------------------------
+--[get] is device supports multi sim features--
+cmd_get_is_multi_sim_supported returned 0 (SIM_MGR: success.)
+is_multi_sim_supported:[0][single sim]
+
+------------------------

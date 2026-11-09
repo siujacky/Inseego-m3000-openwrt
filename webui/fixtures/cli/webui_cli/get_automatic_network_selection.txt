@@ -1,0 +1,4 @@
+command [get_automatic_network_selection]
+
+webui_get_automatic_network_selection returned 0 (WEBUI: success.)
+automatic_network_selection enabled:[1]

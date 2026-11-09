@@ -1,0 +1,8 @@
+
+------------------------
+--[set] sim monitor--
+
+sim mode: [0]
+cmd_set_sim_monitor_mode returned 1 (SIM_MGR: general error.)
+
+------------------------

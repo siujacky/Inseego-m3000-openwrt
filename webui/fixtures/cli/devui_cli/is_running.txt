@@ -1,0 +1,3 @@
+command [is_running]
+
+deviceui_is_running returned 5 (DEVUI_FRAMEWORK: process not running.)

@@ -1,0 +1,4 @@
+command [set_audio_alerts_enabled]
+
+Select audio alerts enabled setting [0("not enabled"), 1("Enabled")]enabled: 1
+ans_set_audio_alerts_enabled returned 1 (ANS: general error.)

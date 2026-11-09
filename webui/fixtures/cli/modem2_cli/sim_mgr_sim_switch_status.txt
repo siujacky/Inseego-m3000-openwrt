@@ -1,0 +1,2 @@
+cmd_sim_mgr_sim_switch_status returned 0 (MDM_MAIN: success.)
+SIM Switching Status: 0

@@ -1,0 +1,4 @@
+command [get_battery_health_enabled]
+
+dsm_get_battery_health_enabled returned 0 (DSM: success.)
+Battery Health Mode=[1]

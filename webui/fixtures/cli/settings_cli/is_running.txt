@@ -1,0 +1,3 @@
+command [is_running]
+
+settings_is_running returned 0 (SETTINGS: success.)

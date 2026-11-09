@@ -1,0 +1,9 @@
+command [get_acs_server_config]
+
+cmd_tr069_get_acs_server_config returned 0 (TR069: success.)
+TR069 Server UserName : [easycwmp]
+TR069 Server Password : [redacted]
+TR069 Server URL : [acs.inseego.com]
+TR069 Server Port Number : [7547]
+TR069 Cellular WAN-Interface Type : [1]
+TR069 Server IP Type : [1]

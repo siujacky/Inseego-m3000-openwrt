@@ -1,0 +1,4 @@
+cmd_get_refurb_info returned 1 (MDM_MAIN: general error.)
+
+Status:[0]
+Date:[01/01/70 12:00:00 am]

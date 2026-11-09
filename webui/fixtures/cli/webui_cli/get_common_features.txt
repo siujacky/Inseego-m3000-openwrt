@@ -1,0 +1,19 @@
+command [get_common_features]
+
+webui_get_common_features returned 3 (WEBUI: one or more buffer type parameters passed into API is too small.)
+Buffer Insufficient node count[14]
+webui_get_common_features returned 0 (WEBUI: success.)
+features[0].feature_name:[ShowAllowFOTASoftwareUpdate] features[0].feature_enabled:[0]
+features[1].feature_name:[ShowNonVerizonTechnologies] features[1].feature_enabled:[1]
+features[2].feature_name:[ShowAdvancedSettings] features[2].feature_enabled:[0]
+features[3].feature_name:[ShowPromptOnUSB] features[3].feature_enabled:[1]
+features[4].feature_name:[ShowWifiDisplaySetting] features[4].feature_enabled:[1]
+features[5].feature_name:[ShowToolTip] features[5].feature_enabled:[1]
+features[6].feature_name:[ShowAddCustomAppButton] features[6].feature_enabled:[1]
+features[7].feature_name:[ShowModemVersionAsSoftwareVersion] features[7].feature_enabled:[0]
+features[8].feature_name:[ShowMNSInGlobalTech] features[8].feature_enabled:[1]
+features[9].feature_name:[ShowRoamingIndicator] features[9].feature_enabled:[1]
+features[10].feature_name:[ShowChangePassword] features[10].feature_enabled:[redacted]
+features[11].feature_name:[ShowSmsLock] features[11].feature_enabled:[1]
+features[12].feature_name:[ShowExternalMHBAntenna] features[12].feature_enabled:[0]
+features[13].feature_name:[ShowExternalUHBAntenna] features[13].feature_enabled:[0]

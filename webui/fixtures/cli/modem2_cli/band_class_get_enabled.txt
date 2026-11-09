@@ -1,0 +1,4 @@
+BAND_CLASS_10 = 1
+BAND_CLASS_14 = 2
+Enter bandclass: cmd_band_class_get_enabled returned 2 (MDM_MAIN: one or more bad parameters passed into a function.)
+Invalid band class 

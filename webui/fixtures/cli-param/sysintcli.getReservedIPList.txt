@@ -1,0 +1,4 @@
+Starting sysint client library
+sys_getDHCPReservedAddrList returned 0, count:[0]
+Stopping sysint client library 0
+sysinterfaceShutdown complete 0

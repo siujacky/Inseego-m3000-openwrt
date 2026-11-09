@@ -1,0 +1,6 @@
+command [get_settings]
+
+cmd_get_settings returned 0 (DSM: success.)
+settings.critical_battery_threshold: [1]
+settings.battery_pack_active: [1]
+settings.battery_pack_low_battery_threshold: [25]

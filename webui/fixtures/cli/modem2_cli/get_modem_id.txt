@@ -1,0 +1,2 @@
+cmd_get_modem_id returned 0 (MDM_MAIN: success.)
+modem id:[]

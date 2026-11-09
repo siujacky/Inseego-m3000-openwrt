@@ -1,0 +1,10 @@
+command [get_lan_dhcp_settings]
+
+cmd_router2_get_lan_dhcp_settings returned 0 (MIFI_QCMAP: success.)
+LAN IP address is: [192.168.1.1]
+LAN subnet mask is: [255.255.255.0]
+LAN mask format is: [0]
+LAN IPv6 link local address is: [fe80::3ca0:97ff:fe28:1e01]
+DHCP status is: [Disabled]
+DHCP IP range: [192.168.1.2] - [192.168.1.102]
+DHCP lease (in seconds): [86400]

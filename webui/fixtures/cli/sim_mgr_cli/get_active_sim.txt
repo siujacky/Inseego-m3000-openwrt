@@ -1,0 +1,7 @@
+
+------------------------
+--[get] active sim--
+cmd_get_active_sim returned 0 (SIM_MGR: success.)
+active sim imsi:[]
+
+------------------------

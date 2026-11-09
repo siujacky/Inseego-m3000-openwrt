@@ -1,0 +1,6 @@
+ccm_get_ntp_url returned 0 (CCM: success.)
+min_delay:[604800]
+retries:[60]
+url1:[time.google.com]
+url2:[pool.ntp.org]
+url3:[time.nist.gov]

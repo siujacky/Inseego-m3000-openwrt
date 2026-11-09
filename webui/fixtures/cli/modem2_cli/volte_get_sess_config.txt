@@ -1,0 +1,4 @@
+cmd_volte_get_sess_config returned 1 (MDM_MAIN: general error.)
+Silent redial enabled:[0]
+Session expiry timer:[0]
+Minimum session expiry:[0]

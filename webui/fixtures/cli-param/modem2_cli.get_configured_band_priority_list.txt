@@ -1,0 +1,2 @@
+cmd_get_configured_band_priority_list returned 0 (MDM_MAIN: success.)
+count: [0]

@@ -1,0 +1,6 @@
+command [get_country_code]
+
+What is the external mcc_id:  webui_get_country_code returned 0 (WEBUI: success.)
+mobile country code:[0]
+calling code:[0]
+mobile length:[0]

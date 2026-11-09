@@ -1,0 +1,3 @@
+command [set_icmp_response]
+
+cmd_router2_set_icmp_response returned 5 (MIFI_QCMAP: process not running.)

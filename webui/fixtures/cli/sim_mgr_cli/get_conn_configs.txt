@@ -1,0 +1,8 @@
+
+------------------------
+--[get] connection configs--
+cmd_get_conn_configs returned 0 (SIM_MGR: success.)
+connection interval:[30] connection retriies: [5]
+
+
+------------------------

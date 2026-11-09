@@ -1,0 +1,7 @@
+command [get_sas_settings]
+
+Operator = []
+URL = []
+Version = []
+CBSD_UserID = []
+cbsd_get_sas_settings_test returned 0 (CBSD: success.)

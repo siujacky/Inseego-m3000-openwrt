@@ -1,0 +1,3 @@
+command [set_http_redirect]
+
+cmd_router2_set_http_redirect_status returned 1 (MIFI_QCMAP: general error.)

@@ -1,0 +1,25 @@
+command [full_history]
+
+fota_get_full_update_history returned 0 (FOTA: success.)
+fota_get_full_update_history returned 0 (FOTA: success.)
+Records to print:[1]
+
+Record no:[1]
+------------
+Record id:[2]
+Record type:[0](FOTA_RECORD_TYPE_SU)
+Status:[200](FW Upgrade success)
+Version:[THN-1.54-5.4-2.609]
+Update date:[02-29-2024-07:36:54]
+Package Name:[M3100_1.47-5.4-2.568-163_to_1.54-5.4-2.609-188_Real_01282024-2333]
+Description:[]
+Size in bytes:[85253850]
+Update type:[0](Mandatory)
+Source:[Verizon Wireless]
+Vendor:[Inseego]
+Est upd. time:[22]
+post_dnld_msg:[]
+post_dnld_url:[]
+Agent:[omadm]
+Boot preference:[0]
+install_defer_count:[1]

@@ -1,0 +1,6 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [get_ap_settings]
+
+wifi_get_ap_settings returned 0 (WIFI: success.)
+AP mode is             : [1] 
+Max Number of Clients  : [32]
+WIFI_CLI_MBH: Disable Message bus interface

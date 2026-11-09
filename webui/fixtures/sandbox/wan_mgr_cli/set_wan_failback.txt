@@ -1,0 +1,4 @@
+command [set_wan_failback]
+
+Enter the failback feature enable or disable (0:disable, 1:enable): Enter the failback timer Range(1-1440 min): Enter the WWAN data traffic check timer Range(1-1440 min): Enter the WWAN data traffic check limit Range(1-10240 KB): Failback feature:[1] WAN failback timer:[1] WWAN data check timer:[1] WWAN data check limit:[1]
+cmd_set_wan_failback returned 1 (WAN_MGR: general error.)

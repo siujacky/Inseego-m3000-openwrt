@@ -1,0 +1,2 @@
+cmd_loc_survey_is_installed returned 5 (MDM_MAIN: process not running.)
+Location Survey is Already Installed (0 - No / 1 - Yes )? 0

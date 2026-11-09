@@ -1,0 +1,1 @@
+cmd_get_5g_active_band_pci returned 1 (MDM_MAIN: general error.)

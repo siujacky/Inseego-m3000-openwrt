@@ -1,0 +1,3 @@
+cmd_get_lte_embms_info returned 0 (MDM_MAIN: success.)
+pmch_data_mcs length is Zero, so no entries to show 
+

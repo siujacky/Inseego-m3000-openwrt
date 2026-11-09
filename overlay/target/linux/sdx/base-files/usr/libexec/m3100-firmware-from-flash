@@ -1,0 +1,57 @@
+#!/bin/sh
+# Opt-in firmware source for the M3100 read-only NAND trial.
+set -eu
+[ "$(cat /tmp/sysinfo/board_name)" = 'inseego,m3100' ]
+[ -s /etc/m3100-firmware.sha256 ]
+[ ! -e /lib/firmware/m3100 ] && [ ! -L /lib/firmware/m3100 ]
+
+# Discover by partition name, never by the stock kernel's MTD number.
+number=
+for mtd in /sys/class/mtd/mtd[0-9]*; do
+	index=${mtd##*/mtd}
+	case "$index" in ''|*[!0-9]*) continue;; esac
+	[ -f "$mtd/name" ] || continue
+	[ "$(cat "$mtd/name")" = modem ] || continue
+	[ -z "$number" ]
+	[ "$(cat "$mtd/size")" = 112459776 ]
+	flags=$(cat "$mtd/flags")
+	[ "$((flags & 1024))" = 0 ] # MTD_WRITEABLE must be cleared in the driver.
+	number=$index
+done
+[ -n "$number" ]
+
+find_ubi() {
+	device=
+	for u in /sys/class/ubi/ubi[0-9]*; do
+		[ -f "$u/mtd_num" ] || continue
+		[ "$(cat "$u/mtd_num")" = "$number" ] || continue
+		[ -z "$device" ]
+		[ "$(cat "$u/ro_mode")" = 1 ]
+		device=${u##*/}
+	done
+}
+find_ubi
+if [ -z "$device" ]; then
+	# A read-only MTD forces UBI ro_mode before any attach-time writes.
+	ubiattach -m "$number"
+	find_ubi
+fi
+[ -n "$device" ]
+volume=
+for v in /sys/class/ubi/"$device"_*; do
+	[ -f "$v/name" ] || continue
+	[ "$(cat "$v/name")" = modem ] || continue
+	[ -z "$volume" ]
+	[ "$(cat "$v/type")" = dynamic ]
+	volume=$v
+done
+[ -n "$volume" ]
+
+mkdir -p /mnt/m3100-stock-firmware /lib/firmware
+mount -t ubifs -o ro,noatime "$device:modem" /mnt/m3100-stock-firmware
+[ -d /mnt/m3100-stock-firmware/image ]
+cd /mnt/m3100-stock-firmware/image
+sha256sum -c /etc/m3100-firmware.sha256 >/tmp/m3100-firmware-check.log
+ln -s /mnt/m3100-stock-firmware/image /lib/firmware/m3100
+touch /tmp/m3100-firmware.ready
+logger -t m3100-firmware 'Verified stock firmware through read-only MTD, UBI and UBIFS'

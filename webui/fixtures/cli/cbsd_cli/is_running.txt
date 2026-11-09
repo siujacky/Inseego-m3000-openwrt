@@ -1,0 +1,3 @@
+command [is_running]
+
+cbsd_is_running returned 5 (CBSD: process not running.)

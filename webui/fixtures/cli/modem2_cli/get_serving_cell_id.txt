@@ -1,0 +1,2 @@
+cmd_get_serving_cell_id returned 0 (MDM_MAIN: success.)
+serving_cell_id:[48]

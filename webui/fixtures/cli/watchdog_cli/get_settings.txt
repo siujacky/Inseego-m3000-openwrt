@@ -1,0 +1,5 @@
+command [get_settings]
+
+watchdog_get_settings returned 0 (WATCHDOG: success.)
+enabled:[1]
+interval:[60]

@@ -1,0 +1,10 @@
+cmd_get_roam_guard_settings returned 0 (MDM_MAIN: success.)
+
+Domestic_roam_enabled:[0]
+Domestic_roam_forced:[0]
+Domestic_roam_guard_enabled:[0]
+Domestic_roam_guard_forced:[0]
+International_roam_enabled:[0]
+International_roam_forced:[0]
+International_roam_guard_enabled:[0]
+International_roam_guard_forced:[0]

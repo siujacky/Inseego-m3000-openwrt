@@ -1,0 +1,1 @@
+What is enabled status [0|1]:  ccm_set_wifi_ap_enabled returned 1 (CCM: general error.)

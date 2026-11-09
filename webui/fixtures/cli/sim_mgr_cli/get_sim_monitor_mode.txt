@@ -1,0 +1,7 @@
+
+------------------------
+--[get] sim monitor--
+cmd_get_sim_monitor_mode returned 0 (SIM_MGR: success.)
+
+sim mode: [Disabled]
+------------------------

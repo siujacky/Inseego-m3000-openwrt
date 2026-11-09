@@ -1,0 +1,1 @@
+What is ip address [x.x.x.x]:  ccm_set_static_ip returned 2 (CCM: one or more bad parameters passed into a function.)

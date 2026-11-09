@@ -1,0 +1,4 @@
+command [ab_get_entry]
+
+
+Enter contact id 0-100: cmd_ab_get_entry returned 1 (SMS: general error.)

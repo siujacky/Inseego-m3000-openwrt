@@ -1,0 +1,3 @@
+command [set_modem_logging_settings]
+
+Enter logging enabled (0/1):Enter log files size:Enter number of files (1-3):settings_set_modem_logging_settings returned 5 (SETTINGS: process not running.)

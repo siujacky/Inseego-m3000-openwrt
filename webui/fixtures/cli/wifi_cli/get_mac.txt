@@ -1,0 +1,4 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [get_mac]
+
+Enter the Wifi interface index 0/1:Invalid Wifi interface index.
+WIFI_CLI_MBH: Disable Message bus interface

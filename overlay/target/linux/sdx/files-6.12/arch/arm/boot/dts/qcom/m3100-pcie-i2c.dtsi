@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/* M3100 stock switch-management QUP1. No child driver and no automatic I2C
+ * transaction: expose the bus for a bounded probe of the known switch0x77.
+ */
+/ { aliases { i2c1 = &m3100_i2c1; }; };
+&{/soc} {
+	m3100_i2c1: i2c@835000 {
+		compatible = "qcom,i2c-qup-v2.2.1";
+		reg = <0x00835000 0x600>;
+		interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
+		clocks = <&gcc GCC_BLSP1_QUP1_I2C_APPS_CLK>, <&gcc GCC_BLSP1_AHB_CLK>;
+		clock-names = "core", "iface";
+		clock-frequency = <400000>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&m3100_switch_i2c_active>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		status = "okay";
+	};
+};
+&tlmm {
+	m3100_switch_i2c_active: switch-i2c-active-state {
+		pins = "gpio82", "gpio83";
+		function = "blsp_i2c1";
+		drive-strength = <2>;
+		bias-pull-up;
+	};
+};

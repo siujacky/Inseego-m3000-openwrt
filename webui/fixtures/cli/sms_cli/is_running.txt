@@ -1,0 +1,3 @@
+command [is_running]
+
+cmd_is_running returned 0 (SMS: success.)

@@ -1,0 +1,10 @@
+cmd_ehrpd_get_state returned 1 (MDM_MAIN: general error.)
+0 - Rev0
+1 - RevA with MFPA
+2 - RevA with MFPA and EMPA
+3 - RevB with MMPA
+4 - RevA with EHRPD
+5 - RevB with EHRPD
+6 - RevA with EHRPD and IRAT
+7 - RevB with EHRPD and IRAT
+eHRPD state:[0]

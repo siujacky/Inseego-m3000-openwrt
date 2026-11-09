@@ -1,0 +1,3 @@
+command [acknowledge_notification]
+
+What is id of the notification to acknowledge:  ans_acknowledge_notification returned 5 (ANS: process not running.)

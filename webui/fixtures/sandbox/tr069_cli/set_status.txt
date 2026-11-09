@@ -1,0 +1,3 @@
+command [set_status]
+
+Enter TR069 status (0=Disable, 1=Enable): cmd_tr069_set_status returned 1 (TR069: general error.)

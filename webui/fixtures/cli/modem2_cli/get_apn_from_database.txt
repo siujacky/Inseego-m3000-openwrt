@@ -1,0 +1,4 @@
+
+Enter the mccmnc: 
+Enter the Gid1 (comma separated list of byte values): 
+Enter the Gid2 (comma separated list of byte values): cmd_get_apn_from_database returned 1011 (MDM_MAIN: APN not found in Auto APN Database.)

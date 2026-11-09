@@ -1,0 +1,4 @@
+command [install_progress_status]
+
+fota_get_install_progress_status returned 0 (FOTA: success.)
+FOTA is not in progress

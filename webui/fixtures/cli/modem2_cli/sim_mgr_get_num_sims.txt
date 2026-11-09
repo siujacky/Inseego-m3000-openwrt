@@ -1,0 +1,2 @@
+cmd_sim_mgr_get_num_sims returned 0 (MDM_MAIN: success.)
+Num of Sims:[0]

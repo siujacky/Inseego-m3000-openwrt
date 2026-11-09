@@ -1,0 +1,7 @@
+command [get_ab_failsafe_settings]
+
+mifi_health_get_ab_failsafe_settings returned 0 (MIFI_HEALTH: success.)
+verify_duration:[60]
+crash_cnt:[5]
+wdt_reboot_cnt:[5]
+pdn_connect_retry_cnt:[5]

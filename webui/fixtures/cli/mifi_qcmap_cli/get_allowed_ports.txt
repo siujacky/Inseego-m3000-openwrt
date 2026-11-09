@@ -1,0 +1,4 @@
+command [get_allowed_ports]
+
+cmd_router2_get_allowed_ports_status returned 0 (MIFI_QCMAP: success.)
+Allowed Port Status:   [Disabled]

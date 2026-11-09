@@ -1,0 +1,3 @@
+WIFI_CLI_MBH: MsgBus_Connect Failedcommand [stop_wps]
+
+Enter the Wifi AP profile index (1-5):wifi_stop_wps_session returned 5 (WIFI: process not running.)

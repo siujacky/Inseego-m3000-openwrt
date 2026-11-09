@@ -1,0 +1,3 @@
+What is ntp min delay (seconds):  What is ntp retry count:  What is ntp url1:  
+What is ntp url2:  
+What is ntp url3:  ccm_set_ntp_url returned 1 (CCM: general error.)

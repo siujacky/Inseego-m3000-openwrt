@@ -1,0 +1,24 @@
+--- a/drivers/pci/controller/dwc/pcie-qcom.c
++++ b/drivers/pci/controller/dwc/pcie-qcom.c
+@@ -977,7 +977,21 @@ static int qcom_pcie_init_2_7_0(struct qcom_pcie *pcie)
+ 	/* MAC PHY_POWERDOWN MUX DISABLE  */
+ 	val = readl(pcie->parf + PARF_SYS_CTRL);
+ 	val &= ~MAC_PHY_POWERDOWN_IN_P2_D_MUX_EN;
++	/* This M3100 stock host writes SYS_CTRL=0x365e. A live comparison
++	 * found 0x361c here while training remained in Polling.Compliance:
++	 * the only differing bits were CORE_CLK_CGC_DIS and L1_CLK_RMV_DIS.
++	 * Restore just those documented clock-policy bits for this board;
++	 * preserve every unrelated field and leave PERST timing unchanged
++	 * so this remains one isolated RAM bring-up experiment.
++	 */
++	if (of_machine_is_compatible("inseego,m3100") &&
++	    of_device_is_compatible(dev->of_node, "qcom,pcie-sdx65"))
++		val |= CORE_CLK_CGC_DIS | L1_CLK_RMV_DIS;
+ 	writel(val, pcie->parf + PARF_SYS_CTRL);
++	if (of_machine_is_compatible("inseego,m3100") &&
++	    of_device_is_compatible(dev->of_node, "qcom,pcie-sdx65"))
++		dev_info(dev, "M3100 stock SYS_CTRL clock policy=%#x\n",
++			 readl(pcie->parf + PARF_SYS_CTRL));
+ 
+ 	val = readl(pcie->parf + PARF_MHI_CLOCK_RESET_CTRL);
+ 	val |= BYPASS;

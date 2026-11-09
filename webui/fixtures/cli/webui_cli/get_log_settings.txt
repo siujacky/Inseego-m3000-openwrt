@@ -1,0 +1,5 @@
+command [get_log_settings]
+
+webui_get_log_settings returned 0 (WEBUI: success.)
+log_enabled:[0]
+log_life_time(in days):[3]

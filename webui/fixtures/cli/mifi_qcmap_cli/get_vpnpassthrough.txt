@@ -1,0 +1,4 @@
+command [get_vpnpassthrough]
+
+cmd_router2_get_vpnpassthrough_status returned 0 (MIFI_QCMAP: success.)
+VPN passthrough is:   [redacted]

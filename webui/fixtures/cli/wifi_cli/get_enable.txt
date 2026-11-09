@@ -1,0 +1,5 @@
+WIFI_CLI_MBH: Init MsgBus donecommand [get_enable]
+
+wifi_get_enable returned 0 (WIFI: success.)
+Wifi feature is :[1] 
+WIFI_CLI_MBH: Disable Message bus interface

@@ -1,0 +1,3 @@
+command [set_ippt_feature_mode]
+
+Enter IPPT Feature Mode value (0=Disable, 1=Enabled): cmd_set_ippt_feature_mode returned 4 (MIFI_QCMAP: the feature is unsupported.)

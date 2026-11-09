@@ -1,0 +1,3 @@
+command [settings_list_set]
+
+Enter number of items you want to set:Enter Entry[0],share_folder_name:Enter list[0],share_folder_type (0=rw, 1=ro):file_sharing_set_folder_settings_list returned 1 (FILE_SHARING: general error.)

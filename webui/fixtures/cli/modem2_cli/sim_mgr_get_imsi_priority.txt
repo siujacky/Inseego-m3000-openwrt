@@ -1,0 +1,5 @@
+
+Enter the imsi: cmd_sim_mgr_get_imsi_priority returned 0 (MDM_MAIN: success.)
+Success: 
+
+priority: 1

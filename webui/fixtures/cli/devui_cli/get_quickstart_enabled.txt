@@ -1,0 +1,4 @@
+command [get_quickstart_enabled]
+
+deviceui_get_quickstart_enabled returned 0 (DEVUI_FRAMEWORK: success.)
+quickstart_enabled:[0]

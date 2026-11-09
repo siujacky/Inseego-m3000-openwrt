@@ -1,0 +1,4 @@
+command [get_wguard_vpn]
+
+vpn_get_wguard_vpn_enabled returned 0x0 (VPN: success.)
+VPN WGuard VPN Service status (0=Disable, 1=Enable) is: [0]

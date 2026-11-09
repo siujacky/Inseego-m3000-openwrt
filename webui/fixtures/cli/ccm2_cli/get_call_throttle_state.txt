@@ -1,0 +1,3 @@
+ccm2_autoconnect_get_call_throttle_status returned 0 (CCM: success.)
+IPv4 Throttled = [0]
+IPv6 Throttled = [0]

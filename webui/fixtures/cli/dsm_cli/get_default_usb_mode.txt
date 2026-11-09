@@ -1,0 +1,4 @@
+command [get_default_usb_mode]
+
+cmd_get_default_usb_mode returned 0 (DSM: success.)
+USB mode=[0]

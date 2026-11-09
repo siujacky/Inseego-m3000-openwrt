@@ -1,0 +1,2 @@
+cmd_get_tx_rx_info returned 0 (MDM_MAIN: success.)
+tx_pwr:[0] - avg_rx_pwr:[0]

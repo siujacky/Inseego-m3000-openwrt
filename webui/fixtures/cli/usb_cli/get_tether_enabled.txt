@@ -1,0 +1,4 @@
+command [get_tether_enabled]
+
+usb_get_tether_enabled returned 0 (USB: success.)
+tether_enabled=[1]

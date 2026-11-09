@@ -1,0 +1,1 @@
+cmd_get_fcc_id returned 1 (MDM_MAIN: general error.)

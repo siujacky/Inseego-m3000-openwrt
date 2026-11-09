@@ -1,0 +1,4 @@
+command [get_hfa_activated]
+
+deviceui_get_hfa_activated returned 0 (DEVUI_FRAMEWORK: success.)
+deviceui_get_hfa_activated:[1]

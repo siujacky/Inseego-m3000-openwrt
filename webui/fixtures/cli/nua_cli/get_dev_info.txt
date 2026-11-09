@@ -1,0 +1,5 @@
+command [get_dev_info]
+
+nua_api_test_msg returned 5 (NUA: process not running.)
+nua_api_test_msg returned 5 (NUA: process not running.)
+nua_api_test_msg returned 5 (NUA: process not running.)

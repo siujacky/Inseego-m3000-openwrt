@@ -1,0 +1,2 @@
+cmd_sim_mgr_set_imsi_priority returned 5 (MDM_MAIN: process not running.)
+Failed

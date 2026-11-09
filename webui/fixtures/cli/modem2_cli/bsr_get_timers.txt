@@ -1,0 +1,5 @@
+cmd_get_bsr_timers returned 0 (MDM_MAIN: success.)
+
+BSR time:[180]
+Max_time:[180]
+Next lte scan:[300]

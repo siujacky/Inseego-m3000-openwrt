@@ -1,0 +1,4 @@
+command [get_last_software_update_status]
+
+webui_get_last_software_update_status returned 0 (WEBUI: success.)
+Last software update status:[0]

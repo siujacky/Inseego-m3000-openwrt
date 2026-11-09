@@ -1,0 +1,8 @@
+
+------------------------
+--[recovery] [set] connection recovery max DNS fail cnt--
+
+[recovery] conn recovery max DNS fail cnt: [3]
+cmd_set_recovery_max_DNS_fail_cnt: [recovery]  returned 1 (SIM_MGR: general error.)
+
+------------------------

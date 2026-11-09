@@ -1,0 +1,4 @@
+Starting sysint client library
+Enable ? ( 1 or 0 ): sys_setAutoShutdownEnabled returned 3
+Stopping sysint client library 3
+sysinterfaceShutdown complete 0

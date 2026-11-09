@@ -1,0 +1,137 @@
+--- a/drivers/i2c/busses/i2c-qup.c
++++ b/drivers/i2c/busses/i2c-qup.c
+@@ -25,6 +25,7 @@
+ #include <linux/pm_runtime.h>
+ #include <linux/scatterlist.h>
+ #include "i2c-qup-m3100-version.h"
++#include "i2c-qup-m3100-pio-icc.h"
+ 
+ /* QUP Registers */
+ #define QUP_CONFIG		0x000
+@@ -235,6 +236,9 @@
+ };
+ struct qup_i2c_dev {
+  bool m3100_diag, m3100_active, m3100_fault_valid;
++ struct icc_path *m3100_pio_path;
++ struct m3100_pio_icc m3100_pio_vote;
++ bool m3100_pio_trial;
+  bool m3100_combined_trial, m3100_combined_active, m3100_combined_done;
+  int m3100_combined_error;
+  bool m3100_prerun_valid;
+@@ -1954,6 +1958,25 @@
+ 	.flags = I2C_AQ_NO_ZERO_LEN,
+ };
+ 
++static int qup_m3100_pio_set_bw(void *context, unsigned int peak)
++{
++ struct qup_i2c_dev *qup=context;
++ return icc_set_bw(qup->m3100_pio_path,0,peak);
++}
++
++static int qup_m3100_pio_vote(struct qup_i2c_dev *qup, bool enable)
++{
++ if (!qup->m3100_pio_trial) return 0;
++ return m3100_pio_icc_set(&qup->m3100_pio_vote,enable);
++}
++
++static void qup_m3100_pio_cleanup(void *context)
++{
++ struct qup_i2c_dev *qup=context;
++ int ret=qup_m3100_pio_vote(qup,false);
++ if (ret) dev_warn(qup->dev,"M3100 PIO ICC cleanup unvote failed: %d\n",ret);
++}
++
+ static void qup_i2c_enable_clocks(struct qup_i2c_dev *qup)
+ {
+ 	clk_prepare_enable(qup->clk);
+@@ -1971,6 +1994,7 @@
+ 	writel(config, qup->base + QUP_CONFIG);
+ 	qup_i2c_vote_bw(qup, 0);
+ 	clk_disable_unprepare(qup->pclk);
++	qup_m3100_pio_cleanup(qup);
+ }
+ 
+ static const struct acpi_device_id qup_i2c_acpi_match[] = {
+@@ -2014,6 +2038,19 @@
+ 		of_property_read_bool(pdev->dev.of_node,"inseego,m3100-combined-version-trial");
+ 	init_completion(&qup->xfer);
+ 	platform_set_drvdata(pdev, qup);
++ qup->m3100_pio_trial=of_property_read_bool(pdev->dev.of_node,"inseego,m3100-pio-icc-trial");
++ if (qup->m3100_pio_trial) {
++  if (!qup->m3100_diag || !qup->m3100_combined_trial) return -EINVAL;
++  qup->m3100_pio_path=devm_of_icc_get(&pdev->dev,"m3100-pio");
++  if (IS_ERR(qup->m3100_pio_path))
++   return dev_err_probe(&pdev->dev,PTR_ERR(qup->m3100_pio_path),"M3100 PIO ICC path unavailable\n");
++  if (!qup->m3100_pio_path) return -ENODEV;
++  qup->m3100_pio_vote.context=qup;
++  qup->m3100_pio_vote.set_bw=qup_m3100_pio_set_bw;
++  ret=devm_add_action_or_reset(&pdev->dev,qup_m3100_pio_cleanup,qup);
++  if (ret) return ret;
++ }
++
+ 
+ 	if (scl_freq) {
+ 		dev_notice(qup->dev, "Using override frequency of %u\n", scl_freq);
+@@ -2136,6 +2173,9 @@
+ 			ret = PTR_ERR(qup->pclk);
+ 			goto fail_dma;
+ 		}
++  /* Probe starts PM-active: vote before its first clock enable too. */
++  ret=qup_m3100_pio_vote(qup,true);
++  if (ret) goto fail_dma;
+ 		qup_i2c_enable_clocks(qup);
+ 		src_clk_freq = clk_get_rate(qup->clk);
+ 	}
+@@ -2243,6 +2283,8 @@
+ 	if (qup->m3100_diag)
+ 		dev_info(qup->dev, "M3100 QUP first-error diagnostics enabled before adapter registration\n");
+ 
++ if (qup->m3100_pio_trial)
++  dev_info(qup->dev,"M3100 PIO ICC active before adapter publication: avg=0 peak=%u kB/s (normal upstream policy)\n",M3100_PIO_ICC_PEAK);
+ 	ret = i2c_add_adapter(&qup->adap);
+ 	if (ret)
+ 		goto fail_runtime;
+@@ -2292,6 +2334,10 @@
+ 	struct qup_i2c_dev *qup = dev_get_drvdata(device);
+ 
+ 	dev_dbg(device, "pm_runtime: resuming...\n");
++ {
++  int ret=qup_m3100_pio_vote(qup,true);
++  if (ret) return ret;
++ }
+ 	qup_i2c_enable_clocks(qup);
+ 	return 0;
+ }
+@@ -2305,7 +2351,8 @@
+ 
+ static int qup_i2c_resume(struct device *device)
+ {
+-	qup_i2c_pm_resume_runtime(device);
++	int ret=qup_i2c_pm_resume_runtime(device);
++ if (ret) return ret;
+ 	pm_runtime_mark_last_busy(device);
+ 	pm_request_autosuspend(device);
+ 	return 0;
+--- /dev/null
++++ b/drivers/i2c/busses/i2c-qup-m3100-pio-icc.h
+@@ -0,0 +1,20 @@
++/* Scoped M3100 PIO ICC request, kB/s (modern QUP normal bandwidth policy). */
++#ifndef I2C_QUP_M3100_PIO_ICC_H
++#define I2C_QUP_M3100_PIO_ICC_H
++#define M3100_PIO_ICC_PEAK 76800U
++struct m3100_pio_icc {
++ void *context;
++ int (*set_bw)(void *context, unsigned int peak);
++ bool active;
++};
++static int m3100_pio_icc_set(struct m3100_pio_icc *vote, bool enable)
++{
++ int ret;
++ if (vote->active == enable)
++  return 0;
++ ret=vote->set_bw(vote->context, enable ? M3100_PIO_ICC_PEAK : 0);
++ if (!ret)
++  vote->active=enable;
++ return ret;
++}
++#endif

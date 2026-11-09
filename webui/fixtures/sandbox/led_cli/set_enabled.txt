@@ -1,0 +1,4 @@
+command [set_enabled]
+
+Select LED enabled setting [0("not enabled"), 1("Enabled")]enabled: 1
+led_set_enabled returned 1 (LED: general error.)

@@ -1,0 +1,4 @@
+Starting sysint client library
+Enable ? ( 1 or 0 ): sys_setMacFilterWhiteListEnabled returned 10
+Stopping sysint client library 10
+sysinterfaceShutdown complete 0

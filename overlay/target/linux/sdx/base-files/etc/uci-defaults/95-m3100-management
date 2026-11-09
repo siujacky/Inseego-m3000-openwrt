@@ -1,0 +1,31 @@
+#!/bin/sh
+[ "$(cat /tmp/sysinfo/board_name)" = 'inseego,m3100' ] || exit 0
+uci -q batch <<'EOF'
+set network.usbmgmt=interface
+set network.usbmgmt.device='usb0'
+set network.usbmgmt.proto='static'
+set network.usbmgmt.ipaddr='192.168.77.1'
+set network.usbmgmt.netmask='255.255.255.0'
+set dhcp.usbmgmt=dhcp
+set dhcp.usbmgmt.interface='usbmgmt'
+set dhcp.usbmgmt.start='100'
+set dhcp.usbmgmt.limit='10'
+set dhcp.usbmgmt.leasetime='1h'
+add_list dhcp.usbmgmt.dhcp_option='3'
+add_list dhcp.usbmgmt.dhcp_option='6'
+set firewall.usbmgmt=zone
+set firewall.usbmgmt.name='usbmgmt'
+add_list firewall.usbmgmt.network='usbmgmt'
+set firewall.usbmgmt.input='ACCEPT'
+set firewall.usbmgmt.output='ACCEPT'
+set firewall.usbmgmt.forward='REJECT'
+set dropbear.@dropbear[0].PasswordAuth='off'
+set dropbear.@dropbear[0].RootPasswordAuth='off'
+set dropbear.@dropbear[0].Interface='usbmgmt'
+commit network
+commit dhcp
+commit firewall
+commit dropbear
+EOF
+/etc/init.d/m3100-usb enable
+exit 0

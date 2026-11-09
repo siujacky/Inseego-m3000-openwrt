@@ -1,0 +1,50 @@
+// SPDX-License-Identifier: BSD-3-Clause
+#include "qcom-sdx65-inseego-m3100-ram.dts"
+#include "m3100-scm-interconnect.dtsi"
+
+/ {
+	model = "Inseego M3100 (self-contained RAM trial)";
+	reserved-memory {
+		/* Keep the RAM download's firmware trailer intact across Linux
+		 * allocation. Separate from all original stock carveouts.
+		 */
+		firmware-staging@a1000000 {
+			reg = <0xa1000000 0x09000000>;
+			no-map;
+		};
+	};
+};
+
+&remoteproc_mpss {
+	/* Every loadable segment of this unit's modem.mdt lies in this exact
+	 * stock carveout, 0x90800000..0xa0800000. Firmware is in the ramdisk.
+	 */
+	memory-region = <&mpss_adsp_mem>;
+	firmware-name = "m3100/modem.mdt";
+	status = "okay";
+};
+
+&m3100_i2c3 {
+	touchscreen@24 {
+		compatible = "cypress,tt21000";
+		reg = <0x24>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <93 IRQ_TYPE_EDGE_FALLING>;
+		reset-gpios = <&tlmm 92 1>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&m3100_touch_pins>;
+		/* Stock provides no touch supply reference. Keep the inherited
+		 * powered rail; supply modeling and binding schema remain TODO.
+		 * The regulator core may provide a dummy supply during this trial.
+		 */
+	};
+};
+
+&tlmm {
+	m3100_touch_pins: touch-active-state {
+		pins = "gpio92", "gpio93";
+		function = "gpio";
+		drive-strength = <2>;
+		bias-disable;
+	};
+};

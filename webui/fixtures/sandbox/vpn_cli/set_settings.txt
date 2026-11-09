@@ -1,0 +1,3 @@
+command [set_settings]
+
+Enter server type (0-NONE, 1-PPTP, 2-OpenVPN, 3-L2TP Over IPSec, 4-IPSec, 5-OpenVPN with config files 6- WiredGuard VPN): Clear/Set server configuration(Set-0, Clear-1): Enter IPsec Tunnel Index[0-5]:

@@ -1,0 +1,4 @@
+command [get_dns_name]
+
+cmd_router2_get_dns_name returned 0 (MIFI_QCMAP: success.)
+Host DNS name:       [my.jetpack]

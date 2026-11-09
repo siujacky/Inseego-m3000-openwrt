@@ -1,0 +1,3 @@
+cmd_get_ecgi returned 0 (MDM_MAIN: success.)
+ecgi:[0]
+ecgi_hex:[0]

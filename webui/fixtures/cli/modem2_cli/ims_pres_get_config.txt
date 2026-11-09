@@ -1,0 +1,11 @@
+cmd_ims_pres_get_config returned 1 (MDM_MAIN: general error.)
+Gzip Enabled:[0]
+User opted in status:[0]
+Publish expiry timer:[0]
+Publish expiry timer ext:[0]
+Capabilities cache exp:[0]
+Availability cache expl:[0]
+capabilities poll int:[0]
+capabilities poll list sub exp:[0])
+Min publish interval:[0])
+Min sublist entries:[0])

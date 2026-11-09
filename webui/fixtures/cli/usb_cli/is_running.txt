@@ -1,0 +1,3 @@
+command [is_running]
+
+usb_is_running returned 0 (USB: success.)

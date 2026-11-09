@@ -1,0 +1,3 @@
+command [on]
+
+What is on time( in millsecs ): What is off time( in millsecs ): What is repeat count: buzzer_on returned 0 (BUZZER: success.)

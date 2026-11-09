@@ -1,0 +1,4 @@
+command [get_fw_severity]
+
+cmd_get_firewall_severity returned 0 (MIFI_QCMAP: success.)
+Firewall Severity is:   [Medium]

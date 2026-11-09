@@ -1,0 +1,3 @@
+command [set_data_usage_touchscreen_enabled]
+
+display datausage on touchscreen enabled (0 => disabled, 1 => enabled): deviceui_set_data_usage_touchscreen_enabled returned 1 (DEVUI_FRAMEWORK: general error.)

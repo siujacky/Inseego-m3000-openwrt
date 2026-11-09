@@ -1,0 +1,14 @@
+
+imsi:cmd_get_sim_info returned 2 (SIM_MGR: one or more bad parameters passed into a function.)
+signal_quality: [-1493530639]
+data_usage: [1]
+speed_test: [-1506773988]
+location: [281]
+roaming: [-1506740964]
+scheduling: [-1493432960]
+failback_switch:[-1363145916]
+failback_interval: [-1493387104]
+actual_failback_interval: [0]
+rsrp: [0]
+time duration: [274392610]max signal strength switches: [-1506740964]
+signal strength backoff time period: [-1506778484]

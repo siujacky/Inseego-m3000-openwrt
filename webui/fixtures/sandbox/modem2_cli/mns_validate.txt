@@ -1,0 +1,3 @@
+cmd_validate_mns returned 5 (MDM_MAIN: process not running.)
+
+MNS:[0](validated.)

@@ -1,0 +1,2 @@
+cmd_get_data_rates returned 0 (MDM_MAIN: success.)
+cur tx rate: [0] Kb/s, cur rx rate [0] Kb/s, max tx rate [0] Kb/s, max rx rate [0] Kb/s

@@ -1,0 +1,6 @@
+command [get_ippt]
+
+cmd_router2_get_ippt returned 0 (MIFI_QCMAP: success.)
+Is active:       [0]
+Interface:       [2]
+Client Identity ()

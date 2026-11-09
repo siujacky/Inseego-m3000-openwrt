@@ -1,0 +1,4 @@
+command [get_ipv6_firewall]
+
+cmd_router2_get_ipv6_firewall_status returned 0 (MIFI_QCMAP: success.)
+Ipv6 firewall status is:  [Enable]

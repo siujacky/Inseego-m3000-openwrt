@@ -1,0 +1,9 @@
+command [get_xmpp_config]
+
+cmd_tr069_get_xmpp_config returned 0 (TR069: success.)
+TR069 XMPP UserName : []
+TR069 XMPP Password : []
+TR069 XMPP URL: []
+TR069 XMPP Jabber ID : []
+TR069 XMPP Port Number: [0]
+TR069 XMPP Feature(0:Disable,1: Enabled) : [0]

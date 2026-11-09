@@ -1,0 +1,3 @@
+command [set_wguard_vpn]
+
+vpn_set_wguard_vpn_enabled returned 1 (VPN: general error.)

@@ -1,0 +1,4 @@
+command [get_manual_wan]
+
+cmd_get_manual_wan returned 0 (WAN_MGR: success.)
+The default wan is [WWAN]

@@ -1,0 +1,4 @@
+ccm_get_wan_prio returned 0 (CCM: success.)
+Prio:[1] Wan:[Ethernet WAN]
+Prio:[2] Wan:[WiFi WAN]
+Prio:[3] Wan:[WWAN]

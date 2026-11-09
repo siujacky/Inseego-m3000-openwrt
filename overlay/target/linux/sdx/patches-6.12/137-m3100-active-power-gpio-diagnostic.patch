@@ -1,0 +1,69 @@
+--- a/drivers/i2c/busses/i2c-qup.c
++++ b/drivers/i2c/busses/i2c-qup.c
+@@ -240,7 +240,10 @@
+  struct m3100_pio_icc m3100_pio_vote;
+  bool m3100_pio_trial;
+  bool m3100_clock_diag, m3100_gcc_valid;
+- bool m3100_tlmm_valid;
++ bool m3100_tlmm_valid, m3100_power_valid;
++ void __iomem *m3100_power107, *m3100_power75, *m3100_power105, *m3100_power57;
++ u64 m3100_power_start_ns, m3100_power_end_ns;
++ u32 m3100_power[8];
+  void __iomem *m3100_tlmm82, *m3100_tlmm83;
+  u64 m3100_tlmm_start_ns, m3100_tlmm_end_ns;
+  u32 m3100_tlmm[4];
+@@ -412,6 +415,18 @@
+    qup->m3100_tlmm[3]=readl(qup->m3100_tlmm83+0x04);
+    qup->m3100_tlmm_end_ns=ktime_get_boottime_ns();
+    qup->m3100_tlmm_valid=true;
++   /* Known fixed-regulator enables and PERST, read only before RUN. */
++   qup->m3100_power_start_ns=ktime_get_boottime_ns();
++   qup->m3100_power[0]=readl(qup->m3100_power107);
++   qup->m3100_power[1]=readl(qup->m3100_power107+0x04);
++   qup->m3100_power[2]=readl(qup->m3100_power75);
++   qup->m3100_power[3]=readl(qup->m3100_power75+0x04);
++   qup->m3100_power[4]=readl(qup->m3100_power105);
++   qup->m3100_power[5]=readl(qup->m3100_power105+0x04);
++   qup->m3100_power[6]=readl(qup->m3100_power57);
++   qup->m3100_power[7]=readl(qup->m3100_power57+0x04);
++   qup->m3100_power_end_ns=ktime_get_boottime_ns();
++   qup->m3100_power_valid=true;
+   }
+  }
+ }
+@@ -1852,7 +1867,7 @@
+       msgs[0].buf[0]==0x80 && msgs[0].buf[1]==0 && msgs[0].buf[2]==0 &&
+       msgs[1].addr==0x77 && msgs[1].flags==I2C_M_RD && msgs[1].len==4) {
+    qup->m3100_trace_used=true; qup->m3100_trace_active=true;
+-   qup->m3100_trace_count=0; qup->m3100_prerun_valid=false; qup->m3100_gcc_valid=false; qup->m3100_tlmm_valid=false;
++   qup->m3100_trace_count=0; qup->m3100_prerun_valid=false; qup->m3100_gcc_valid=false; qup->m3100_tlmm_valid=false; qup->m3100_power_valid=false;
+   }
+ 		spin_unlock_irqrestore(&qup->m3100_lock,flags);
+ 	}
+@@ -1957,6 +1972,13 @@
+    dev_err(qup->dev,"M3100 active TLMM start_ns=%llu end_ns=%llu gpio82_ctl=%08x gpio82_io=%08x gpio83_ctl=%08x gpio83_io=%08x\n",
+     qup->m3100_tlmm_start_ns,qup->m3100_tlmm_end_ns,
+     qup->m3100_tlmm[0],qup->m3100_tlmm[1],qup->m3100_tlmm[2],qup->m3100_tlmm[3]);
++  if (qup->m3100_trace_active && qup->m3100_power_valid) {
++   dev_err(qup->dev,"M3100 active power GPIO start_ns=%llu end_ns=%llu gpio107_ctl=%08x gpio107_io=%08x gpio75_ctl=%08x gpio75_io=%08x\n",
++    qup->m3100_power_start_ns,qup->m3100_power_end_ns,
++    qup->m3100_power[0],qup->m3100_power[1],qup->m3100_power[2],qup->m3100_power[3]);
++   dev_err(qup->dev,"M3100 active power GPIO gpio105_ctl=%08x gpio105_io=%08x perst57_ctl=%08x perst57_io=%08x\n",
++    qup->m3100_power[4],qup->m3100_power[5],qup->m3100_power[6],qup->m3100_power[7]);
++  }
+   if (qup->m3100_trace_active) {
+    unsigned int i;
+    for (i=0;i<qup->m3100_trace_count;i++) {
+@@ -2118,6 +2140,12 @@
+   qup->m3100_tlmm82=devm_ioremap(&pdev->dev,0x0f152000,0x1000);
+   qup->m3100_tlmm83=devm_ioremap(&pdev->dev,0x0f153000,0x1000);
+   if (!qup->m3100_tlmm82 || !qup->m3100_tlmm83) return -ENOMEM;
++  qup->m3100_power107=devm_ioremap(&pdev->dev,0x0f16b000,0x1000);
++  qup->m3100_power75=devm_ioremap(&pdev->dev,0x0f14b000,0x1000);
++  qup->m3100_power105=devm_ioremap(&pdev->dev,0x0f169000,0x1000);
++  qup->m3100_power57=devm_ioremap(&pdev->dev,0x0f139000,0x1000);
++  if (!qup->m3100_power107 || !qup->m3100_power75 ||
++      !qup->m3100_power105 || !qup->m3100_power57) return -ENOMEM;
+  }
+ 
+ 

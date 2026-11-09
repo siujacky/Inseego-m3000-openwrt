@@ -1,0 +1,4 @@
+cmd_get_service_info returned 0 (MDM_MAIN: success.)
+
+Service:[0] (NONE)
+Roam:[0]

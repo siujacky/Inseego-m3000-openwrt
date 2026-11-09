@@ -1,0 +1,8 @@
+
+------------------------
+--[set] connection monitor--
+
+conn mode: [1]
+cmd_set_connection_monitor_mode returned 1 (SIM_MGR: general error.)
+
+------------------------

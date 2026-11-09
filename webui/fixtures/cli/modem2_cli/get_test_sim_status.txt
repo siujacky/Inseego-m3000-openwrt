@@ -1,0 +1,2 @@
+cmd_get_test_sim_status returned 0 (MDM_MAIN: success.)
+test_sim:[0]

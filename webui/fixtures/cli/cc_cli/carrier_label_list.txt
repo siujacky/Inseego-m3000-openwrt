@@ -1,0 +1,4 @@
+command [carrier_label_list]
+
+returned 1 (CC: general error.) 
+No label list available in current carrier XML 

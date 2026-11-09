@@ -1,0 +1,3 @@
+command [get_uri_data]
+
+What is the uri_id:  webui_get_uri_data returned 2 (WEBUI: one or more bad parameters passed into a function.)

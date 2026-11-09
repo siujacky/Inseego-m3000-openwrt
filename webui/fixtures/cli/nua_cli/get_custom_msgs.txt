@@ -1,0 +1,4 @@
+command [get_custom_msgs]
+
+Usage:
+ /opt/nvtl/bin/nua_cli get_custom_msgs <lang>

@@ -1,0 +1,4 @@
+cmd_sim_get_status returned 0 (MDM_MAIN: success.)
+status is:[2] (SIM_NOT_FOUND)
+retries is:[0]
+unblocks is:[0]

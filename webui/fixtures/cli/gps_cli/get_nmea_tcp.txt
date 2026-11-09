@@ -1,0 +1,5 @@
+command [get_nmea_tcp]
+
+cmd_get_nmea_tcp returned 0 (GPS: success.)
+enabled:[1]
+port:[11010]

@@ -1,0 +1,106 @@
+--- a/drivers/i2c/busses/i2c-qup.c
++++ b/drivers/i2c/busses/i2c-qup.c
+@@ -234,6 +234,9 @@
+ };
+ struct qup_i2c_dev {
+  bool m3100_diag, m3100_active, m3100_fault_valid;
++ bool m3100_trace_used, m3100_trace_active;
++ unsigned int m3100_trace_count;
++ struct qup_m3100_error m3100_trace[6];
+  spinlock_t m3100_lock;
+  const char *m3100_stage;
+  int m3100_msg_idx;
+@@ -341,6 +344,22 @@
+  qup->m3100_fault_valid=true;
+ out:
+  spin_unlock_irqrestore(&qup->m3100_lock,flags);
++}
++
++/* Six read-only boundary snapshots, only the first exact version transaction.
++ * Written/read in the serialized transfer task; IRQ never touches this array.
++ */
++static void qup_m3100_boundary(struct qup_i2c_dev *qup, const char *stage)
++{
++ struct qup_m3100_error *entry;
++ if (!qup->m3100_diag || !qup->m3100_trace_active ||
++     !READ_ONCE(qup->m3100_active) || qup->m3100_trace_count>=6) return;
++ entry=&qup->m3100_trace[qup->m3100_trace_count++];
++ entry->ns=ktime_get_boottime_ns(); entry->stage=stage;
++ entry->state=readl(qup->base+QUP_STATE);
++ entry->status=readl(qup->base+QUP_I2C_STATUS);
++ entry->error=readl(qup->base+QUP_ERROR_FLAGS);
++ entry->op=readl(qup->base+QUP_OPERATIONAL);
+ }
+ 
+ static irqreturn_t qup_i2c_interrupt(int irq, void *dev)
+@@ -1468,8 +1487,10 @@
+ 
+ 	/* If it is first sub transfer, then configure i2c bus clocks */
+ 	if (is_first) {
++		qup_m3100_boundary(qup,"before-first-run");
+ 		qup_m3100_stage(qup,"first-run");
+ 		ret = qup_i2c_change_state(qup, QUP_RUN_STATE);
++		qup_m3100_boundary(qup,"after-first-run");
+ 		if (ret)
+ 			return ret;
+ 
+@@ -1477,11 +1498,13 @@
+ 
+ 		qup_m3100_stage(qup,"first-pause");
+ 		ret = qup_i2c_change_state(qup, QUP_PAUSE_STATE);
++		qup_m3100_boundary(qup,"after-first-pause");
+ 		if (ret)
+ 			return ret;
+ 	}
+ 
+ 	reinit_completion(&qup->xfer);
++	qup_m3100_boundary(qup,"before-enable-irq");
+ 	enable_irq(qup->irq);
+ 	/*
+ 	 * In FIFO mode, tx FIFO can be written directly while in block mode the
+@@ -1646,6 +1669,14 @@
+ 		spin_lock_irqsave(&qup->m3100_lock,flags);
+ 		qup->m3100_active=false; qup->m3100_fault_valid=false;
+ 		qup->m3100_msg_idx=-1;
++  qup->m3100_trace_active=false;
++  if (!qup->m3100_trace_used && num==2 && msgs[0].addr==0x77 &&
++      msgs[0].flags==0 && msgs[0].len==3 && msgs[0].buf &&
++      msgs[0].buf[0]==0x80 && msgs[0].buf[1]==0 && msgs[0].buf[2]==0 &&
++      msgs[1].addr==0x77 && msgs[1].flags==I2C_M_RD && msgs[1].len==4) {
++   qup->m3100_trace_used=true; qup->m3100_trace_active=true;
++   qup->m3100_trace_count=0;
++  }
+ 		spin_unlock_irqrestore(&qup->m3100_lock,flags);
+ 	}
+ 	qup_m3100_stage(qup,"runtime-resume");
+@@ -1657,6 +1688,7 @@
+ 		goto out;
+ 
+ 	if (qup->m3100_diag) WRITE_ONCE(qup->m3100_active,true);
++	qup_m3100_boundary(qup,"entry-before-reset");
+ 	qup_m3100_stage(qup,"determine-mode");
+ 	ret = qup_i2c_determine_mode_v2(qup, msgs, num);
+ 	if (ret)
+@@ -1665,6 +1697,7 @@
+ 	qup_m3100_stage(qup,"initial-reset-poll");
+ 	writel(1, qup->base + QUP_SW_RESET);
+ 	ret = qup_i2c_poll_state(qup, QUP_RESET_STATE);
++	qup_m3100_boundary(qup,"after-reset-poll");
+ 	if (ret)
+ 		goto out;
+ 
+@@ -1724,6 +1757,14 @@
+     fault.error,fault.op,qup->bus_err,qup->qup_err,
+     qup->src_clk_freq,qup->clk_ctl);
+   else dev_err(qup->dev,"M3100 QUP error before active clocks stage=%s ret=%d\n",qup->m3100_stage,ret);
++  if (qup->m3100_trace_active) {
++   unsigned int i;
++   for (i=0;i<qup->m3100_trace_count;i++) {
++    const struct qup_m3100_error *entry=&qup->m3100_trace[i];
++    dev_err(qup->dev,"M3100 QUP boundary %u ns=%llu stage=%s state=%08x status=%08x error=%08x op=%08x\n",
++     i,entry->ns,entry->stage,entry->state,entry->status,entry->error,entry->op);
++   }
++  }
+  }
+  if (qup->m3100_diag) WRITE_ONCE(qup->m3100_active,false);
+ 	pm_runtime_mark_last_busy(qup->dev);

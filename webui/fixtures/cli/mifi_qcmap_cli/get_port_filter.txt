@@ -1,0 +1,4 @@
+command [get_port_filter]
+
+cmd_router2_get_port_filtering_status returned 0 (MIFI_QCMAP: success.)
+Port filtering is:   [Disable]

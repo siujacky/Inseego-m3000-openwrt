@@ -1,0 +1,4 @@
+command [get_iface_status]
+
+cmd_get_ethernet_iface_status returned 0 (MIFI_QCMAP: success.)
+Ethernet interface type is :   [Enabled]

@@ -1,0 +1,4 @@
+command [get_vital_update_prompt_enabled]
+
+deviceui_get_vital_update_prompt_enabled returned 0 (DEVUI_FRAMEWORK: success.)
+vital_update_prompt_enabled:[0]

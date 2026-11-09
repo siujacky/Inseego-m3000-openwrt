@@ -1,0 +1,3 @@
+command [set_waiting_timeout]
+
+Enter the no connectivity timeout valuecmd_set_waiting_timeout returned 1 (WAN_MGR: general error.)

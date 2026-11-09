@@ -1,0 +1,5 @@
+command [set_lan_dhcp_settings]
+
+Enter LAN IP address: Enter LAN subnet mask: Enter LAN mask format (0=Disable, 1=Enable): Enter DHCP status (0=Disable, 1=Enable): Enter DHCP start IP address: Enter DHCP end IP address: Enter DHCP lease time (in seconds): 
+ lansettings.ipaddr=1, lansettings.netmask=1
+cmd_router2_set_lan_dhcp_settings returned 5 (MIFI_QCMAP: process not running.)

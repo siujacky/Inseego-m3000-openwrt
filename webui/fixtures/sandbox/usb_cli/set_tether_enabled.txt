@@ -1,0 +1,3 @@
+command [set_tether_enabled]
+
+What is tether_enabled (1=on, 0=off): usb_set_tether_enabled returned 1 (USB: general error.)

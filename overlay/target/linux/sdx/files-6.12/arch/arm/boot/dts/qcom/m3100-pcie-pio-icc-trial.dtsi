@@ -1,0 +1,8 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/* Requires133 combined version-only fragment. PIO NoC vote, no DMA/NAND. */
+#include <dt-bindings/interconnect/qcom,sdx65.h>
+&m3100_i2c1 {
+ inseego,m3100-pio-icc-trial;
+ interconnects = <&system_noc MASTER_BLSP_1 &mc_virt SLAVE_EBI1>;
+ interconnect-names = "m3100-pio";
+};

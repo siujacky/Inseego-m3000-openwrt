@@ -1,0 +1,1 @@
+cmd_loc_survey_get_status returned 5 (MDM_MAIN: process not running.)

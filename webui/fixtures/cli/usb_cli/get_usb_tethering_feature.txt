@@ -1,0 +1,4 @@
+command [get_usb_tethering_feature]
+
+usb_get_usb_tethering_feature returned 0 (USB: success.)
+usb_tethering_feature=[1]

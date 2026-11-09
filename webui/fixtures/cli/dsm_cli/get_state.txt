@@ -1,0 +1,23 @@
+command [get_state]
+
+cmd_get_state returned 0 (DSM: success.)
+power_on_cause: [reboot]
+power_state: [online_usb]
+charger_det: [usb]
+battery_det: [true]
+battery_state: [full]
+battery_voltage_state: [normal]
+battery_temperature_state: [normal]
+battery_capacity: [100]
+battery_current: [210266]
+battery_temperature: [354] deci-c
+battery_voltage: [4260214]
+battery_id: [1]
+usb_det: [configured]
+usb_state: [resumed]
+dcp_det: [disconnected]
+battery_pack_state: [available]
+power_button: [released]
+display_state: [on]
+typec_pwr_role: [sink]
+usb_device_type: [none]

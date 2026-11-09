@@ -1,0 +1,20 @@
+command [get_data_usage_info]
+
+dua_get_data_usage_info returned 0 (DUA: success.)
+status:[1](0 => DATA_USAGE_INFO_STATUS_VALID, 1 => DATA_USAGE_INFO_STATUS_INVALID)
+plan_type:[]
+cycle_start_date:[]
+cycle_end_date:[]
+usage_timestamp:[]
+plan_limit:[]
+line_usage:[]
+shared_usage:[]
+tx_bytes:[0]
+rx_bytes:[0]
+plan_limit_bytes:[0]
+tx:[]
+rx:[]
+unit:[]
+prepay_indicator:[]
+mdn:[]
+is_data_available:[0]

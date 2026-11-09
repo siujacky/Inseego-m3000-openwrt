@@ -1,0 +1,3 @@
+command [get_iface_type1]
+
+cmd_get_ethernet_iface_type1 returned 65535 For (---Bradshaw---) Ethernet(eth1) type MIFI_QCMAP: general error.

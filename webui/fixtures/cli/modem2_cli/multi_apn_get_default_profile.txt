@@ -1,0 +1,1 @@
+Enter imsi: cmd_multi_apn_get_default_profile returned 1011 (MDM_MAIN: APN not found in Auto APN Database.)

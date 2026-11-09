@@ -1,0 +1,13 @@
+ccm_get_wwan_ac_state returned 0 (CCM: success.)
+Run:[1]
+Feature V6:[1]
+AC Enabled:[2] Autoconnect when service is available
+AC Interval:[10]
+V6 Enabled:[1]
+V4 apn:[1]
+V4 wwan_state:[Idle]
+V6 apn:[1]
+V6 wwan_state:[Idle]
+Did User Connect:[0]
+Did User Disconnect:[0]
+LAN Client Count:[3]

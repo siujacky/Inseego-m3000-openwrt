@@ -1,0 +1,3 @@
+command [get_su_info]
+
+su_api_get_update_info returned 5 (NUA: process not running.)

@@ -1,0 +1,5 @@
+command [set_screen_timeout_settings]
+
+display screen timeout (0 => SCREEN_TIMEOUT_THIRTY_SECONDS, 1 => SCREEN_TIMEOUT_ONE_MINUTE)
+(2 => SCREEN_TIMEOUT_TWO_MINUTE, 3 => SCREEN_TIMEOUT_FIVE_MINUTE)
+(4 => SCREEN_TIMEOUT_TEN_MINUTE, 5 => SCREEN_TIMEOUT_EIGHT_HOURS, 6 => SCREEN_TIMEOUT_NEVER): deviceui_set_screen_timeout_settings returned 1 (DEVUI_FRAMEWORK: general error.)

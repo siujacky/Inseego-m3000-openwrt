@@ -1,0 +1,9 @@
+command [get_modified_login_settings]
+
+webui_get_modified_login_settings returned 0 (WEBUI: success.)
+retries:[5]
+auto_logout_period(secs):[600]
+password:[redacted]
+default_password:[redacted]
+security.question: What is your Birth date?
+security.answer:[redacted]

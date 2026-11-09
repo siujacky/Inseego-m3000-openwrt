@@ -1,0 +1,327 @@
+--- a/drivers/pci/controller/dwc/pcie-qcom.c
++++ b/drivers/pci/controller/dwc/pcie-qcom.c
+@@ -15,6 +15,7 @@
+ #include <linux/gpio/consumer.h>
+ #include <linux/interconnect.h>
+ #include <linux/i2c.h>
++#include <linux/ktime.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+ #include <linux/iopoll.h>
+@@ -264,6 +265,10 @@
+ };
+ 
+ struct qcom_pcie {
++	u64 m3100_perst_ns, m3100_read_start_ns, m3100_read_end_ns;
++	int m3100_read_raw_ret;
++	u32 m3100_read_version;
++	bool m3100_read_valid;
+ 	struct i2c_client *m3100_switch;
+ 	struct dw_pcie *pci;
+ 	void __iomem *parf;			/* DT parf */
+@@ -315,7 +320,8 @@
+ }
+ static int m3100_switch_read(void *context, unsigned int reg, unsigned int *value)
+ {
+- struct i2c_client *client=context;
++ struct qcom_pcie *pcie=context;
++ struct i2c_client *client=pcie->m3100_switch;
+  u8 address[3], data[4];
+  struct i2c_msg messages[2]={
+   {.addr=0x77,.len=3,.buf=address},
+@@ -323,14 +329,21 @@
+  };
+  int ret;
+  m3100_wa_address(address,reg);
++ if (reg==0x800000) pcie->m3100_read_start_ns=ktime_get_boottime_ns();
+  ret=i2c_transfer(client->adapter,messages,2);
++ if (reg==0x800000) {
++  pcie->m3100_read_end_ns=ktime_get_boottime_ns();
++  pcie->m3100_read_raw_ret=ret; pcie->m3100_read_valid=ret==2;
++ }
+  if(ret!=2) return ret<0?ret:-EIO;
+  *value=m3100_wa_decode(data);
++ if (reg==0x800000) pcie->m3100_read_version=*value;
+  return 0;
+ }
+ static int m3100_switch_write(void *context, unsigned int reg, unsigned int value)
+ {
+- struct i2c_client *client=context;
++ struct qcom_pcie *pcie=context;
++ struct i2c_client *client=pcie->m3100_switch;
+  u8 data[7];
+  struct i2c_msg message={.addr=0x77,.len=7,.buf=data};
+  int ret;
+@@ -340,11 +353,17 @@
+ }
+ static int m3100_switch_prelink(struct qcom_pcie *pcie)
+ {
+- struct m3100_wa_io io={.context=pcie->m3100_switch,
++ struct m3100_wa_io io={.context=pcie,
+   .read=m3100_switch_read,.write=m3100_switch_write};
+  int ret;
+  if (!pcie->m3100_switch) return 0;
+  ret=m3100_wa_run(&io);
++ /* Print after all operations/abort, never before the first version read. */
++ dev_info(pcie->pci->dev,"M3100 WA timing ns perst=%llu read_start=%llu read_end=%llu rawret=%d valid=%u\n",
++  pcie->m3100_perst_ns,pcie->m3100_read_start_ns,pcie->m3100_read_end_ns,
++  pcie->m3100_read_raw_ret,pcie->m3100_read_valid);
++ if (pcie->m3100_read_valid)
++  dev_info(pcie->pci->dev,"M3100 WA version=%08x\n",pcie->m3100_read_version);
+  if(ret) { dev_err(pcie->pci->dev,"M3100 switch WA failed at reg%06x before LTSSM: %d\n",io.last_reg,ret); return ret; }
+  dev_info(pcie->pci->dev,"M3100 stock switch WA complete: version1, 56+16+6 operations\n");
+  msleep(20);
+@@ -362,6 +381,8 @@
+ 	/* Ensure that PERST has been asserted for at least 100 ms */
+ 	msleep(100);
+ 	gpiod_set_value_cansleep(pcie->reset, 0);
++	if (pcie->m3100_switch)
++		pcie->m3100_perst_ns = ktime_get_boottime_ns();
+ 	usleep_range(PERST_DELAY_US, PERST_DELAY_US + 500);
+ }
+ 
+--- a/drivers/i2c/busses/i2c-qup.c
++++ b/drivers/i2c/busses/i2c-qup.c
+@@ -17,6 +17,8 @@
+ #include <linux/interconnect.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
++#include <linux/ktime.h>
++#include <linux/spinlock.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+@@ -224,7 +226,19 @@
+ 	unsigned int sg_cnt;
+ };
+ 
++struct qup_m3100_error {
++ const char *stage, *origin;
++ int msg_idx;
++ u32 state, status, error, op;
++ u64 ns;
++};
+ struct qup_i2c_dev {
++ bool m3100_diag, m3100_active, m3100_fault_valid;
++ spinlock_t m3100_lock;
++ const char *m3100_stage;
++ int m3100_msg_idx;
++ struct qup_m3100_error m3100_fault;
++
+ 	struct device		*dev;
+ 	void __iomem		*base;
+ 	int			irq;
+@@ -285,6 +299,50 @@
+ 	void (*write_rx_tags)(struct qup_i2c_dev *qup);
+ };
+ 
++
++/* Snapshot only the first error, while clocks are active and before recovery.
++ * No printk in the IRQ path; output is delayed until transfer completion.
++ */
++static void qup_m3100_stage(struct qup_i2c_dev *qup, const char *stage)
++{
++ if (qup->m3100_diag) WRITE_ONCE(qup->m3100_stage,stage);
++}
++static void qup_m3100_snapshot(struct qup_i2c_dev *qup, const char *origin,
++                             u32 status, u32 error, u32 op)
++{
++ unsigned long flags;
++ if (!qup->m3100_diag) return;
++ spin_lock_irqsave(&qup->m3100_lock,flags);
++ if (!qup->m3100_active || qup->m3100_fault_valid) goto out;
++ qup->m3100_fault.ns=ktime_get_boottime_ns();
++ qup->m3100_fault.stage=READ_ONCE(qup->m3100_stage);
++ qup->m3100_fault.origin=origin;
++ qup->m3100_fault.msg_idx=READ_ONCE(qup->m3100_msg_idx);
++ qup->m3100_fault.status=status; qup->m3100_fault.error=error; qup->m3100_fault.op=op;
++ qup->m3100_fault.state=readl(qup->base+QUP_STATE);
++ qup->m3100_fault_valid=true;
++out:
++ spin_unlock_irqrestore(&qup->m3100_lock,flags);
++}
++static void qup_m3100_task_snapshot(struct qup_i2c_dev *qup)
++{
++ unsigned long flags;
++ if (!qup->m3100_diag) return;
++ spin_lock_irqsave(&qup->m3100_lock,flags);
++ if (!qup->m3100_active || qup->m3100_fault_valid) goto out;
++ qup->m3100_fault.ns=ktime_get_boottime_ns();
++ qup->m3100_fault.stage=READ_ONCE(qup->m3100_stage);
++ qup->m3100_fault.origin="task";
++ qup->m3100_fault.msg_idx=READ_ONCE(qup->m3100_msg_idx);
++ qup->m3100_fault.status=readl(qup->base+QUP_I2C_STATUS);
++ qup->m3100_fault.error=readl(qup->base+QUP_ERROR_FLAGS);
++ qup->m3100_fault.op=readl(qup->base+QUP_OPERATIONAL);
++ qup->m3100_fault.state=readl(qup->base+QUP_STATE);
++ qup->m3100_fault_valid=true;
++out:
++ spin_unlock_irqrestore(&qup->m3100_lock,flags);
++}
++
+ static irqreturn_t qup_i2c_interrupt(int irq, void *dev)
+ {
+ 	struct qup_i2c_dev *qup = dev;
+@@ -296,6 +354,8 @@
+ 	bus_err = readl(qup->base + QUP_I2C_STATUS);
+ 	qup_err = readl(qup->base + QUP_ERROR_FLAGS);
+ 	opflags = readl(qup->base + QUP_OPERATIONAL);
++	if ((bus_err & I2C_STATUS_ERROR_MASK) || (qup_err & QUP_STATUS_ERROR_FLAGS))
++		qup_m3100_snapshot(qup, "irq", bus_err, qup_err, opflags);
+ 
+ 	if (!qup->msg) {
+ 		/* Clear Error interrupt */
+@@ -429,13 +489,17 @@
+ 
+ static int qup_i2c_change_state(struct qup_i2c_dev *qup, u32 state)
+ {
+-	if (qup_i2c_poll_state_valid(qup) != 0)
++	if (qup_i2c_poll_state_valid(qup) != 0) {
++		qup_m3100_task_snapshot(qup);
+ 		return -EIO;
++	}
+ 
+ 	writel(state, qup->base + QUP_STATE);
+ 
+-	if (qup_i2c_poll_state(qup, state) != 0)
++	if (qup_i2c_poll_state(qup, state) != 0) {
++		qup_m3100_task_snapshot(qup);
+ 		return -EIO;
++	}
+ 	return 0;
+ }
+ 
+@@ -933,6 +997,7 @@
+ 
+ 	left = wait_for_completion_timeout(&qup->xfer, qup->xfer_timeout);
+ 	if (!left) {
++		qup_m3100_task_snapshot(qup);
+ 		writel(1, qup->base + QUP_SW_RESET);
+ 		ret = -ETIMEDOUT;
+ 	}
+@@ -1403,12 +1468,14 @@
+ 
+ 	/* If it is first sub transfer, then configure i2c bus clocks */
+ 	if (is_first) {
++		qup_m3100_stage(qup,"first-run");
+ 		ret = qup_i2c_change_state(qup, QUP_RUN_STATE);
+ 		if (ret)
+ 			return ret;
+ 
+ 		writel(qup->clk_ctl, qup->base + QUP_I2C_CLK_CTL);
+ 
++		qup_m3100_stage(qup,"first-pause");
+ 		ret = qup_i2c_change_state(qup, QUP_PAUSE_STATE);
+ 		if (ret)
+ 			return ret;
+@@ -1429,16 +1496,19 @@
+ 			qup_i2c_write_tx_fifo_v2(qup);
+ 	}
+ 
++	qup_m3100_stage(qup,"message-run");
+ 	ret = qup_i2c_change_state(qup, QUP_RUN_STATE);
+ 	if (ret)
+ 		goto err;
+ 
++	qup_m3100_stage(qup,"message-completion");
+ 	ret = qup_i2c_wait_for_complete(qup, msg);
+ 	if (ret)
+ 		goto err;
+ 
+ 	/* Move to pause state for all the transfers, except last one */
+ 	if (change_pause_state) {
++		qup_m3100_stage(qup,"message-pause");
+ 		ret = qup_i2c_change_state(qup, QUP_PAUSE_STATE);
+ 		if (ret)
+ 			goto err;
+@@ -1571,6 +1641,14 @@
+ 	struct qup_i2c_dev *qup = i2c_get_adapdata(adap);
+ 	int ret, idx = 0;
+ 
++	if (qup->m3100_diag) {
++		unsigned long flags;
++		spin_lock_irqsave(&qup->m3100_lock,flags);
++		qup->m3100_active=false; qup->m3100_fault_valid=false;
++		qup->m3100_msg_idx=-1;
++		spin_unlock_irqrestore(&qup->m3100_lock,flags);
++	}
++	qup_m3100_stage(qup,"runtime-resume");
+ 	qup->bus_err = 0;
+ 	qup->qup_err = 0;
+ 
+@@ -1578,10 +1656,13 @@
+ 	if (ret < 0)
+ 		goto out;
+ 
++	if (qup->m3100_diag) WRITE_ONCE(qup->m3100_active,true);
++	qup_m3100_stage(qup,"determine-mode");
+ 	ret = qup_i2c_determine_mode_v2(qup, msgs, num);
+ 	if (ret)
+ 		goto out;
+ 
++	qup_m3100_stage(qup,"initial-reset-poll");
+ 	writel(1, qup->base + QUP_SW_RESET);
+ 	ret = qup_i2c_poll_state(qup, QUP_RESET_STATE);
+ 	if (ret)
+@@ -1591,6 +1672,7 @@
+ 	writel(I2C_MINI_CORE | I2C_N_VAL_V2, qup->base + QUP_CONFIG);
+ 	writel(QUP_V2_TAGS_EN, qup->base + QUP_I2C_MASTER_GEN);
+ 
++	qup_m3100_stage(qup,"master-generator-poll");
+ 	if (qup_i2c_poll_state_i2c_master(qup)) {
+ 		ret = -EIO;
+ 		goto out;
+@@ -1604,6 +1686,7 @@
+ 		qup_i2c_conf_mode_v2(qup);
+ 
+ 		for (idx = 0; idx < num; idx++) {
++			if (qup->m3100_diag) WRITE_ONCE(qup->m3100_msg_idx,idx);
+ 			qup->msg = &msgs[idx];
+ 			qup->is_last = idx == (num - 1);
+ 
+@@ -1615,8 +1698,10 @@
+ 		qup->msg = NULL;
+ 	}
+ 
+-	if (!ret)
++	if (!ret) {
++		qup_m3100_stage(qup,"final-bus-idle");
+ 		ret = qup_i2c_bus_active(qup, ONE_BYTE);
++	}
+ 
+ 	if (!ret)
+ 		qup_i2c_change_state(qup, QUP_RESET_STATE);
+@@ -1624,6 +1709,23 @@
+ 	if (ret == 0)
+ 		ret = num;
+ out:
++ if (ret<0 && qup->m3100_diag) {
++  struct qup_m3100_error fault;
++  unsigned long flags;
++  bool valid;
++  qup_m3100_task_snapshot(qup);
++  spin_lock_irqsave(&qup->m3100_lock,flags);
++  valid=qup->m3100_fault_valid; fault=qup->m3100_fault;
++  spin_unlock_irqrestore(&qup->m3100_lock,flags);
++  if (valid)
++   dev_err(qup->dev,"M3100 QUP first-error ns=%llu origin=%s stage=%s msg=%d ret=%d state=%08x status=%08x error=%08x op=%08x cached_bus=%08x cached_qup=%08x src_hz=%u clk_ctl=%08x\n",
++    fault.ns,fault.origin,fault.stage,
++    fault.msg_idx,ret,fault.state,fault.status,
++    fault.error,fault.op,qup->bus_err,qup->qup_err,
++    qup->src_clk_freq,qup->clk_ctl);
++  else dev_err(qup->dev,"M3100 QUP error before active clocks stage=%s ret=%d\n",qup->m3100_stage,ret);
++ }
++ if (qup->m3100_diag) WRITE_ONCE(qup->m3100_active,false);
+ 	pm_runtime_mark_last_busy(qup->dev);
+ 	pm_runtime_put_autosuspend(qup->dev);
+ 
+@@ -1701,6 +1803,9 @@
+ 		return -ENOMEM;
+ 
+ 	qup->dev = &pdev->dev;
++	spin_lock_init(&qup->m3100_lock);
++	qup->m3100_diag = of_machine_is_compatible("inseego,m3100") &&
++		pdev->dev.of_node && !strcmp(pdev->dev.of_node->full_name,"/soc/i2c@835000");
+ 	init_completion(&qup->xfer);
+ 	platform_set_drvdata(pdev, qup);
+ 

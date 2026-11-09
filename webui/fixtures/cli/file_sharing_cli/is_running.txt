@@ -1,0 +1,3 @@
+command [is_running]
+
+file_sharing_api_is_running returned 5 (FILE_SHARING: process not running.)

@@ -1,0 +1,3 @@
+command [set_dns_name]
+
+Enter DNS name: cmd_router2_set_dns_name returned 1 (MIFI_QCMAP: general error.)

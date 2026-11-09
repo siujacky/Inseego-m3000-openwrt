@@ -1,0 +1,3 @@
+command [get_cfg]
+
+nua_api_get_cfg_settings returned 5 (NUA: process not running.)

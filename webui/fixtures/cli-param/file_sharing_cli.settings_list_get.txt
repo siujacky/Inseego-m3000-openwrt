@@ -1,0 +1,6 @@
+command [settings_list_get]
+
+file_sharing_get_folder_settings_list returned 0 (FILE_SHARING: success.)
+Settings item List:
+Settings ShareFoldersList[0]: Entry share_folder_name=Public, share_folder_type=1
+Settings ShareFoldersList[1]: Entry share_folder_name=Shared, share_folder_type=1

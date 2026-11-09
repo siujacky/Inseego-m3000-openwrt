@@ -1,0 +1,3 @@
+command [is_running]
+
+mifi_health_is_running returned 0 (MIFI_HEALTH: success.)

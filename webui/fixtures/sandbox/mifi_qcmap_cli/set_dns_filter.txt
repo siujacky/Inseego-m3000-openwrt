@@ -1,0 +1,3 @@
+command [set_dns_filter]
+
+Enter DNS Filter Operation (0=Delete, 1=Add): Enter DNS Filter status (0=Disable, 1=Enable): Enter DNS Filter for Black or White List (0=White, 1=Black): Enter URLs(separated by ','): DNS filter: cmd_set_dns_filter_settings returned 1 (MIFI_QCMAP: general error.)

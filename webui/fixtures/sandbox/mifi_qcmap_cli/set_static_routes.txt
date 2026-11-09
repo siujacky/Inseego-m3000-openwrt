@@ -1,0 +1,3 @@
+command [set_static_routes]
+
+Enter static routes feature status (0=Disable, 1=Enable): cmd_set_static_routes_status returned 1 (MIFI_QCMAP: general error.)

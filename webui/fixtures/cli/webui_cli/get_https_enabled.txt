@@ -1,0 +1,4 @@
+command [get_https_enabled]
+
+webui_get_https_enabled returned 0 (WEBUI: success.)
+enabled:[0]

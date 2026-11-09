@@ -1,0 +1,3 @@
+command [carrier_count]
+
+cc_get_carrier_count returned 1 (CC: general error.) Value 0

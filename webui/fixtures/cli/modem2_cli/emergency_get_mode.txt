@@ -1,0 +1,2 @@
+cmd_emergency_get_mode returned 0 (MDM_MAIN: success.)
+Emergency Mode enabled:[0]

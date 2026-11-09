@@ -1,0 +1,4 @@
+command [get_ui_controls_shutdown_enabled]
+
+cmd_get_ui_controls_shutdown_enabled returned 0 (DSM: success.)
+ui_controls_shutdown_enabled: [1]

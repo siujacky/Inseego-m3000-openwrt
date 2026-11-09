@@ -1,0 +1,4 @@
+command [get_preserve_tr069_config]
+
+cmd_get_preserve_tr069_config returned 0 (TR069: success.)
+TR069 is:   [Enable]

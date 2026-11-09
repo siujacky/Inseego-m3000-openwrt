@@ -1,0 +1,6 @@
+command [get_manual_dns]
+
+cmd_router2_get_manual_dns_settings returned 0 (MIFI_QCMAP: success.)
+Manual DNS status is: [Disabled]
+Manual DNS IP1: []
+Manual DNS IP2: []

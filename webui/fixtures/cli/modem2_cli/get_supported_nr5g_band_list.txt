@@ -1,0 +1,12 @@
+cmd_get_supported_nr5g_band_list returned 0 (MDM_MAIN: success.)
+count: [10]
+band[0]: [2]
+band[1]: [5]
+band[2]: [12]
+band[3]: [26]
+band[4]: [48]
+band[5]: [66]
+band[6]: [77]
+band[7]: [78]
+band[8]: [257]
+band[9]: [258]

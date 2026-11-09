@@ -1,0 +1,6 @@
+command [get_battery_health_capability]
+
+cmd_get_battery_health_capability returned 0 (DSM: success.)
+Battery Health Mode: Duration(in seconds): [57600]
+Battery Helath Mode: Min. Charge threshold: [50]
+Battery Helath Mode: Max. Charge threshold: [60]

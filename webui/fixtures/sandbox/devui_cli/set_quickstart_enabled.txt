@@ -1,0 +1,3 @@
+command [set_quickstart_enabled]
+
+quickstart enabled (0 => disabled, 1 => enabled): deviceui_set_quickstart_enabled returned 1 (DEVUI_FRAMEWORK: general error.)

@@ -1,0 +1,2 @@
+Enter CA band 1: Enter CA band 2: cmd_ca_bands_get_enabled returned 1 (MDM_MAIN: general error.)
+LTE band enabled:[-1495289856]

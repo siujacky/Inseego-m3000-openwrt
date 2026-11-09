@@ -1,0 +1,48 @@
+cmd_get_diag_info returned 0 (MDM_MAIN: success.)
+
+[===============
+Diagnostic Data
+===============
+
+NAM: N/A
+Mobile Directory Number (MDN): N/A
+IMSI_S: 
+Mobile Network Code (MNC): 
+Mobile Country Code (MCC): 
+Primary CDMA Channel A: 0
+Secondary CDMA Channel A: 0
+Primary CDMA Channel B: 0
+Secondary CDMA Channel B: 0
+Access Overload Class (ACCOLC): 0
+Register On Home SID: N/A
+Register On Foreign SID: N/A
+Register On Foreign NID: N/A
+CDMA Band Class: [WCDMA_EU_J_CH_IMT_2100] [WCDMA_US_PCS_1900] [WCDMA_US_1700] [WCDMA_US_850] [WCDMA_EU_J_900] 
+LTE Band Class: [E_UTRA_BAND_1] [E_UTRA_BAND_2] [E_UTRA_BAND_3] [E_UTRA_BAND_4] [E_UTRA_BAND_5] [E_UTRA_BAND_7] [E_UTRA_BAND_12] [E_UTRA_BAND_13] [E_UTRA_BAND_17] [E_UTRA_BAND_20] [E_UTRA_BAND_28] 
+Active Band: N/A
+Slot Cycle Index: N/A
+MIP Mode: MIP off
+MIP Registration Retries: 0
+MIP Registration Retries Timeout: 0
+Reverse Tunneling: 0
+DNS Primary: N/A
+DNS Secondary: N/A
+Supplemental Channel Request Message (SCRM): 0
+Network ID (NID): 0
+Error Rate: 
+RSSI: [0]:-61 
+Ec/Io: 
+Latitude: 0
+Longitude: 0
+Tx Power (EVDO): 0
+Rx Power 0 (EVDO): 0
+Rx Power 1 (EVDO): 0
+Packet Zone ID: 0
+Call State: Unknown
+Dormant State: Unknown
+MAC Index: N/A
+Subnet Mask: N/A
+Color Code: 0
+UATI024: 00000000 00000000 00000000 00000000
+PN Offset: N/A
+]

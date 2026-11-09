@@ -1,0 +1,3 @@
+command [set_display_ethernet_port_enabled]
+
+ethernet show/hide on touchscreen (0 => disabled, 1 => enabled): deviceui_set_display_ethernet_port_enabled returned 1 (DEVUI_FRAMEWORK: general error.)

@@ -1,0 +1,3 @@
+command [get_apn_list]
+
+What is the carrier id:webui_get_apn_list returned 2 (WEBUI: one or more bad parameters passed into a function.)

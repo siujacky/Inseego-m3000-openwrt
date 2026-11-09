@@ -1,0 +1,3 @@
+command [set_default_usb_mode]
+
+cmd_set_default_usb_mode returned 5 (DSM: process not running.)

@@ -1,0 +1,29 @@
+--- a/drivers/regulator/qcom-rpmh-regulator.c
++++ b/drivers/regulator/qcom-rpmh-regulator.c
+@@ -470,6 +470,26 @@
+ 	init_data = of_get_regulator_init_data(dev, node, &vreg->rdesc);
+ 	if (!init_data)
+ 		return -ENOMEM;
++
++	/* The M3100 downstream VRM provider accepts millivolt votes. Its
++	 * BT consumer requests exactly 1012 mV on smpb7; the generic PMX65
++	 * 8 mV selector grid cannot express it. Preserve the stock RPMh vote
++	 * only for this board, resource and exact DT constraint. This does
++	 * not assert a new physical PMIC voltage range or affect other rails.
++	 */
++	if (of_machine_is_compatible("inseego,m3100") &&
++	    of_device_is_compatible(dev->of_node, "qcom,pmx65-rpmh-regulators") &&
++	    !strcmp(rpmh_resource_name, "smpb7") &&
++	    of_property_read_bool(node, "inseego,m3100-bt-rom-vote") &&
++	    init_data->constraints.min_uV == 1012000 &&
++	    init_data->constraints.max_uV == 1012000) {
++		static const struct linear_range m3100_s7_vote =
++			REGULATOR_LINEAR_RANGE(1012000, 0, 0, 0);
++
++		vreg->rdesc.linear_ranges = &m3100_s7_vote;
++		vreg->rdesc.n_linear_ranges = 1;
++		vreg->rdesc.n_voltages = 1;
++	}
+ 
+ 	if (rpmh_data->hw_data->regulator_type == XOB &&
+ 	    init_data->constraints.min_uV &&

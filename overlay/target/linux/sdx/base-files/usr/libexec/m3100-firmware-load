@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+archive=/tmp/m3100-firmware.cpio.xz
+/usr/libexec/m3100-payload-scan /dev/mem "$archive"
+sha256sum -c /etc/m3100-payload.sha256
+cd /
+unxz -c "$archive" | cpio -idmu
+cd /lib/firmware/m3100
+sha256sum -c /etc/m3100-firmware.sha256 >/tmp/m3100-firmware-check.log
+rm "$archive"
+touch /tmp/m3100-firmware.ready
+logger -t m3100-firmware 'Verified firmware unpacked from reserved RAM'

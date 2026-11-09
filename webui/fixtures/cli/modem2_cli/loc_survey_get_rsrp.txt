@@ -1,0 +1,2 @@
+cmd_loc_survey_get_rsrp returned 5 (MDM_MAIN: process not running.)
+Error: Start the  Algorithm First

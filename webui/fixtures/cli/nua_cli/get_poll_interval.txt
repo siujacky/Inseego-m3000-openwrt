@@ -1,0 +1,3 @@
+command [get_poll_interval]
+
+Poll internval, seconds=[0]

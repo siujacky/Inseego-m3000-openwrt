@@ -1,0 +1,3 @@
+cmd_validate_home returned 0 (MDM_MAIN: success.)
+
+Home network:[1]

@@ -1,0 +1,9 @@
+command [set_notification_settings]
+
+Enter number of notifications you want to set:Enter notification id:Enable notification (1,0)?:Enable audio alert notification (1,0)?:Enable wake display notification (1,0)?:Enter display surfaces (0 : None, 1 : Browser, 2 : LCD, 3 : All) :notification.id : startup
+notification.enabled : 1
+notification.audio_alert_enabled : 1
+notification.wake_display_enabled : 0
+notification.display_surfaces : 0
+==========================================================
+ans_set_notification_settings returned 1 (ANS: general error.)

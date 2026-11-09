@@ -1,0 +1,3 @@
+cmd_get_activation_date returned 1 (MDM_MAIN: general error.)
+
+Date:[01/01/70 12:00:00 am]

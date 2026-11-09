@@ -1,0 +1,2 @@
+cmd_get_5g_icon_mode returned 0 (MDM_MAIN: success.)
+mode:[4]

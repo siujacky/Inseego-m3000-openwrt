@@ -1,0 +1,4 @@
+command [get_enabled]
+
+led_get_enabled returned 0 (LED: success.)
+enabled[1]

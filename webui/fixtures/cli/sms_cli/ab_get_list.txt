@@ -1,0 +1,4 @@
+command [ab_get_list]
+
+cmd_ab_get_list returned 0 (SMS: success.)
+count:[0]

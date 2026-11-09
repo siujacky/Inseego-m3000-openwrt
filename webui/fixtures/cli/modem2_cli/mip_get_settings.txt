@@ -1,0 +1,9 @@
+cmd_mip_get_settings returned 0 (MDM_MAIN: success.)
+mask:[0x0]
+mode (off=0, prefered=1, only=2):[0]
+reg retry count:[0]
+reg retry interval:[0]
+reg retry period:[0]
+rereg if traffic type (disabled=0, enabled=1):[0] 
+authenticator (disabled=0, enabled=1):[0]
+authenticator using RFC2002bis (disabled=0, enabled=1):[0]

@@ -1,0 +1,3 @@
+cmd_roam_get_enabled returned 0 (MDM_MAIN: success.)
+
+Roaming enabled:[1]

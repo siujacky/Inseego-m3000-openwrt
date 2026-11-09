@@ -1,0 +1,2 @@
+cmd_get_apn_failback_enabled returned 0 (MDM_MAIN: success.)
+enabled:[0]

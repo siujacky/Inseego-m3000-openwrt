@@ -1,0 +1,3 @@
+command [set_active]
+
+Enter 1 or 0, On(1), Off(0): cmd_set_active returned 1 (GPS: general error.)

@@ -1,0 +1,6 @@
+command [get_advanced_settings]
+
+webui_get_advanced_settings returned 0 (WEBUI: success.)
+login_enabled:[1]
+gps_login_enabled:[1]
+network_settings_login_enabled:[1]

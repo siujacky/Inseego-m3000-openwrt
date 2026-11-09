@@ -1,0 +1,5 @@
+command [set_state]
+
+Enter mailbox id 0-3: PreInbox(0), Inbox(1), Outbox(2), Sentbox(3): 
+Enter message index 0-120: 
+Enter message state Unread(0), Read(1): cmd_set_state returned 5 (SMS: process not running.)

@@ -1,0 +1,1 @@
+cmd_get_ca_band_list returned 0 (MDM_MAIN: success.)

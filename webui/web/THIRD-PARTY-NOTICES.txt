@@ -1,0 +1,17 @@
+5G Router WebUI — Feelgood presentation adaptation
+
+Palette tokens and presentation adapted from luci-theme-feelgood:
+https://github.com/akbar-npj/msm8916-openwrt/tree/96a02093c5db7292c713542fd0626b63aef9ba21/packages/luci-theme-feelgood
+https://github.com/akbar-npj/luci-theme-feelgood
+
+Copyright 2018-2026 Akbar NPJ
+Copyright 2018 Yan Lan Shen
+Based on luci-theme-bootstrap and MUI, as identified by the upstream theme.
+Licensed under the Apache License, Version 2.0. A copy is included in
+licenses/Apache-2.0.txt. Modified for the standalone 5G Router SPA on 2026-11-08.
+
+No LuCI platform scripts, firmware writers, modem NV controls, upstream
+branding, wallpapers or bundled fonts are included in this adaptation.
+
+The existing 5G Router frontend and Python API remain their respective
+authors' work; this notice describes the added third-party adaptation.

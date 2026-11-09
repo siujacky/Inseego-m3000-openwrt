@@ -1,0 +1,271 @@
+{
+  "APNProfiles/3GPP/active": {
+    "APN": "vzwinternet",
+    "Name": "",
+    "PDPAuthenticationType": "None",
+    "Password": "",
+    "UserName": ""
+  },
+  "AccessControl": {
+    "AuthType": 2,
+    "RemainingAttempts": 5,
+    "SecureToken": "redacted",
+    "SessionIdentifier": "redacted"
+  },
+  "AccountInfo": {
+    "AccountInfoHomeSID": "",
+    "AccountInfoMDN": "",
+    "AccountInfoMIN": "",
+    "AccountInfoSimICCID": "",
+    "AccountInfoSimIMSI": ""
+  },
+  "Antenna/External/Enabled": {
+    "Enabled": 0
+  },
+  "BatteryPreservationMode/Capabilities": {
+    "MaximumBatteryThreshold": 60,
+    "MinimumBatteryThreshold": 50,
+    "Time": 57600
+  },
+  "BatteryPreservationMode/Enabled": {
+    "Enabled": true
+  },
+  "BatteryPreservationMode/Status": {
+    "Status": 0
+  },
+  "BatteryStatus": {
+    "BatteryChargeLevelPercentage": 100,
+    "BatteryChargingSource": "USB",
+    "BatteryChargingState": false,
+    "BatteryPresent": true
+  },
+  "BlockedDevices": [],
+  "CellularDataConnectionStatus": {
+    "CurrentCallBytesReceived": 0,
+    "CurrentCallBytesTransmitted": 0,
+    "CurrentCallDuration": 0,
+    "CurrentExternalIPv4Address": "",
+    "CurrentExternalIPv6Address": "",
+    "CurrentGatewayIPv4Address": "",
+    "CurrentNetworkActivityForIcon": "None",
+    "CurrentPrimaryDNSIPv4Address": "",
+    "CurrentSecondaryDNSIPv4Address": "",
+    "CurrentStatus": "Disconnected"
+  },
+  "CellularServiceSettings": {
+    "AutoConnectEnabled": true,
+    "CellularDataEnabled": true,
+    "DomesticRoamingEnabled": true,
+    "InternationalRoamingEnabled": true
+  },
+  "CellularServiceStatus": {
+    "Current5GBandwidth": 0,
+    "Current5GMode": 0,
+    "CurrentBand": "0",
+    "CurrentBandwidth": 20,
+    "CurrentBearer": 0,
+    "CurrentCarrierNetworkName": "",
+    "CurrentCellID": "",
+    "CurrentConnectionToFemtoCell": false,
+    "CurrentECGI": 0,
+    "CurrentRoamingIconEffect": "Static",
+    "CurrentRoamingState": "NotRoaming",
+    "CurrentSID": 0,
+    "CurrentServiceStatus": "InService",
+    "CurrentSignalStrengthInBars": 0,
+    "CurrentSignalStrengthInRSRP": 0,
+    "CurrentSignalStrengthInRSSI": 0,
+    "CurrentSignalToNoiseLevelInEcIo": 0,
+    "CurrentSignalToNoiseLevelInSINR": 0,
+    "CurrentSignalToNoiseLevelInSNR": 0,
+    "CurrentStrengthInRSRQ": 0,
+    "CurrentWirelessTechnology": "Unknown",
+    "PCI": 0
+  },
+  "ConnectedDevices": [
+    {
+      "ConnectedDeviceApplianceType": "Generic",
+      "ConnectedDeviceConnectionType": "USB",
+      "ConnectedDeviceFriendlyName": "",
+      "ConnectedDeviceHostName": "",
+      "ConnectedDeviceIPv4Address": "192.168.1.100",
+      "ConnectedDeviceIPv6Address": "",
+      "ConnectedDeviceMacAddress": "02:00:00:00:00:01"
+    },
+    {
+      "ConnectedDeviceApplianceType": "Generic",
+      "ConnectedDeviceConnectionType": "Ethernet",
+      "ConnectedDeviceFriendlyName": "",
+      "ConnectedDeviceHostName": "",
+      "ConnectedDeviceIPv4Address": "192.168.1.100",
+      "ConnectedDeviceIPv6Address": "",
+      "ConnectedDeviceMacAddress": "02:00:00:00:00:01"
+    },
+    {
+      "ConnectedDeviceApplianceType": "Generic",
+      "ConnectedDeviceConnectionType": "Ethernet",
+      "ConnectedDeviceFriendlyName": "",
+      "ConnectedDeviceHostName": "",
+      "ConnectedDeviceIPv4Address": "192.168.1.100",
+      "ConnectedDeviceIPv6Address": "",
+      "ConnectedDeviceMacAddress": "02:00:00:00:00:01"
+    }
+  ],
+  "ConnectedDevicesStatus": {
+    "ConnectedDevicesCountEthernet": 2,
+    "ConnectedDevicesCountUSB": 1,
+    "ConnectedDevicesCountWiFi": 0
+  },
+  "DMZSettings": {
+    "DMZEnabled": false,
+    "DMZIpAddress": ""
+  },
+  "DeviceInfo": {
+    "DeviceInfoCuteVersion": "7Z",
+    "DeviceInfoDeviceUISwVersion": "",
+    "DeviceInfoERIVersion": 0,
+    "DeviceInfoESN": "<redacted>",
+    "DeviceInfoHwVersion": "5",
+    "DeviceInfoIMEI": "350000000000001",
+    "DeviceInfoIMEISV": "3500000000000001",
+    "DeviceInfoIPv6LocalLinkAddress": "",
+    "DeviceInfoMEID": "",
+    "DeviceInfoMacAddress": "02:00:00:00:00:01",
+    "DeviceInfoManufacturerName": "Inseego",
+    "DeviceInfoModelNumber": "M3100",
+    "DeviceInfoModemFwVersion": "THN-1.54  1  [2024-01-24 03:21:03]",
+    "DeviceInfoPRIVersion": 188,
+    "DeviceInfoPRIVersionDetailed": "188",
+    "DeviceInfoRESTAPIVersion": "1.0",
+    "DeviceInfoSKU": "000000000000",
+    "DeviceInfoSwVersion": "THN-1.54  1  [2024-01-24 03:21:03]",
+    "DeviceInfoWebUISwVersion": "2.609",
+    "DeviceInfoWiFiFwVesion": "1.1.0.0.2917.1"
+  },
+  "DisplayFormatSettings": {
+    "DisplayDateFormat": "MMDDYYYYSlashSeparated",
+    "DisplayDistanceFormat": "USA",
+    "DisplayLanguage": "en_US",
+    "DisplayNumericSeparator": "Period",
+    "DisplayTemperatureFormat": "Fahrenheit",
+    "DisplayTimeFormat": "12Hr"
+  },
+  "DisplayFormatSettings/SupportedLanguages": {
+    "SupportedLanguages": [
+      "en_US",
+      "es_MX"
+    ]
+  },
+  "EthernetSettings/Details": [
+    {
+      "Active": 0,
+      "Mac": "02:00:00:00:00:01"
+    }
+  ],
+  "EthernetSettings/Enabled": {
+    "Enabled": 1
+  },
+  "GPSSettings": {
+    "GPSEnabled": false,
+    "NMEAOverWiFiEnabled": false,
+    "NMEAOverWiFiPortNumber": 11010
+  },
+  "ManualDNSSettings": {
+    "ManualDNSAddress1": "",
+    "ManualDNSAddress2": "",
+    "ManualDNSEnabled": false
+  },
+  "MultiSIM/Enabled": {
+    "Enabled": 0
+  },
+  "PortFilteringApplications": [],
+  "PortFilteringSettings": {
+    "Enabled": false
+  },
+  "PortForwardingApplications": [],
+  "PortForwardingSettings": {
+    "Enabled": false
+  },
+  "PowerSaveSettings": {
+    "PowerSaveDeepSleepIdleDuration": 300,
+    "PowerSaveDeepSleepMaxDuration": 7200,
+    "PowerSaveEnabled": true
+  },
+  "RouterSettings": {
+    "DHCPAddressRangeEnd": "192.168.1.102",
+    "DHCPAddressRangeStart": "192.168.1.2",
+    "DHCPEnabled": false,
+    "DHCPLeaseTime": 86400,
+    "IPv6Enabled": true,
+    "IPv6TransparentModeEnabled": true,
+    "RouterIPv4Address": "192.168.1.100",
+    "RouterSubnetMask": "255.255.255.0",
+    "VPNPasshthroughEnabled": true
+  },
+  "SMSList/Inbox": [],
+  "SMSStatus": {
+    "SMSInboxUnreadCount": 0
+  },
+  "SimCarrierLockStatus": {
+    "SimCarrierLockEnabled": false,
+    "SimCarrierUnblockCounter": 0,
+    "SimCarrierUnlockCounter": 10
+  },
+  "SimLockStatus": {
+    "SimPinLockCounter": 0,
+    "SimPinLockEnabled": false,
+    "SimPukLockCounter": 0
+  },
+  "SimStatus": {
+    "CurrentSimStatus": "NotPresent"
+  },
+  "SoftwareUpdate/Status": {
+    "IsUserInitiated": false,
+    "Mdip": 0,
+    "Status": 0,
+    "SuiValue": 0,
+    "Value": 0,
+    "Version": ""
+  },
+  "WatchdogSettings": {
+    "WatchdogInterval": 60
+  },
+  "WhiteListedDevices": [],
+  "WiFi/AdvancedSettings": {
+    "MaxConnections": 32,
+    "WiFi2Dot4G802Dot11Mode": "802.11bgn/ax",
+    "WiFi2Dot4GBandState": "Primary",
+    "WiFi2Dot4GChannel": "Automatic",
+    "WiFi5G802Dot11Mode": "802.11acn/ax",
+    "WiFi5GBandState": "Primary",
+    "WiFi5GBandwidth": "80 MHz",
+    "WiFi5GChannel": "Automatic",
+    "WiFiEnabled": true
+  },
+  "WiFi/AdvancedSettings/MaxClientsAllowed": {
+    "WiFiMaxClientsAllowed": 32
+  },
+  "WiFi/DisplaySettings": {
+    "AllowDeviceUIWiFiEnabled": true,
+    "HidePasswordTouchEnabledGuest": false,
+    "HidePasswordTouchEnabledPrimary": false,
+    "HideSSIDTouchEnabledGuest": false,
+    "HideSSIDTouchEnabledPrimary": false
+  },
+  "WiFi/GuestSettings": {
+    "WPSEnabled": true,
+    "WiFiPassword": "changeme123",
+    "WiFiPrivacySeparationEnabled": true,
+    "WiFiSSID": "Router-5G",
+    "WiFiSSIDBroadcastEnabled": true,
+    "WiFiSecurityMode": "WPA3TRANSITION"
+  },
+  "WiFi/PrimarySettings": {
+    "WPSEnabled": true,
+    "WiFiPassword": "changeme123",
+    "WiFiPrivacySeparationEnabled": false,
+    "WiFiSSID": "Router-5G",
+    "WiFiSSIDBroadcastEnabled": true,
+    "WiFiSecurityMode": "WPA3TRANSITION"
+  }
+}

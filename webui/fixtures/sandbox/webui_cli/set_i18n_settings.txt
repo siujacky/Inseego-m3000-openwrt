@@ -1,0 +1,3 @@
+command [set_i18n_settings]
+
+What is the language [en_US]: What is the date-format [0(mm/dd/yyyy), 1(dd.mm.yyyy), 2(dd/mm/yyyy), 3(yyyy/mm/dd)]: What is the hour-format [0(12hr), 1(24hr)]: What is the temparature-format [0(Fahrenheit), 1(Celsius)]: What is the distance-format [0(US), 1(Metric)]]: What is the numeric-format [0(period, 1(comma)]: webui_set_i18n_settings returned 2 (WEBUI: one or more bad parameters passed into a function.)

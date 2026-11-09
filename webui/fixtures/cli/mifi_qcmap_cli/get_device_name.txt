@@ -1,0 +1,4 @@
+command [get_device_name]
+
+cmd_get_device_name returned 0 (MIFI_QCMAP: success.)
+Device name:[Inseego]

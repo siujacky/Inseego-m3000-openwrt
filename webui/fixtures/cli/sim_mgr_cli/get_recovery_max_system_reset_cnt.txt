@@ -1,0 +1,7 @@
+
+------------------------
+--[recovery] [get] connection recovery max system_reset cnt--
+cmd_get_recovery_max_system_reset_cnt: [recovery]  returned 0 (SIM_MGR: success.)
+
+[recovery] conn recovery max system_reset: [3]
+------------------------

@@ -1,0 +1,73 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/* Optional resources for separately loaded RAM test modules. No LCD driver
+ * or charger controller is automatically started by this description.
+ */
+#include <dt-bindings/spmi/spmi.h>
+
+&apps_rsc {
+	regulators {
+		m3100_lcd_vdd: ldo13 {
+			regulator-min-microvolt = <2800000>;
+			regulator-max-microvolt = <2928000>;
+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+		};
+	};
+};
+
+&spmi_bus {
+	pmic@2 {
+		compatible = "qcom,pm7250b", "qcom,spmi-pmic";
+		reg = <2 SPMI_USID>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		qg-telemetry@4800 {
+			compatible = "inseego,m3100-pm7250b-qg-telemetry";
+			reg = <0x4800>;
+		};
+	};
+};
+
+&tlmm {
+	m3100_lcd_active: m3100-lcd-active-state {
+		lcd-control {
+			pins = "gpio90", "gpio84";
+			function = "ebi2_lcd";
+			drive-strength = <10>;
+			bias-disable;
+		};
+		lcd-address {
+			pins = "gpio89";
+			function = "ebi2_a";
+			drive-strength = <10>;
+			bias-disable;
+		};
+		lcd-reset {
+			pins = "gpio85";
+			function = "gpio";
+			drive-strength = <10>;
+			bias-disable;
+		};
+		lcd-backlight {
+			pins = "gpio97";
+			function = "gpio";
+			drive-strength = <10>;
+			bias-disable;
+			output-low;
+		};
+	};
+};
+
+&{/soc} {
+	lcd@1b22000 {
+		compatible = "inseego,m3100-qpic-lcd";
+		reg = <0x01b22000 0x2000>;
+		clocks = <&rpmhcc RPMH_QPIC_CLK>;
+		clock-names = "core_clk";
+		vdd-supply = <&m3100_lcd_vdd>;
+		reset-gpios = <&tlmm 85 GPIO_ACTIVE_LOW>;
+		backlight-gpios = <&tlmm 97 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&m3100_lcd_active>;
+		status = "okay";
+	};
+};

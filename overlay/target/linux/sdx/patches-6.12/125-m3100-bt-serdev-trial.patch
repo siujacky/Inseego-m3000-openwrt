@@ -1,0 +1,81 @@
+--- a/drivers/bluetooth/hci_qca.c
++++ b/drivers/bluetooth/hci_qca.c
+@@ -2113,6 +2113,15 @@
+ 	.capabilities = QCA_CAP_WIDEBAND_SPEECH | QCA_CAP_VALID_LE_STATES,
+ };
+ 
++/* M3100 RAM trial: physical power remains owned by the explicit board
++ * power helper. Select WCN685x HCI/EDL protocol without inventing six rails.
++ */
++static const struct qca_device_data qca_soc_data_m3100 __maybe_unused = {
++	.soc_type = QCA_WCN6855,
++	.num_vregs = 0,
++	.capabilities = QCA_CAP_WIDEBAND_SPEECH | QCA_CAP_VALID_LE_STATES,
++};
++
+ static const struct qca_device_data qca_soc_data_wcn6855 __maybe_unused = {
+ 	.soc_type = QCA_WCN6855,
+ 	.vregs = (struct qca_vreg []) {
+@@ -2315,6 +2324,10 @@
+ 	const struct qca_device_data *data;
+ 	int err;
+ 	bool power_ctrl_enabled = true;
++
++	if (of_device_is_compatible(serdev->dev.of_node, "inseego,m3100-qca6490-bt") &&
++	    !of_machine_is_compatible("inseego,m3100"))
++		return -ENODEV;
+ 
+ 	qcadev = devm_kzalloc(&serdev->dev, sizeof(*qcadev), GFP_KERNEL);
+ 	if (!qcadev)
+@@ -2361,7 +2374,10 @@
+ 	case QCA_WCN6855:
+ 	case QCA_WCN7850:
+ 	case QCA_WCN6750:
+-		if (!device_property_present(&serdev->dev, "enable-gpios")) {
++		/* The board helper is the sole physical power owner here. */
++		if (!of_device_is_compatible(serdev->dev.of_node,
++					     "inseego,m3100-qca6490-bt") &&
++		    !device_property_present(&serdev->dev, "enable-gpios")) {
+ 			/*
+ 			 * Backward compatibility with old DT sources. If the
+ 			 * node doesn't have the 'enable-gpios' property then
+@@ -2699,6 +2715,7 @@
+ 
+ #ifdef CONFIG_OF
+ static const struct of_device_id qca_bluetooth_of_match[] = {
++	{ .compatible = "inseego,m3100-qca6490-bt", .data = &qca_soc_data_m3100 },
+ 	{ .compatible = "qcom,qca2066-bt", .data = &qca_soc_data_qca2066},
+ 	{ .compatible = "qcom,qca6174-bt" },
+ 	{ .compatible = "qcom,qca6390-bt", .data = &qca_soc_data_qca6390},
+--- a/drivers/bluetooth/btqca.c
++++ b/drivers/bluetooth/btqca.c
+@@ -5,6 +5,7 @@
+  *  Copyright (c) 2015 The Linux Foundation. All rights reserved.
+  */
+ #include <linux/module.h>
++#include <linux/of.h>
+ #include <linux/firmware.h>
+ #include <linux/vmalloc.h>
+ 
+@@ -842,8 +843,19 @@
+ 			 "qca/msbtfw%02x.mbn", rom_ver);
+ 		break;
+ 	case QCA_WCN6855:
+-		snprintf(config.fwname, sizeof(config.fwname),
+-			 "qca/hpbtfw%02x.tlv", rom_ver);
++		/* Modern linux-firmware separates WCN685x UART and QCA2066
++		 * images. Keep this exact, board-scoped RAM trial selection.
++		 */
++		if (of_machine_is_compatible("inseego,m3100") &&
++		    le32_to_cpu(ver.product_id) == 0x13 &&
++		    le16_to_cpu(ver.rom_ver) == 0x0201 &&
++		    le32_to_cpu(ver.soc_id) == 0x400c1211 &&
++		    firmware_name && !strcmp(firmware_name, "wcnhpnv21g.bin"))
++			snprintf(config.fwname, sizeof(config.fwname),
++				 "qca/wcnhpbtfw%02x.tlv", rom_ver);
++		else
++			snprintf(config.fwname, sizeof(config.fwname),
++				 "qca/hpbtfw%02x.tlv", rom_ver);
+ 		break;
+ 	case QCA_WCN7850:
+ 		snprintf(config.fwname, sizeof(config.fwname),

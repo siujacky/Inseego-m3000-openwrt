@@ -1,0 +1,4 @@
+command [get_file_sharing_display_setting_enabled]
+
+deviceui_get_file_sharing_display_setting_enabled returned 0 (DEVUI_FRAMEWORK: success.)
+file_sharing_display_setting_enabled:[1]

@@ -1,0 +1,2 @@
+ccm_get_static_ip returned 0 (CCM: success.)
+ip:[0.0.0.0]

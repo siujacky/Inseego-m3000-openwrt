@@ -1,0 +1,3 @@
+cmd_get_ext_antenna_enabled returned 0 (MDM_MAIN: success.)
+mhb enabled:[0]
+uhb enabled:[0]

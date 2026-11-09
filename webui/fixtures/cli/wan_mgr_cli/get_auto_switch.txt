@@ -1,0 +1,4 @@
+command [get_auto_switch]
+
+cmd_get_auto_switch returned 0 (WAN_MGR: success.)
+The Auto Switch Value is [1]

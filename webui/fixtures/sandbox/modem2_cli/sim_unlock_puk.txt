@@ -1,0 +1,1 @@
+What is SIM PUK:  What is SIM PIN:  cmd_sim_unlock_puk returned 5 (MDM_MAIN: process not running.)

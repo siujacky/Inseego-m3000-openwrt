@@ -1,0 +1,8 @@
+
+------------------------
+--[recovery] [set] connection recovery period--
+
+[recovery] conn recovery period: [120]
+cmd_set_recovery_period: [recovery] returned 1 (SIM_MGR: general error.)
+
+------------------------

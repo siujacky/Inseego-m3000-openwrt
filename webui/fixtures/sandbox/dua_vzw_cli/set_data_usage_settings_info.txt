@@ -1,0 +1,3 @@
+command [set_data_usage_settings_info]
+
+Enter iface_type[0=INTERFACE_SIM,1=INTERFACE_ETH]: Enter imsi : Enter iccid:What is cycle_day(1 <> 31): What is usage_limit [ 0(NONE), 1(20 MB), 2(25 MB), 3(100 MB), 4(250 MB), 5(500 MB), 6(1 GB), 7(2 GB), 8(3 GB), 9(5 GB), 10(8 GB), 11(10 GB), 12(12 GB), 13(15 GB) 14(20 GB) ]:  What is level1_threshold(1 <> 100): dua_set_data_usage_settings_info returned 5 (DUA: process not running.)

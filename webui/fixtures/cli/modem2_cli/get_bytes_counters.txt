@@ -1,0 +1,2 @@
+
+Enter data call type (0 - IPv4, 2 - IPV6): cmd_get_bytes_counters returned 1 (MDM_MAIN: general error.)

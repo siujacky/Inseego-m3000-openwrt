@@ -1,0 +1,83 @@
+/* RAM-only opt-in BT ROM probe; no serdev Bluetooth child / firmware load. */
+#include <dt-bindings/clock/qcom,gcc-sdx65.h>
+#include <dt-bindings/clock/qcom,rpmh.h>
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/regulator/qcom,rpmh-regulator.h>
+
+/ {
+	/* Existing serial0 and chosen stdout remain the console831000. */
+	aliases { serial1 = &m3100_bt_uart_port; };
+	m3100-bt-power {
+		compatible = "inseego,m3100-bt-power";
+		vdd-io-supply = <&m3100_bt_io>;
+		vdd-aon-supply = <&m3100_bt_aon>;
+		clocks = <&rpmhcc RPMH_RF_CLK3>;
+		clock-names = "ref";
+		enable-gpios = <&pmx65_gpios 15 GPIO_ACTIVE_HIGH>;
+		swctrl-gpios = <&pmx65_gpios 2 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&m3100_bt_enable>;
+	};
+
+};
+
+&apps_rsc {
+	regulators {
+		m3100_bt_io: ldo6 {
+			regulator-min-microvolt = <1800000>;
+			regulator-max-microvolt = <1800000>;
+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+		};
+		m3100_bt_aon: smps7 {
+			inseego,m3100-bt-rom-vote;
+			regulator-min-microvolt = <1012000>;
+			regulator-max-microvolt = <1012000>;
+			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+		};
+	};
+};
+&pmx65_gpios {
+	m3100_bt_enable: bt-enable-state {
+		pins = "gpio15";
+		function = "normal";
+		output-low;
+		bias-pull-down;
+		qcom,drive-strength = <2>;
+		power-source = <1>;
+	};
+};
+&tlmm {
+	m3100_bt_uart: bt-uart-state {
+		tx {
+			pins = "gpio63";
+			function = "blsp_uart2";
+			drive-strength = <2>;
+			bias-pull-up;
+		};
+		rx-cts {
+			pins = "gpio64", "gpio65";
+			function = "blsp_uart2";
+			drive-strength = <2>;
+			bias-disable;
+		};
+		rfr {
+			pins = "gpio66";
+			function = "blsp_uart2";
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+};
+&soc {
+	m3100_bt_uart_port: serial@830000 {
+		compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
+		reg = <0x00830000 0x200>;
+		interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+		clocks = <&gcc GCC_BLSP1_UART2_APPS_CLK>, <&gcc GCC_BLSP1_AHB_CLK>;
+		clock-names = "core", "iface";
+		pinctrl-names = "default";
+		pinctrl-0 = <&m3100_bt_uart>;
+		status = "okay";
+	};
+};

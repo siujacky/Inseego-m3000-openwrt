@@ -1,0 +1,4 @@
+command [get_usb_mac_address]
+
+USB_Host=[02:00:00:00:00:01]
+USB_Device=[02:00:00:00:00:01]

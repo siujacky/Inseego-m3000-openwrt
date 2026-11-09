@@ -1,0 +1,5 @@
+cmd_get_oper_info returned 0 (MDM_MAIN: success.)
+
+Operator:[]
+Mcc Mnc:[000000]
+Freq band:[0]

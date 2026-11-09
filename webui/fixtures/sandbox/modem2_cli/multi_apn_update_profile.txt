@@ -1,0 +1,1 @@
+Enter index: Enter Name: Enter IMSI: Enter ICCID: Enter Active [0 or 1]: Enter Default [0 or 1]: Enter APN: Enter username: Enter password: Enter Auth [0 none, 1 pap, 2 chap, 3 both]: Enter PDP [0 ipv4, 2 ipv6, 3 ipv4v6]: cmd_multi_apn_update_profile returned 1 (MDM_MAIN: general error.)

@@ -1,0 +1,10 @@
+
+------------------------
+--[set] connection configs--
+connection interval: [30]
+connection retriies: [5]
+cmd_set_conn_configs returned 1 (SIM_MGR: general error.)
+connection interval:[30] connection retriies: [5]
+
+
+------------------------

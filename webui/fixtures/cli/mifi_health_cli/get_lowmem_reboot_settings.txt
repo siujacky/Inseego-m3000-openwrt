@@ -1,0 +1,8 @@
+command [get_lowmem_reboot_settings]
+
+mifi_health_get_lowmem_reboot_settings returned 0 (MIFI_HEALTH: success.)
+mem_threshold:[15]
+check_interval:[60]
+min_uptime:[168]
+reboot_time_window_open:[2]
+reboot_time_window_end:[4]

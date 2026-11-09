@@ -1,0 +1,4 @@
+Starting sysint client library
+Enter Gateway Setting Mode 0 (Use default gateway and netmask), 1 (Use gateway and netmask from modem), 2 (Configure gateway and netmask manually)Enter Gateway Address:Enter Netmask:sys_getGatewaysettings returned 10
+Stopping sysint client library 10
+sysinterfaceShutdown complete 0

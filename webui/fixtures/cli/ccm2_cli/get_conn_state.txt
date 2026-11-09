@@ -1,0 +1,19 @@
+ccm_get_conn_state returned 0 (CCM: success.)
+Wan:[WWAN]
+V4:[Waiting]
+V4 IF:[]
+V6:[Waiting]
+V6 IF:[]
+
+Wan:[WiFi WAN]
+V4:[NotAvailable]
+V4 IF:[]
+V6:[NotAvailable]
+V6 IF:[]
+
+Wan:[Ethernet WAN]
+V4:[NotAvailable]
+V4 IF:[]
+V6:[NotAvailable]
+V6 IF:[]
+

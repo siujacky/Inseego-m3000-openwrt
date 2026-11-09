@@ -1,0 +1,1 @@
+cmd_sim_get_gid2 returned 1 (MDM_MAIN: general error.)

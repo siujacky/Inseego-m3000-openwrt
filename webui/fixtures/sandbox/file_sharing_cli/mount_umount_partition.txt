@@ -1,0 +1,4 @@
+command [mount_umount_partition]
+
+file_sharing_start_stop_file_sharing returned 5 (FILE_SHARING: process not running.)
+file_sharing_mount_umount returned 5 (FILE_SHARING: process not running.)

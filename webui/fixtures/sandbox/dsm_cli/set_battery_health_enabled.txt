@@ -1,0 +1,3 @@
+command [set_battery_health_enabled]
+
+Battery_life_extenstion mode (1=on, 0=off): dsm_set_battery_health_enabled returned 1 (DSM: general error.)

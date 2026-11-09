@@ -1,0 +1,8 @@
+command [get_active_dns]
+
+cmd_router2_get_active_dns returned 0 (MIFI_QCMAP: success.)
+Active DNS values
+   Primary   v4 DNS []
+   Secondary v4 DNS []
+   Primary   v6 DNS []
+   Secondary v6 DNS []

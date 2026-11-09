@@ -1,0 +1,2 @@
+
+Enter the imsi: Enter profile index: cmd_get_custom_apn_from_database returned 2 (MDM_MAIN: one or more bad parameters passed into a function.)

@@ -1,0 +1,7 @@
+command [get_wan_failback]
+
+cmd_get_wan_failback returned 0 (WAN_MGR: success.)
+WAN manager failback enable : [1]
+WAN manager failback interval : [120]
+WAN manager WWAN data traffic check interval : [1]
+WAN manager WWAN data traffic check limit : [10]

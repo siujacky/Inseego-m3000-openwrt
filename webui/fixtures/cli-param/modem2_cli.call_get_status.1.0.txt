@@ -1,0 +1,13 @@
+Internet = 1
+Device Management = 2
+Data Usage = 3
+Enter APN: Enter ip_family (V4=0, V6=2): cmd_get_call_status returned 0 (MDM_MAIN: success.)
+WWAN State:[3] (Idle)
+APN:[1] (INTERNET)
+IP Family:[0] (IPV4)
+Interface:[]
+IP Addr:[0.0.0.0]
+Gateway:[0.0.0.0]
+DNS 1:[0.0.0.0]
+DNS 2:[0.0.0.0]
+Mask:[0.0.0.0]

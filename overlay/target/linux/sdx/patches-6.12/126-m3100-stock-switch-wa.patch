@@ -1,0 +1,247 @@
+--- a/drivers/pci/controller/dwc/pcie-qcom.c
++++ b/drivers/pci/controller/dwc/pcie-qcom.c
+@@ -14,6 +14,7 @@
+ #include <linux/delay.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/interconnect.h>
++#include <linux/i2c.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+ #include <linux/iopoll.h>
+@@ -36,6 +37,7 @@
+ #include "../../pci.h"
+ #include "pcie-designware.h"
+ #include "pcie-qcom-common.h"
++#include "pcie-qcom-m3100-wa.h"
+ 
+ /* PARF registers */
+ #define PARF_SYS_CTRL				0x00
+@@ -262,6 +264,7 @@
+ };
+ 
+ struct qcom_pcie {
++	struct i2c_client *m3100_switch;
+ 	struct dw_pcie *pci;
+ 	void __iomem *parf;			/* DT parf */
+ 	void __iomem *elbi;			/* DT elbi */
+@@ -278,6 +281,75 @@
+ };
+ 
+ #define to_qcom_pcie(x)		dev_get_drvdata((x)->dev)
++
++
++/* Reserve the exact opt-in switch before runtime power, GPIO or PHY changes. */
++static int m3100_switch_prepare(struct device *dev, struct i2c_client **client)
++{
++ struct device_node *node, *expected;
++ struct i2c_adapter *adapter;
++ int ret;
++ if (!of_property_read_bool(dev->of_node,"inseego,m3100-stock-switch-wa"))
++  return 0;
++ if (!of_machine_is_compatible("inseego,m3100") ||
++     !of_device_is_compatible(dev->of_node,"qcom,pcie-sdx65"))
++  return -ENODEV;
++ node=of_parse_phandle(dev->of_node,"inseego,switch-i2c",0);
++ expected=of_find_node_by_path("/soc/i2c@835000");
++ if (!node || !expected || node!=expected || !of_device_is_available(node) ||
++     !of_device_is_compatible(node,"qcom,i2c-qup-v2.2.1")) {
++  of_node_put(node); of_node_put(expected); return -EINVAL;
++ }
++ of_node_put(expected);
++ adapter=of_find_i2c_adapter_by_node(node);
++ of_node_put(node);
++ if (!adapter) return -EPROBE_DEFER;
++ if (!i2c_check_functionality(adapter,I2C_FUNC_I2C)) {
++  i2c_put_adapter(adapter); return -EOPNOTSUPP;
++ }
++ /* No OF child is added. If address77 is owned, fail rather than steal it. */
++ *client=devm_i2c_new_dummy_device(dev,adapter,0x77);
++ i2c_put_adapter(adapter);
++ if (IS_ERR(*client)) { ret=PTR_ERR(*client); *client=NULL; return ret; }
++ return 0;
++}
++static int m3100_switch_read(void *context, unsigned int reg, unsigned int *value)
++{
++ struct i2c_client *client=context;
++ u8 address[3], data[4];
++ struct i2c_msg messages[2]={
++  {.addr=0x77,.len=3,.buf=address},
++  {.addr=0x77,.flags=I2C_M_RD,.len=4,.buf=data}
++ };
++ int ret;
++ m3100_wa_address(address,reg);
++ ret=i2c_transfer(client->adapter,messages,2);
++ if(ret!=2) return ret<0?ret:-EIO;
++ *value=m3100_wa_decode(data);
++ return 0;
++}
++static int m3100_switch_write(void *context, unsigned int reg, unsigned int value)
++{
++ struct i2c_client *client=context;
++ u8 data[7];
++ struct i2c_msg message={.addr=0x77,.len=7,.buf=data};
++ int ret;
++ m3100_wa_address(data,reg); m3100_wa_data(data+3,value);
++ ret=i2c_transfer(client->adapter,&message,1);
++ return ret==1?0:(ret<0?ret:-EIO);
++}
++static int m3100_switch_prelink(struct qcom_pcie *pcie)
++{
++ struct m3100_wa_io io={.context=pcie->m3100_switch,
++  .read=m3100_switch_read,.write=m3100_switch_write};
++ int ret;
++ if (!pcie->m3100_switch) return 0;
++ ret=m3100_wa_run(&io);
++ if(ret) { dev_err(pcie->pci->dev,"M3100 switch WA failed at reg%06x before LTSSM: %d\n",io.last_reg,ret); return ret; }
++ dev_info(pcie->pci->dev,"M3100 stock switch WA complete: version1, 56+16+6 operations\n");
++ msleep(20);
++ return 0;
++}
+ 
+ static void qcom_ep_reset_assert(struct qcom_pcie *pcie)
+ {
+@@ -1271,6 +1343,10 @@
+ 
+ 	qcom_ep_reset_deassert(pcie);
+ 
++	ret = m3100_switch_prelink(pcie);
++	if (ret)
++		goto err_assert_reset;
++
+ 	if (pcie->cfg->ops->config_sid) {
+ 		ret = pcie->cfg->ops->config_sid(pcie);
+ 		if (ret)
+@@ -1625,6 +1701,10 @@
+ 	pci = devm_kzalloc(dev, sizeof(*pci), GFP_KERNEL);
+ 	if (!pci)
+ 		return -ENOMEM;
++
++	ret = m3100_switch_prepare(dev, &pcie->m3100_switch);
++	if (ret)
++		return dev_err_probe(dev, ret, "M3100 switch resource unavailable\n");
+ 
+ 	pm_runtime_enable(dev);
+ 	ret = pm_runtime_get_sync(dev);
+--- /dev/null
++++ b/drivers/pci/controller/dwc/pcie-qcom-m3100-wa.h
+@@ -0,0 +1,120 @@
++/* Exact M3100 stock switch WA, opt-in RAM trial. Shared host-test core. */
++static void m3100_wa_address(unsigned char *out, unsigned int reg)
++{ out[0]=reg>>16; out[1]=reg>>8; out[2]=reg; }
++static void m3100_wa_data(unsigned char *out, unsigned int value)
++{ unsigned int i; for(i=0;i<4;i++) out[i]=value>>(8*i); }
++static unsigned int m3100_wa_decode(const unsigned char *in)
++{ return (unsigned int)in[0]|(unsigned int)in[1]<<8|(unsigned int)in[2]<<16|(unsigned int)in[3]<<24; }
++struct m3100_wa_pair { unsigned int reg, value; };
++struct m3100_wa_io {
++ void *context;
++ unsigned int last_reg;
++ int (*read)(void *, unsigned int, unsigned int *);
++ int (*write)(void *, unsigned int, unsigned int);
++};
++/* Generated only from owner stock/live.dtb; preserve ordering and duplicates. */
++static const struct m3100_wa_pair stock_reg_update[] = {
++    {0x82c030, 0x00000001},
++    {0x828000, 0x00000003},
++    {0x82bd00, 0x00000008},
++    {0x82c030, 0x00000002},
++    {0x828000, 0x00000003},
++    {0x82bd00, 0x00000008},
++    {0x82c030, 0x00000008},
++    {0x828000, 0x00000001},
++    {0x82bd00, 0x00000008},
++    {0x82c01c, 0x00000010},
++    {0x82c030, 0x0000000f},
++    {0x828000, 0x0000000f},
++    {0x82b268, 0x00000002},
++    {0x82c02c, 0x00000001},
++    {0x824978, 0x00000040},
++    {0x82497c, 0x00000070},
++    {0x82c02c, 0x00000002},
++    {0x824978, 0x00000040},
++    {0x82497c, 0x00000070},
++    {0x82c02c, 0x00000004},
++    {0x824978, 0x00000040},
++    {0x82497c, 0x00000070},
++    {0x82c030, 0x00000002},
++    {0x828000, 0x00000003},
++    {0x82b09c, 0x014f4804},
++    {0x82b2c8, 0x00000001},
++    {0x82c030, 0x00000004},
++    {0x82900c, 0x00000001},
++    {0x829010, 0x00000001},
++    {0x829018, 0x00000000},
++    {0x829020, 0x00000001},
++    {0x82902c, 0x00000001},
++    {0x829030, 0x00000001},
++    {0x82903c, 0x00000001},
++    {0x829058, 0x00000000},
++    {0x82905c, 0x00000001},
++    {0x829060, 0x00000001},
++    {0x8290cc, 0x00000001},
++    {0x8290d0, 0x00000001},
++    {0x8290d8, 0x00000001},
++    {0x8290e0, 0x00000001},
++    {0x8290e8, 0x00000001},
++    {0x8290ec, 0x00000001},
++    {0x8290f4, 0x00000001},
++    {0x82910c, 0x00000001},
++    {0x829110, 0x00000001},
++    {0x829114, 0x00000001},
++    {0x82c030, 0x00000001},
++    {0x828000, 0x00000003},
++    {0x828234, 0x00000040},
++    {0x82c030, 0x00000002},
++    {0x828000, 0x00000003},
++    {0x828234, 0x00000040},
++    {0x82c030, 0x00000008},
++    {0x828000, 0x00000001},
++    {0x828234, 0x00000040},
++};
++static const struct m3100_wa_pair stock_switch_reg_update[] = {
++    {0x82c02c, 0x00000007},
++    {0x824a10, 0x00000001},
++    {0x82c030, 0x00000008},
++    {0x828000, 0x00000001},
++    {0x82b074, 0x00000020},
++    {0x82b2bc, 0x00000001},
++};
++
++static int m3100_wa_pairs(struct m3100_wa_io *io, const struct m3100_wa_pair *pairs, unsigned int count)
++{
++ unsigned int i, value; int ret;
++ for (i=0; i<count; i++) {
++  io->last_reg=pairs[i].reg;
++  ret=io->write(io->context,pairs[i].reg,pairs[i].value); if(ret) return ret;
++  ret=io->read(io->context,pairs[i].reg,&value); if(ret) return ret;
++  if(value!=pairs[i].value) return -EIO;
++ }
++ return 0;
++}
++static int m3100_wa_rmw(struct m3100_wa_io *io, unsigned int reg, unsigned int clear, unsigned int set)
++{
++ unsigned int value; int ret;
++ io->last_reg=reg; ret=io->read(io->context,reg,&value);
++ if(ret) return ret;
++ return io->write(io->context,reg,(value&~clear)|set);
++}
++static int m3100_wa_run(struct m3100_wa_io *io)
++{
++ unsigned int version, lane; int ret;
++ io->last_reg=0x800000;
++ ret=io->read(io->context,0x800000,&version); if(ret) return ret;
++ if((version&0xff)!=1) return -ENODEV;
++ ret=m3100_wa_pairs(io,stock_reg_update,sizeof(stock_reg_update)/sizeof(stock_reg_update[0])); if(ret) return ret;
++#define WA_WRITE(r,v) do { io->last_reg=r; ret=io->write(io->context,r,v); if(ret) return ret; } while(0)
++#define WA_RMW(r,c,s) do { ret=m3100_wa_rmw(io,r,c,s); if(ret) return ret; } while(0)
++ WA_WRITE(0x82c030,4); WA_WRITE(0x828240,0); WA_WRITE(0x82c030,2); WA_WRITE(0x828000,1);
++ for(lane=1;lane<=2;lane++) {
++  if(lane==2) { WA_WRITE(0x828000,2); }
++  WA_RMW(0x8280a0,0x80000,0); WA_RMW(0x82b0a4,1,0); WA_RMW(0x82bcd0,0,1);
++ }
++ WA_WRITE(0x80100c,0x80000000); WA_WRITE(0x801010,0xc0000000);
++ WA_WRITE(0x84d080,0); WA_WRITE(0x84f0e8,3); WA_WRITE(0x80100c,0);
++#undef WA_WRITE
++#undef WA_RMW
++ return m3100_wa_pairs(io,stock_switch_reg_update,sizeof(stock_switch_reg_update)/sizeof(stock_switch_reg_update[0]));
++}

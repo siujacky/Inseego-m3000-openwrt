@@ -1,0 +1,8 @@
+
+ imsi:cmd_get_auto_algo_configs returned 2 (SIM_MGR: one or more bad parameters passed into a function.)
+signal_quality: [0]
+data_usage: [0]
+speed_test: [0]
+location: [0]
+roaming: [0]
+scheduling: [0]
