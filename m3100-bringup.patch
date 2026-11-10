@@ -9033,7 +9033,7 @@ index 0000000..ff311d1
 --- /dev/null
 +++ b/target/linux/sdx/base-files/etc/dropbear/authorized_keys
 @@ -0,0 +1 @@
-+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDQ3f6gfdsqGlMfPcETpiIDncbVq4qhWJmwu557zR0Wc m3100-management
++# No authorized keys are distributed; add your own key for USB SSH access.
 diff --git a/target/linux/sdx/base-files/etc/hotplug.d/iface/12-h5-ippt b/target/linux/sdx/base-files/etc/hotplug.d/iface/12-h5-ippt
 new file mode 100755
 index 0000000..bc8eb76

@@ -1,6 +1,10 @@
 # Inseego OpenWrt port and router UI
 
-Source-only M3100/SDX65 OpenWrt bring-up, an offline general 5G router WebUI, and a Python touchscreen frontend. Despite the repository name, current hardware evidence is for **M3100**; M3000 compatibility is not established.
+M3100/SDX65 OpenWrt bring-up source, an offline general 5G router WebUI, and a Python touchscreen frontend. Despite the repository name, current hardware evidence is for **M3100**; M3000 compatibility is not established.
+
+## RAM boot download
+
+The experimental [M3100 R15 Public RAM Preview 1](https://github.com/siujacky/Inseego-m3000-openwrt/releases/tag/m3100-r15-public-v1) includes a RAM boot image, checksums and [boot guide](docs/releases/m3100-r15-public-v1.md). The public derivative has host/ARM validation and has not been physically booted. It defaults to USB management, modem held offline and Wi-Fi AP disabled. Admin password: `12345`. This is M3100-only evidence; M3000 compatibility is unverified.
 
 ## Source layout
 
@@ -20,7 +24,7 @@ Tests: from `webui/`, run `python -m unittest discover -s tests -t .` and `node 
 
 Development uses temporary RAM boot on an exactly identified M3100. Original stock partitions and recovery paths are preserved. The latest UI image has booted with USB/SSH access; hardware functionality and physical display/touch need separate verification. Cellular/PCIe/Bluetooth/GNSS support is not certified by a successful UI or kernel boot. Do not treat this repository as a persistent flash installer.
 
-Backups, firmware dumps, generated RAM images, private keys, provisioned passwords and runtime captures are not included. Supply device firmware locally when using build/analysis helpers. No universal device-unlock or cross-model compatibility is promised.
+Backups, firmware dumps, private keys, personal provisioned passwords and runtime captures are not included in Git. Generated public RAM images are separate release assets. Supply device firmware locally when using build/analysis helpers. No universal device-unlock or cross-model compatibility is promised.
 
 Per-file upstream licenses and notices are retained. Feelgood attribution and Apache-2.0 license are in `webui/web/THIRD-PARTY-NOTICES.txt` and `webui/web/licenses/Apache-2.0.txt`.
 
